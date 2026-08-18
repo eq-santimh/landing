@@ -1,37 +1,61 @@
 'use client';
 
 import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
-const NEON_GLOW_STYLE = {
-  boxShadow: '0 0 12px 1px rgba(0, 180, 196, 0.4), 0 0 24px 2px rgba(0, 180, 196, 0.2)',
-};
+const NAV = [
+  { href: '#producto', key: 'product' },
+  { href: '#activos', key: 'assets' },
+  { href: '#proceso', key: 'process' },
+  { href: '#faq', key: 'faq' },
+] as const;
 
 export default function LandingHeader() {
+  const t = useTranslations('HomePage.Navigation');
+  const locale = useLocale();
+  const home = `/${locale}`;
+
   return (
-    <header className="relative flex h-fit w-full flex-col items-center justify-center pt-6 pb-4 sm:pt-8 sm:pb-6">
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-17 sm:h-21"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0, 180, 196, 0.25) 0%, rgba(0, 180, 196, 0.08) 40%, transparent 70%)',
-        }}
-        aria-hidden
-      />
-      <div className="absolute top-4 left-4 z-20">
-        <LanguageSwitcher />
+    <header className="sticky top-0 z-50 border-b border-eq-line bg-white/90 backdrop-blur-md">
+      <div className="eq-shell flex h-[72px] items-center justify-between gap-4">
+        <a href={home} className="flex items-center gap-2.5">
+          <Image
+            src="/equitty_isotipo.png"
+            alt=""
+            width={28}
+            height={28}
+            className="h-7 w-7 object-contain"
+            priority
+          />
+          <Image
+            src="/logo-accent.png"
+            alt="EQUITTY"
+            width={120}
+            height={24}
+            className="hidden h-6 w-auto object-contain sm:block"
+            priority
+          />
+        </a>
+
+        <nav className="hidden items-center gap-7 text-sm font-medium text-eq-muted lg:flex">
+          {NAV.map((item) => (
+            <a key={item.href} href={`${home}${item.href}`} className="transition-colors hover:text-eq-ink">
+              {t(item.key)}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <LanguageSwitcher />
+          <a
+            href={`${home}#espera`}
+            className="hidden rounded-full bg-eq-brand px-4 py-2 text-sm font-semibold text-white transition hover:bg-eq-brand-strong sm:inline-flex"
+          >
+            {t('cta')}
+          </a>
+        </div>
       </div>
-      <div className="relative z-10 flex items-center justify-center">
-        <Image
-          src="/logo-accent.png"
-          alt="EQUITY"
-          width={160}
-          height={48}
-          className="h-auto w-32 object-contain drop-shadow-[0_0_20px_rgba(0,180,196,0.3)] sm:w-40"
-          priority
-        />
-      </div>
-      <div className="w-full h-px min-h-px mt-4 sm:mt-5 bg-linear-to-r from-transparent via-accent to-transparent opacity-90" style={NEON_GLOW_STYLE} aria-hidden />
     </header>
   );
 }

@@ -41,18 +41,18 @@ export default function UnsubscribeForm() {
         onChange={(event) => setEmail(event.target.value)}
         type="email"
         placeholder={t('emailPlaceholder')}
-        className="w-full bg-white/5 border border-white/20 text-white placeholder:text-white/60 focus:border-[#00B4C4] focus:ring-[#00B4C4]/40"
+        className="eq-input h-12 w-full"
         required
       />
       <Button
         type="submit"
         disabled={isPending}
-        className="w-full bg-accent text-primary cursor-pointer font-semibold shadow-lg shadow-accent/30 transition hover:scale-[1.02] disabled:opacity-60"
+        className="h-12 w-full cursor-pointer rounded-full bg-eq-brand font-semibold text-white hover:bg-eq-brand-strong"
       >
         {isPending ? t('processing') : t('button')}
       </Button>
       {feedback ? (
-        <p className={`text-sm ${feedback.type === 'success' ? 'text-emerald-400' : 'text-rose-400'}`}>
+        <p className={`text-sm ${feedback.type === 'success' ? 'text-emerald-600' : 'text-rose-600'}`}>
           {feedback.message}
         </p>
       ) : null}

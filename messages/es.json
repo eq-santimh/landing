@@ -1,79 +1,155 @@
 {
   "Metadata": {
-    "title": "Equitty - Invierte en Activos Reales",
-    "description": "Plataforma revolucionaria para invertir en activos reales con transparencia y seguridad.",
-    "keywords": "inversión, activos reales, fintech, equitty, invertir, activos, finanzas"
+    "title": "Equitty — Invierte en activos reales tokenizados",
+    "description": "Marketplace de propiedades e infraestructura tokenizada en El Salvador, con la misma plataforma Equitty y marco CNAD.",
+    "keywords": "inversión, activos reales, fintech, equitty, tokenización, bienes raíces, El Salvador, CNAD"
   },
   "HomePage": {
-    "badge": "Muy pronto",
-    "hero_title": "Inversión en",
-    "hero_title_mid": "Activos del mundo real",
-    "hero_title_highlight": "Activos Reales",
+    "badge": "Lista de espera · inversiones aún no abiertas",
+    "kicker": "Equitty · Marketplace",
+    "hero_title": "Invierte en",
+    "hero_title_highlight": "activos reales",
     "hero_title_end": "",
-    "headline": "La plataforma global de inversión\nen activos reales",
-    "subhead": "Estamos construyendo una plataforma para activos tokenizados. Actualmente no hay inversiones disponibles.",
+    "headline": "El marketplace de activos reales tokenizados",
+    "subhead": "La misma plataforma Equitty que ya opera el marketplace: propiedades, hotelería, energía e infraestructura con datos claros de TIR, fondeo y liquidez. Hoy puedes reservar tu lugar. Las inversiones se abrirán para inversionistas calificados.",
+    "productShotAlt": "Marketplace de Equitty con propiedades tokenizadas, filtros de categoría y métricas de inversión",
     "Form": {
       "cardEyebrow": "Acceso anticipado",
-      "cardTitle": "Unete a la lista de espera",
-      "cardDescription": "Registra tu correo y nacionalidad. Si llegaste por invitacion, el flujo de referido sigue disponible aqui mismo.",
+      "cardTitle": "Únete a la lista de espera",
+      "cardDescription": "Registra tu correo y nacionalidad. Si llegaste por invitación, el código de referido entra en el mismo flujo.",
       "emailPlaceholder": "Ingresa tu correo",
       "nationalityPlaceholder": "Nacionalidad",
       "wasReferredLabel": "Fui referido por otro inversionista futuro",
-      "referralCodePlaceholder": "Ingresa el codigo de referido",
-      "button": "Unete a la lista de espera",
-      "microcopy": "Recibe actualizaciones del lanzamiento. Puedes darte de baja cuando quieras.",
+      "referralCodePlaceholder": "Ingresa el código de referido",
+      "button": "Unirme a la lista",
+      "microcopy": "Unirte no es una oferta de inversión. Puedes darte de baja cuando quieras.",
       "Validation": {
-        "emailRequired": "La direccion de correo es obligatoria",
-        "emailInvalid": "Por favor, introduce una direccion de correo valida",
+        "emailRequired": "La dirección de correo es obligatoria",
+        "emailInvalid": "Por favor, introduce una dirección de correo válida",
         "nationalityRequired": "La nacionalidad es obligatoria",
-        "referralCodeRequired": "El codigo de referido es obligatorio",
-        "referralCodeInvalid": "El codigo de referido debe tener entre 6 y 12 caracteres alfanumericos"
+        "referralCodeRequired": "El código de referido es obligatorio",
+        "referralCodeInvalid": "El código de referido debe tener entre 6 y 12 caracteres alfanuméricos"
       },
       "Errors": {
-        "waitlistError": "Hubo un error al unirte a la lista de espera. Por favor, intentalo de nuevo mas tarde.",
+        "waitlistError": "Hubo un error al unirte a la lista de espera. Por favor, inténtalo de nuevo más tarde.",
         "emailAlreadyExists": {
-          "title": "Ya estas en la lista de espera",
+          "title": "Ya estás en la lista de espera",
           "message": "Gracias por unirte a la lista de espera de Equitty. Te mantendremos informado sobre nuestro lanzamiento y avances."
         },
         "invalidReferralCode": {
-          "title": "Codigo de referido no valido",
-          "message": "No encontramos ese codigo de referido. Verifica el codigo e intenta de nuevo."
+          "title": "Código de referido no válido",
+          "message": "No encontramos ese código de referido. Verifica el código e intenta de nuevo."
         }
       },
       "SuccessDialog": {
-        "title": "Estas en la lista de espera",
-        "message": "Gracias por unirte a la lista de espera de Equitty. Revisa tu correo para ver tu codigo de referido."
+        "title": "Estás en la lista de espera",
+        "message": "Gracias por unirte a la lista de espera de Equitty. Revisa tu correo para ver tu código de referido."
       }
     },
-      "Footer": {
-        "footerDisclaimer": "Unirte a la lista no es una oferta de inversion. Invertir implica riesgo, incluida la perdida del capital.",
-        "privacy": "Privacidad",
-        "terms": "Terminos y condiciones",
-        "termsModalTitle": "Terminos y condiciones de la lista de espera de Equitty",
-        "termsModalDescription": "Consulta el acuerdo oficial de la lista de espera directamente desde el documento que compartimos con los nuevos inversionistas.",
-        "termsModalFallback": "Si el visor no carga, puedes ",
-        "termsModalDownload": "descargar el PDF.",
-        "unsubscribeText": "Si ya no quieres ser parte de la lista de espera, cancela tu suscripcion",
-        "unsubscribeLink": "aquí"
-      },
-      "Unsubscribe": {
-        "eyebrow": "Administra tu espacio",
-        "title": "Cancelar suscripción",
-        "description": "Ingresa el correo con el que te registraste y actualizaremos tu estado inmediatamente.",
-        "emailPlaceholder": "Correo electrónico",
-        "button": "Cancelar suscripción",
-        "processing": "Procesando...",
-        "success": "Ya no estás en la lista de espera.",
-        "error": "No encontramos ese correo en la lista de espera."
-      },
-      "Navigation": {
-      "cta": "Unete ahora"
+    "Footer": {
+      "tagline": "Infraestructura financiera para activos reales en El Salvador y Latinoamérica.",
+      "regulated": "Equitty — plataforma diseñada bajo el marco CNAD de El Salvador. Emisión privada para inversionistas calificados.",
+      "footerDisclaimer": "Unirte a la lista no es una oferta de inversión. Invertir implica riesgo, incluida la pérdida del capital.",
+      "privacy": "Privacidad",
+      "terms": "Términos y condiciones",
+      "termsModalTitle": "Términos y condiciones de la lista de espera de Equitty",
+      "termsModalDescription": "Consulta el acuerdo oficial de la lista de espera directamente desde el documento que compartimos con los nuevos inversionistas.",
+      "termsModalFallback": "Si el visor no carga, puedes ",
+      "termsModalDownload": "descargar el PDF.",
+      "unsubscribeText": "Si ya no quieres ser parte de la lista de espera, cancela tu suscripción",
+      "unsubscribeLink": "aquí"
+    },
+    "Unsubscribe": {
+      "eyebrow": "Administra tu lugar",
+      "title": "Cancelar suscripción",
+      "description": "Ingresa el correo con el que te registraste y actualizaremos tu estado inmediatamente.",
+      "emailPlaceholder": "Correo electrónico",
+      "button": "Cancelar suscripción",
+      "processing": "Procesando...",
+      "success": "Ya no estás en la lista de espera.",
+      "error": "No encontramos ese correo en la lista de espera."
+    },
+    "Navigation": {
+      "cta": "Unirme",
+      "product": "Plataforma",
+      "assets": "Activos",
+      "process": "Proceso",
+      "faq": "FAQ"
+    },
+    "Trust": {
+      "cnad": "Diseñada bajo regulación CNAD",
+      "salvador": "Activos tokenizados · El Salvador",
+      "assets": "Hotelería, residencial, comercial, energía e infraestructura"
     },
     "Stats": {
-      "waitlist": "Personas en lista de espera",
-      "trading": "Trading disponible",
-      "yield": "Rentabilidad objetivo",
-      "assetClass": "Activos reales tokenizados"
+      "minTicket": "Participación objetivo al lanzamiento",
+      "minTicketValue": "Desde $100",
+      "market": "Mercado global de RWA a 2030",
+      "marketValue": "$16T",
+      "classes": "Clases de activo en marketplace",
+      "classesValue": "5"
+    },
+    "Product": {
+      "eyebrow": "La plataforma",
+      "title": "El marketplace que ya ves en Equitty",
+      "subtitle": "Cards de propiedad, TIR, plazo, liquidez, barras de construcción y fondeo, y un CTA de invertir. La landing ahora usa el mismo lenguaje visual que el producto.",
+      "cardsAlt": "Detalle de tarjetas de propiedad en el marketplace de Equitty",
+      "point1": {
+        "label": "Inventario",
+        "title": "Propiedades con foto, ubicación y categoría",
+        "description": "Hotelería, residencial, comercial, energía e infraestructura, con tags y estados como venta privada."
+      },
+      "point2": {
+        "label": "Datos",
+        "title": "TIR, token, retorno y supply en un vistazo",
+        "description": "La misma jerarquía de métricas del marketplace, pensada para comparar oportunidades con claridad."
+      },
+      "point3": {
+        "label": "Confianza",
+        "title": "Progreso de construcción y fondeo",
+        "description": "Barras duales y copy regulatorio para que la experiencia se sienta institucional, no de crypto neon."
+      }
+    },
+    "Assets": {
+      "eyebrow": "Clases de activo",
+      "title": "Un marketplace, cinco puertas de entrada",
+      "subtitle": "Los mismos filtros del producto. Las oportunidades se abrirán para inversionistas calificados cuando la licencia lo permita.",
+      "filters": {
+        "all": "Todas",
+        "hospitality": "Hotelería",
+        "residential": "Residencial",
+        "commercial": "Comercial",
+        "energy": "Energía",
+        "infra": "Infraestructura"
+      },
+      "hospitality": {
+        "title": "Activos hoteleros",
+        "description": "Participación fraccionada en proyectos de hospitalidad con visibilidad de fondeo y retorno."
+      },
+      "residential": {
+        "title": "Residencial",
+        "description": "Vivienda e inventario residencial tokenizado, presentado con la misma ficha del marketplace."
+      },
+      "commercial": {
+        "title": "Comercial y oficinas",
+        "description": "Torres, retail y espacios productivos con métricas de token, supply y liquidez."
+      },
+      "energy": {
+        "title": "Energía",
+        "description": "Proyectos de generación e infraestructura energética listos para una emisión privada."
+      },
+      "infra": {
+        "title": "Infraestructura",
+        "description": "Activos de largo plazo para conectar capital de la diáspora con obras reales en la región."
+      },
+      "metrics": {
+        "access": "Ticket",
+        "accessValue": "$100",
+        "structure": "Estructura",
+        "structureValue": "Token",
+        "status": "Estado",
+        "statusValue": "Lista de espera"
+      }
     },
     "FeatureHighlight": {
       "eyebrow": "Destacado",
@@ -81,80 +157,83 @@
       "subtitle": "Oportunidades de activos reales respaldadas por blockchain con precios claros y liquidación instantánea."
     },
     "Testimonials": {
-      "eyebrow": "Con la confianza de +10K usuarios",
+      "eyebrow": "Construido para inversionistas serios",
       "title": "Invierte con confianza",
-      "subtitle": "Haz de Equitty tu portafolio completo: una plataforma segura para gestionar, crecer y maximizar tus activos."
+      "subtitle": "Haz de Equitty tu portafolio de activos reales: una plataforma para gestionar, crecer y seguir el rendimiento."
     },
     "Toast": {
       "welcomeTitle": "Bienvenido nuevo inversionista",
       "welcomeDescription": "Comienza tu camino con activos reales."
     },
     "Benefits": {
-      "eyebrow": "Por que Equitty",
-      "title": "Una entrada mas clara a los activos reales",
-      "subtitle": "La nueva pagina pone mas foco en confianza, velocidad y acceso sin cambiar como funciona el producto por dentro.",
+      "eyebrow": "Por qué Equitty",
+      "title": "La puerta de entrada al mismo producto",
+      "subtitle": "La landing deja de parecer una campaña crypto y pasa a hablar el idioma del marketplace: claro, regulado y accionable.",
       "item1": {
-        "title": "Tokenizacion con enfoque pionero",
-        "description": "Una puerta de entrada mas clara para inversionistas interesados en participar en activos reales."
+        "title": "Tokenización con marco local",
+        "description": "El Salvador y CNAD como contexto regulatorio, no como letra pequeña escondida al final."
       },
       "item2": {
-        "title": "Experiencia de incorporacion mas rapida",
-        "description": "La interfaz ahora prioriza jerarquia visual, claridad y una mejor toma de decision."
+        "title": "Misma interfaz del producto",
+        "description": "Teal de marca, cards blancas, tipografía Alexandria / New Black y CTAs del marketplace."
       },
       "item3": {
-        "title": "Captura de datos del inversionista intacta",
-        "description": "Nacionalidad, correo y flujo de referido se mantienen mientras la interfaz se vuelve mas solida."
+        "title": "Onboarding de inversionista intacto",
+        "description": "Correo, nacionalidad y referidos siguen conectados al flujo real de la lista de espera."
       },
       "item4": {
-        "title": "Sistema visual con mayor recordacion",
-        "description": "El lenguaje visual se siente mas premium, mas intencional y mas cercano al diseno de referencia."
+        "title": "Datos antes que effects",
+        "description": "TIR, fondeo, liquidez y categorías delante. Sin cursor neón ni coin genérico flotando."
       }
     },
     "FinalCta": {
-      "title": "¿Listo para tomar control de tu futuro?",
-      "subtitle": "Elige Equitty como tu portafolio unificado — infraestructura segura, acceso fluido y una plataforma diseñada para inversionistas serios.",
-      "cta": "Empieza ahora"
+      "eyebrow": "Siguiente paso",
+      "title": "Reserva tu lugar en el marketplace",
+      "subtitle": "Cuando las inversiones abran, vas a entrar a la misma Equitty que ya ves aquí: inventario, métricas y un flujo regulado.",
+      "cta": "Unirme a la lista",
+      "shotAlt": "Vista completa del marketplace de Equitty",
+      "caption": "Activos tokenizados · El Salvador"
     },
     "HowItWorks": {
       "eyebrow": "Proceso",
-      "title": "El mismo flujo de lista de espera, mejor presentado",
-      "subtitle": "Aqui solo cambia la interfaz. La validacion, el envio y el manejo de referidos siguen conectados a la implementacion existente.",
+      "title": "De la lista de espera al marketplace",
+      "subtitle": "El formulario no cambia por dentro. Cambia cómo se presenta el camino hacia invertir en activos reales.",
       "step1": {
-        "title": "Elige nacionalidad",
-        "description": "El catalogo actual de paises sigue conectado al formulario real y a su esquema de validacion."
+        "title": "Únete con tu nacionalidad",
+        "description": "El catálogo de países y la validación actuales siguen conectados al formulario real."
       },
       "step2": {
-        "title": "Ingresa tu correo",
-        "description": "El envio sigue pasando por la accion del servidor actual sin alterar el contrato del servidor."
+        "title": "Deja tu correo",
+        "description": "El envío pasa por la misma acción de servidor. Recibirás actualizaciones del lanzamiento."
       },
       "step3": {
-        "title": "Agrega referido si aplica",
-        "description": "La validacion del codigo de referido sigue disponible dentro del mismo formulario."
+        "title": "Usa un referido si aplica",
+        "description": "El código de referido se valida dentro del mismo formulario, igual que hoy."
       },
       "step4": {
-        "title": "Entra a la lista",
-        "description": "Los dialogos de exito y error siguen usando la logica actual de la lista de espera y sus textos traducidos."
+        "title": "Espera el marketplace",
+        "description": "Cuando haya oferta, el producto que verás es el marketplace: propiedades, métricas e Invertir ahora."
       }
     },
     "Faq": {
       "eyebrow": "FAQ",
-      "title": "Que cambia y que no cambia",
-      "subtitle": "El rediseño mejora la experiencia de la landing manteniendo estable el comportamiento operativo.",
+      "title": "Preguntas de inversionistas",
+      "subtitle": "Transparencia de producto y de lista de espera, con el mismo tono del marketplace.",
       "item1": {
-        "question": "Cambia la logica de la lista de espera?",
-        "answer": "No. Se conservan la misma accion del servidor, reglas de validacion, manejo de referidos y flujos de exito o error."
+        "question": "¿Ya puedo invertir?",
+        "answer": "Todavía no. Equitty está en lista de espera. Unirte no es una oferta ni una solicitud de inversión. Las oportunidades se abrirán para inversionistas calificados."
       },
       "item2": {
-        "question": "Seguira funcionando el cambio de idioma?",
-        "answer": "Si. El nuevo diseno sigue usando el enrutamiento localizado actual y traducciones para espanol e ingles."
+        "question": "¿Esto es la misma plataforma Equitty?",
+        "answer": "Sí. El lenguaje visual, las clases de activo y las capturas vienen del marketplace en producción: header, cards, filtros y CTAs de Invertir ahora."
       },
       "item3": {
-        "question": "Se elimino el campo de referido?",
-        "answer": "No. Sigue dentro del formulario y aparece cuando se activa la opcion de inversionista referido."
+        "question": "¿Sigue existiendo el código de referido?",
+        "answer": "Sí. Activa la opción de referido en el formulario y el código se valida con la misma lógica de siempre."
       },
       "item4": {
-        "question": "Esto esta basado en el diseno de newDesign/EQ-main?",
-        "answer": "Si. La nueva composicion, la jerarquia, el tratamiento de tarjetas y los efectos visuales se adaptaron de esa referencia al proyecto real."
+        "question": "¿Bajo qué regulación opera?",
+        "answer": "La plataforma está diseñada para El Salvador y el marco CNAD. La licencia DASP está en proceso; las emisiones serán privadas y para inversionistas calificados."
       }
     },
     "Dialog": {

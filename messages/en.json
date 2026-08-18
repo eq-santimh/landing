@@ -1,17 +1,18 @@
 {
   "Metadata": {
-    "title": "Equitty - Invest in Real-World Assets",
-    "description": "Revolutionary platform for investing in real-world assets with transparency and security.",
-    "keywords": "investment, real-world assets, fintech, equitty, investing, assets, finance"
+    "title": "Equitty — Invest in tokenized real-world assets",
+    "description": "A marketplace for tokenized real estate and infrastructure in El Salvador, using the same Equitty platform and CNAD framework.",
+    "keywords": "investment, real-world assets, fintech, equitty, tokenization, real estate, El Salvador, CNAD"
   },
   "HomePage": {
-    "badge": "Coming Soon",
-    "hero_title": "Investment for",
-    "hero_title_mid": "Real World Assets",
-    "hero_title_highlight": "Real World Assets",
+    "badge": "Waitlist · investments are not open yet",
+    "kicker": "Equitty · Marketplace",
+    "hero_title": "Invest in",
+    "hero_title_highlight": "real-world assets",
     "hero_title_end": "",
-    "headline": "The investment platform\nfor real-world assets",
-    "subhead": "We are building a platform for tokenized assets. No investments are currently available.",
+    "headline": "The marketplace for tokenized real-world assets",
+    "subhead": "The same Equitty platform that already runs the marketplace: hospitality, residential, energy, and infrastructure with clear IRR, funding, and liquidity data. You can reserve your seat today. Investments will open for qualified investors.",
+    "productShotAlt": "Equitty marketplace with tokenized properties, category filters, and investment metrics",
     "Form": {
       "cardEyebrow": "Early access",
       "cardTitle": "Join the waitlist",
@@ -21,7 +22,7 @@
       "wasReferredLabel": "I was referred by another future investor",
       "referralCodePlaceholder": "Enter the referral code",
       "button": "Join the waitlist",
-      "microcopy": "Get launch updates. Unsubscribe anytime.",
+      "microcopy": "Joining is not an investment offer. Unsubscribe anytime.",
       "Validation": {
         "emailRequired": "Email address is required",
         "emailInvalid": "Please enter a valid email address",
@@ -45,35 +46,110 @@
         "message": "Thanks for joining the Equitty waitlist. Check your email to see your referral code."
       }
     },
-      "Footer": {
-        "footerDisclaimer": "Joining the waitlist is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
-        "privacy": "Privacy",
-        "terms": "Terms & Conditions",
-        "termsModalTitle": "Equitty waitlist terms & conditions",
-        "termsModalDescription": "Review the official waitlist agreement in full directly from the document we ship to new investors.",
-        "termsModalFallback": "If the PDF viewer does not display, you can ",
-        "termsModalDownload": "download the PDF.",
-        "unsubscribeText": "If you no longer want to be part of the waitlist, unsubscribe",
-        "unsubscribeLink": "here"
-      },
-      "Unsubscribe": {
-        "eyebrow": "Manage your spot",
-        "title": "Leave the waitlist",
-        "description": "Enter the email address you used to register and we will update your status right away.",
-        "emailPlaceholder": "Email Address",
-        "button": "Unsubscribe",
-        "processing": "Processing...",
-        "success": "You have been removed from the waitlist.",
-        "error": "We could not find that email on the waitlist."
-      },
-      "Navigation": {
-      "cta": "Join now"
+    "Footer": {
+      "tagline": "Financial infrastructure for real-world assets in El Salvador and Latin America.",
+      "regulated": "Equitty — a platform designed under El Salvador’s CNAD framework. Private issuance for qualified investors.",
+      "footerDisclaimer": "Joining the waitlist is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
+      "privacy": "Privacy",
+      "terms": "Terms & Conditions",
+      "termsModalTitle": "Equitty waitlist terms & conditions",
+      "termsModalDescription": "Review the official waitlist agreement in full directly from the document we ship to new investors.",
+      "termsModalFallback": "If the PDF viewer does not display, you can ",
+      "termsModalDownload": "download the PDF.",
+      "unsubscribeText": "If you no longer want to be part of the waitlist, unsubscribe",
+      "unsubscribeLink": "here"
+    },
+    "Unsubscribe": {
+      "eyebrow": "Manage your spot",
+      "title": "Leave the waitlist",
+      "description": "Enter the email address you used to register and we will update your status right away.",
+      "emailPlaceholder": "Email Address",
+      "button": "Unsubscribe",
+      "processing": "Processing...",
+      "success": "You have been removed from the waitlist.",
+      "error": "We could not find that email on the waitlist."
+    },
+    "Navigation": {
+      "cta": "Join",
+      "product": "Platform",
+      "assets": "Assets",
+      "process": "Process",
+      "faq": "FAQ"
+    },
+    "Trust": {
+      "cnad": "Designed under CNAD regulation",
+      "salvador": "Tokenized assets · El Salvador",
+      "assets": "Hospitality, residential, commercial, energy, and infrastructure"
     },
     "Stats": {
-      "waitlist": "Waitlist members",
-      "trading": "Trading available",
-      "yield": "Target yield",
-      "assetClass": "Tokenized real-world assets"
+      "minTicket": "Target participation at launch",
+      "minTicketValue": "From $100",
+      "market": "Projected global RWA market by 2030",
+      "marketValue": "$16T",
+      "classes": "Marketplace asset classes",
+      "classesValue": "5"
+    },
+    "Product": {
+      "eyebrow": "The platform",
+      "title": "The marketplace you already see in Equitty",
+      "subtitle": "Property cards, IRR, term, liquidity, construction and funding bars, and an Invest now CTA. The landing now speaks the same visual language as the product.",
+      "cardsAlt": "Close-up of Equitty marketplace property cards",
+      "point1": {
+        "label": "Inventory",
+        "title": "Properties with photo, location, and category",
+        "description": "Hospitality, residential, commercial, energy, and infrastructure, with tags and states such as private sale."
+      },
+      "point2": {
+        "label": "Data",
+        "title": "IRR, token, return, and supply at a glance",
+        "description": "The same metric hierarchy as the marketplace, built to compare opportunities clearly."
+      },
+      "point3": {
+        "label": "Trust",
+        "title": "Construction and funding progress",
+        "description": "Dual progress bars and regulatory copy so the experience feels institutional, not neon crypto."
+      }
+    },
+    "Assets": {
+      "eyebrow": "Asset classes",
+      "title": "One marketplace, five entry points",
+      "subtitle": "The same filters as the product. Opportunities will open for qualified investors when licensing allows.",
+      "filters": {
+        "all": "All",
+        "hospitality": "Hospitality",
+        "residential": "Residential",
+        "commercial": "Commercial",
+        "energy": "Energy",
+        "infra": "Infrastructure"
+      },
+      "hospitality": {
+        "title": "Hospitality assets",
+        "description": "Fractional participation in hospitality projects with visible funding and return data."
+      },
+      "residential": {
+        "title": "Residential",
+        "description": "Tokenized housing inventory, presented with the same marketplace card."
+      },
+      "commercial": {
+        "title": "Commercial and offices",
+        "description": "Towers, retail, and productive space with token, supply, and liquidity metrics."
+      },
+      "energy": {
+        "title": "Energy",
+        "description": "Generation and energy infrastructure projects prepared for private issuance."
+      },
+      "infra": {
+        "title": "Infrastructure",
+        "description": "Long-horizon assets connecting diaspora capital with real projects in the region."
+      },
+      "metrics": {
+        "access": "Ticket",
+        "accessValue": "$100",
+        "structure": "Structure",
+        "structureValue": "Token",
+        "status": "Status",
+        "statusValue": "Waitlist"
+      }
     },
     "FeatureHighlight": {
       "eyebrow": "Spotlight",
@@ -86,75 +162,78 @@
     },
     "Benefits": {
       "eyebrow": "Why Equitty",
-      "title": "A sharper way to enter real-world assets",
-      "subtitle": "The new landing keeps the focus on trust, speed, and access without changing how the product works underneath.",
+      "title": "The front door to the same product",
+      "subtitle": "The landing no longer looks like a crypto campaign. It now speaks marketplace: clear, regulated, and actionable.",
       "item1": {
-        "title": "Tokenization built for first movers",
-        "description": "A cleaner front door for investors exploring real-world asset participation."
+        "title": "Tokenization with a local framework",
+        "description": "El Salvador and CNAD as regulatory context, not fine print hidden at the bottom."
       },
       "item2": {
-        "title": "Fast onboarding experience",
-        "description": "The interface now emphasizes clarity, hierarchy, and quicker decision-making."
+        "title": "The same product interface",
+        "description": "Brand teal, white cards, Alexandria / New Black type, and marketplace CTAs."
       },
       "item3": {
-        "title": "Structured investor data capture",
-        "description": "Nationality, email, and referral flow remain intact while the UI becomes more polished."
+        "title": "Investor onboarding stays intact",
+        "description": "Email, nationality, and referrals remain connected to the real waitlist flow."
       },
       "item4": {
-        "title": "Brand system with stronger recall",
-        "description": "The visual language is more distinct, more premium, and closer to the reference design."
+        "title": "Data before effects",
+        "description": "IRR, funding, liquidity, and categories first. No neon cursor or floating generic coin."
       }
     },
     "Testimonials": {
-      "eyebrow": "Trusted by +10K users",
+      "eyebrow": "Built for serious investors",
       "title": "Invest with confidence",
-      "subtitle": "Make Equitty your complete investment portfolio — one secure platform to manage, grow, and maximize your assets."
+      "subtitle": "Make Equitty your real-world asset portfolio — one platform to manage, grow, and track performance."
     },
     "HowItWorks": {
       "eyebrow": "Process",
-      "title": "The same waitlist flow, presented better",
-      "subtitle": "Only the UI changes here. Validation, submission behavior, and referral handling stay connected to the existing implementation.",
+      "title": "From waitlist to marketplace",
+      "subtitle": "The form does not change underneath. What changes is how the path into real-world assets is presented.",
       "step1": {
-        "title": "Choose nationality",
-        "description": "The current country catalog remains connected to the real form and validation schema."
+        "title": "Join with your nationality",
+        "description": "The current country catalog and validation stay connected to the real form."
       },
       "step2": {
-        "title": "Enter your email",
-        "description": "The submission still goes through the existing server action without altering the backend contract."
+        "title": "Leave your email",
+        "description": "Submission still goes through the same server action. You will get launch updates."
       },
       "step3": {
-        "title": "Add referral if needed",
-        "description": "Referral validation stays available inside the same form instead of being removed by the redesign."
+        "title": "Add a referral if needed",
+        "description": "Referral codes are still validated inside the same form."
       },
       "step4": {
-        "title": "Join the list",
-        "description": "Success and error dialogs continue to use the current waitlist logic and translated messaging."
+        "title": "Wait for the marketplace",
+        "description": "When offerings open, the product you will see is the marketplace: properties, metrics, and Invest now."
       }
     },
     "FinalCta": {
-      "title": "Ready to take control of your future?",
-      "subtitle": "Choose Equitty as your unified investment portfolio — secure infrastructure, seamless access, and a platform designed for serious investors.",
-      "cta": "Get started now"
+      "eyebrow": "Next step",
+      "title": "Reserve your seat in the marketplace",
+      "subtitle": "When investments open, you will enter the same Equitty you see here: inventory, metrics, and a regulated flow.",
+      "cta": "Join the waitlist",
+      "shotAlt": "Full Equitty marketplace view",
+      "caption": "Tokenized assets · El Salvador"
     },
     "Faq": {
       "eyebrow": "FAQ",
-      "title": "What changes and what does not",
-      "subtitle": "The redesign improves the landing experience while keeping the operational behavior stable.",
+      "title": "Investor questions",
+      "subtitle": "Product and waitlist transparency, in the same tone as the marketplace.",
       "item1": {
-        "question": "Is the waitlist logic changing?",
-        "answer": "No. The same server action, validation rules, referral handling, and success or error flows are preserved."
+        "question": "Can I invest today?",
+        "answer": "Not yet. Equitty is on a waitlist. Joining is not an offer or a solicitation. Opportunities will open for qualified investors."
       },
       "item2": {
-        "question": "Will locale switching still work?",
-        "answer": "Yes. The new layout still uses the current localized routing and translations for English and Spanish."
+        "question": "Is this the same Equitty platform?",
+        "answer": "Yes. The visual language, asset classes, and screenshots come from the production marketplace: header, cards, filters, and Invest now CTAs."
       },
       "item3": {
-        "question": "Did the referral field get removed?",
-        "answer": "No. It remains in the form and appears when the referred-investor option is enabled."
+        "question": "Is the referral code still there?",
+        "answer": "Yes. Enable the referred-investor option in the form and the code is validated with the same logic as before."
       },
       "item4": {
-        "question": "Is this based on the reference design in newDesign/EQ-main?",
-        "answer": "Yes. The new composition, hierarchy, card treatment, and visual effects were adapted from that design into the real project."
+        "question": "What regulation does this sit under?",
+        "answer": "The platform is designed for El Salvador and the CNAD framework. The DASP license is in process; issuances will be private and for qualified investors."
       }
     },
     "Dialog": {
