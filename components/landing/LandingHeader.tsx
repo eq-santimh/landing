@@ -50,7 +50,7 @@ export default function LandingHeader() {
           <LanguageSwitcher />
           <a
             href={`${home}#espera`}
-            className="hidden rounded-full bg-eq-brand px-4 py-2 text-sm font-semibold text-white transition hover:bg-eq-brand-strong sm:inline-flex"
+            className="inline-flex rounded-full bg-eq-brand px-3 py-2 text-xs font-semibold text-white transition hover:bg-eq-brand-strong sm:px-4 sm:text-sm"
           >
             {t('cta')}
           </a>

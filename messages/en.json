@@ -162,23 +162,23 @@
     },
     "Benefits": {
       "eyebrow": "Why Equitty",
-      "title": "The front door to the same product",
-      "subtitle": "The landing no longer looks like a crypto campaign. It now speaks marketplace: clear, regulated, and actionable.",
+      "title": "A clearer way into real-world assets",
+      "subtitle": "The marketplace puts inventory, metrics, and regulatory status in front of any investment decision.",
       "item1": {
-        "title": "Tokenization with a local framework",
-        "description": "El Salvador and CNAD as regulatory context, not fine print hidden at the bottom."
+        "title": "CNAD framework, not fine print",
+        "description": "El Salvador and the digital-asset framework as product context, visible from the first screen."
       },
       "item2": {
-        "title": "The same product interface",
-        "description": "Brand teal, white cards, Alexandria / New Black type, and marketplace CTAs."
+        "title": "Investment metrics up front",
+        "description": "IRR, term, liquidity, token, return, and supply with the same hierarchy as the marketplace."
       },
       "item3": {
-        "title": "Investor onboarding stays intact",
-        "description": "Email, nationality, and referrals remain connected to the real waitlist flow."
+        "title": "Funding and construction with real progress",
+        "description": "Dual bars show how much is built and how much is funded, without opaque narrative."
       },
       "item4": {
-        "title": "Data before effects",
-        "description": "IRR, funding, liquidity, and categories first. No neon cursor or floating generic coin."
+        "title": "Participation designed from $100",
+        "description": "When investments open for qualified investors, the target ticket is accessible, not institution-only."
       }
     },
     "Testimonials": {

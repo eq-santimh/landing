@@ -167,23 +167,23 @@
     },
     "Benefits": {
       "eyebrow": "Por qué Equitty",
-      "title": "La puerta de entrada al mismo producto",
-      "subtitle": "La landing deja de parecer una campaña crypto y pasa a hablar el idioma del marketplace: claro, regulado y accionable.",
+      "title": "Una forma más clara de entrar a activos reales",
+      "subtitle": "El marketplace muestra inventario, métricas y estado regulatorio antes de pedir una decisión de inversión.",
       "item1": {
-        "title": "Tokenización con marco local",
-        "description": "El Salvador y CNAD como contexto regulatorio, no como letra pequeña escondida al final."
+        "title": "Marco CNAD, no letra pequeña",
+        "description": "El Salvador y el marco de activos digitales como contexto de producto, visible desde el primer pantallazo."
       },
       "item2": {
-        "title": "Misma interfaz del producto",
-        "description": "Teal de marca, cards blancas, tipografía Alexandria / New Black y CTAs del marketplace."
+        "title": "Métricas de inversión a la vista",
+        "description": "TIR, plazo, liquidez, token, retorno y supply con la misma jerarquía que el marketplace."
       },
       "item3": {
-        "title": "Onboarding de inversionista intacto",
-        "description": "Correo, nacionalidad y referidos siguen conectados al flujo real de la lista de espera."
+        "title": "Fondeo y construcción con progreso real",
+        "description": "Barras duales para ver cuánto está construido y cuánto está fondeado, sin narrativa opaca."
       },
       "item4": {
-        "title": "Datos antes que effects",
-        "description": "TIR, fondeo, liquidez y categorías delante. Sin cursor neón ni coin genérico flotando."
+        "title": "Participación diseñada desde $100",
+        "description": "Cuando las inversiones abran para inversionistas calificados, el ticket objetivo es accesible, no institucional-only."
       }
     },
     "FinalCta": {
