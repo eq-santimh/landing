@@ -56,11 +56,11 @@ export default function LandingFooter() {
   const [isTermsOpen, setIsTermsOpen] = useState(false);
 
   return (
-    <footer className="border-t border-eq-line bg-white">
+    <footer className="border-t border-white/10 bg-[#05040a]">
       <div className="eq-shell py-10">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
-            <Image src="/logo-accent.png" alt="EQUITTY" width={140} height={32} className="h-8 w-auto" />
+            <Image src="/equitty_logo_white.png" alt="EQUITTY" width={140} height={32} className="h-8 w-auto" />
             <p className="mt-3 max-w-sm text-sm text-eq-muted">{t('tagline')}</p>
           </div>
 
@@ -71,12 +71,12 @@ export default function LandingFooter() {
                   {t('terms')}
                 </button>
               </DialogTrigger>
-              <DialogContent className="max-h-[85vh] w-[min(96vw,920px)] max-w-[min(96vw,920px)] overflow-hidden border-eq-line bg-white sm:max-w-[min(74vw,920px)]">
+              <DialogContent className="max-h-[85vh] w-[min(96vw,920px)] max-w-[min(96vw,920px)] overflow-hidden border-white/10 bg-[#14131c] sm:max-w-[min(74vw,920px)]">
                 <DialogHeader>
                   <DialogTitle className="text-eq-ink">{t('termsModalTitle')}</DialogTitle>
                   <DialogDescription className="text-eq-muted">{t('termsModalDescription')}</DialogDescription>
                 </DialogHeader>
-                <div className="mt-2 max-h-[60vh] overflow-y-auto rounded-2xl border border-eq-line bg-eq-canvas p-6 text-sm leading-relaxed text-eq-ink">
+                <div className="mt-2 max-h-[60vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#09080d] p-6 text-sm leading-relaxed text-eq-ink">
                   <div className="space-y-1 text-[13px] tracking-[0.2em] text-eq-muted uppercase">
                     {waitlistTermsHeader.map((line, index) => (
                       <p key={`${line}-${index}`}>{line}</p>

@@ -106,46 +106,46 @@
   --eq-tracking-title: -0.01em;
   --eq-tracking-small: 0.05em;
 
-  --eq-canvas: #f6f3ee;
-  --eq-paper: #ffffff;
-  --eq-ink-hex: #09080d;
-  --eq-muted-hex: #5c6570;
-  --eq-steel: #2f5c98;
-  --eq-line: #ece8df;
+  --eq-canvas: #09080d;
+  --eq-paper: #14131c;
+  --eq-ink-hex: #f6f3ee;
+  --eq-muted-hex: #d7cfc7;
+  --eq-steel: #4c8d99;
+  --eq-line: #252430;
   --eq-navy: #173743;
 
   --radius: 0.75rem;
-  --background: #f6f3ee;
-  --foreground: #09080d;
-  --card: #ffffff;
-  --card-foreground: #09080d;
-  --popover: #ffffff;
-  --popover-foreground: #09080d;
+  --background: #09080d;
+  --foreground: #f6f3ee;
+  --card: #14131c;
+  --card-foreground: #f6f3ee;
+  --popover: #14131c;
+  --popover-foreground: #f6f3ee;
   --primary: #00b4c4;
   --primary-foreground: #09080d;
-  --secondary: #ece8df;
-  --secondary-foreground: #09080d;
-  --muted: #ece8df;
-  --muted-foreground: #5c6570;
+  --secondary: #1a1926;
+  --secondary-foreground: #f6f3ee;
+  --muted: #1a1926;
+  --muted-foreground: #d7cfc7;
   --accent: #00b4c4;
   --accent-foreground: #09080d;
-  --destructive: #ef4343;
-  --destructive-foreground: #ffffff;
-  --border: #dbd3c7;
-  --input: #ffffff;
+  --destructive: #ff4d6a;
+  --destructive-foreground: #09080d;
+  --border: #ffffff14;
+  --input: #14131c;
   --ring: #00b4c4;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: #ffffff;
-  --sidebar-foreground: #09080d;
+  --sidebar: #14131c;
+  --sidebar-foreground: #f6f3ee;
   --sidebar-primary: #00b4c4;
   --sidebar-primary-foreground: #09080d;
-  --sidebar-accent: #f6f3ee;
-  --sidebar-accent-foreground: #09080d;
-  --sidebar-border: #ece8df;
+  --sidebar-accent: #1a1926;
+  --sidebar-accent-foreground: #f6f3ee;
+  --sidebar-border: #ffffff14;
   --sidebar-ring: #00b4c4;
 }
 
@@ -166,7 +166,7 @@
   --accent-foreground: #09080d;
   --destructive: #ff4d6a;
   --destructive-foreground: #09080d;
-  --border: #2f5c98;
+  --border: #ffffff14;
   --input: #14131c;
   --ring: #00b4c4;
 }
@@ -233,10 +233,11 @@
 }
 
 .marketplace-card {
-  background: var(--eq-paper);
-  border: 1px solid var(--eq-line);
+  background: rgba(12, 12, 22, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(9, 8, 13, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px) saturate(140%);
   transition:
     transform 200ms ease,
     box-shadow 200ms ease,
@@ -245,29 +246,29 @@
 
 .marketplace-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(0, 180, 196, 0.28);
-  box-shadow: 0 10px 28px rgba(9, 8, 13, 0.1);
+  border-color: rgba(0, 180, 196, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
 .eq-input {
-  background: #ffffff;
-  border: 1px solid #dbd3c7;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
-  color: #09080d;
+  color: #f6f3ee;
   outline: none;
 }
 
 .eq-input::placeholder {
-  color: #9aa1aa;
+  color: rgba(215, 207, 199, 0.7);
 }
 
 .eq-input:hover {
-  border-color: #c9c0b4;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .eq-input:focus {
-  border-color: rgba(0, 180, 196, 0.7);
-  box-shadow: 0 0 0 3px rgba(0, 180, 196, 0.12);
+  border-color: rgba(0, 180, 196, 0.55);
+  box-shadow: 0 0 0 3px rgba(0, 180, 196, 0.08);
 }
 
 .dark-eq-input {
@@ -288,12 +289,12 @@
 
 .product-frame {
   overflow: hidden;
-  border: 1px solid var(--eq-line);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  background: #fff;
+  background: #14131c;
   box-shadow:
-    0 20px 50px rgba(9, 8, 13, 0.08),
-    0 2px 8px rgba(9, 8, 13, 0.04);
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(0, 180, 196, 0.08);
 }
 
 .product-frame-bar {
@@ -302,12 +303,12 @@
   gap: 8px;
   height: 40px;
   padding: 0 14px;
-  background: #f6f3ee;
-  border-bottom: 1px solid var(--eq-line);
+  background: #0c0c16;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #00b4c4 0%, #2f5c98 100%);
+  background: linear-gradient(90deg, #00b4c4 0%, #7ee7f0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -358,7 +359,7 @@
 
 [data-sileo-toast] [data-sileo-title],
 [data-sileo-toast] [data-sileo-description] {
-  color: var(--eq-canvas);
+  color: var(--eq-ink-hex);
 }
 
 [data-sileo-toast] [data-sileo-badge] {

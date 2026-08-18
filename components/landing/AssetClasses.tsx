@@ -5,12 +5,12 @@ import { useTranslations } from 'next-intl';
 import SectionHeading from '@/components/landing/SectionHeading';
 
 const CLASSES = [
-  { key: 'all', tone: 'bg-[#e6f7f9] text-[#0a8490]' },
-  { key: 'hospitality', tone: 'bg-[#fff3e8] text-[#c2410c]' },
-  { key: 'residential', tone: 'bg-[#fff7e0] text-[#b45309]' },
-  { key: 'commercial', tone: 'bg-[#eaf3ff] text-[#2f5c98]' },
-  { key: 'energy', tone: 'bg-[#e8f8ef] text-[#047857]' },
-  { key: 'infra', tone: 'bg-[#eeeaf8] text-[#6d28d9]' },
+  { key: 'all', tone: 'bg-[#00b4c4]/15 text-[#7ee7f0]' },
+  { key: 'hospitality', tone: 'bg-[#c2410c]/25 text-[#fdba74]' },
+  { key: 'residential', tone: 'bg-[#b45309]/25 text-[#fcd34d]' },
+  { key: 'commercial', tone: 'bg-[#2f5c98]/30 text-[#93c5fd]' },
+  { key: 'energy', tone: 'bg-[#047857]/25 text-[#6ee7b7]' },
+  { key: 'infra', tone: 'bg-[#6d28d9]/25 text-[#c4b5fd]' },
 ] as const;
 
 export default function AssetClasses() {
@@ -18,7 +18,7 @@ export default function AssetClasses() {
   const [active, setActive] = useState<(typeof CLASSES)[number]['key']>('all');
 
   return (
-    <section id="activos" className="bg-white py-20 sm:py-28">
+    <section id="activos" className="bg-eq-paper py-20 sm:py-28">
       <div className="eq-shell">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
@@ -47,7 +47,7 @@ export default function AssetClasses() {
             .map((item) => (
               <article key={item.key} className="marketplace-card overflow-hidden">
                 <div className={`flex h-36 items-end justify-between px-5 py-4 ${item.tone}`}>
-                  <span className="rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold tracking-[0.14em] uppercase">
+                  <span className="rounded-full bg-black/35 px-3 py-1 text-[11px] font-semibold tracking-[0.14em] uppercase">
                     {t(`filters.${item.key}`)}
                   </span>
                 </div>
@@ -65,7 +65,7 @@ export default function AssetClasses() {
                     </div>
                     <div>
                       <p className="eq-text-small text-eq-muted">{t('metrics.status')}</p>
-                      <p className="mt-1 font-semibold text-[#b45309]">{t('metrics.statusValue')}</p>
+                      <p className="mt-1 font-semibold text-[#fdba74]">{t('metrics.statusValue')}</p>
                     </div>
                   </div>
                 </div>

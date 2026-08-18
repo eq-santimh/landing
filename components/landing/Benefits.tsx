@@ -9,7 +9,7 @@ export default function Benefits() {
   const t = useTranslations('HomePage.Benefits');
 
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-eq-paper py-20 sm:py-28">
       <div className="eq-shell">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 

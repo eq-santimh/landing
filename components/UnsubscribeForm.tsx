@@ -52,7 +52,7 @@ export default function UnsubscribeForm() {
         {isPending ? t('processing') : t('button')}
       </Button>
       {feedback ? (
-        <p className={`text-sm ${feedback.type === 'success' ? 'text-emerald-600' : 'text-rose-600'}`}>
+        <p className={`text-sm ${feedback.type === 'success' ? 'text-emerald-400' : 'text-rose-400'}`}>
           {feedback.message}
         </p>
       ) : null}

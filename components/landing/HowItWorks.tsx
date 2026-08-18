@@ -20,7 +20,7 @@ export default function HowItWorks() {
               <h3 className="mt-5 text-xl font-semibold text-eq-ink">{t(`${key}.title`)}</h3>
               <p className="mt-3 text-sm leading-relaxed text-eq-muted">{t(`${key}.description`)}</p>
               {index < 3 ? (
-                <div className="absolute top-1/2 -right-3 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-eq-brand/30 bg-white text-eq-brand lg:flex">
+                <div className="absolute top-1/2 -right-3 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-eq-brand/30 bg-[#14131c] text-eq-brand lg:flex">
                   <ArrowRight className="h-4 w-4" />
                 </div>
               ) : null}

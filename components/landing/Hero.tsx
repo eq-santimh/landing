@@ -21,12 +21,12 @@ export default function Hero() {
           </h1>
           <p className="eq-text-body mt-5 max-w-lg text-eq-muted">{t('subhead')}</p>
           <div id="espera" className="mt-8">
-            <WaitlistForm tone="light" />
+            <WaitlistForm tone="dark" />
           </div>
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-6 -z-10 rounded-[28px] bg-[#e6f7f9]/70 blur-2xl" />
+          <div className="absolute -inset-6 -z-10 rounded-[28px] bg-[#00b4c4]/15 blur-3xl" />
           <ProductFrame
             src="/product/marketplace-home.webp"
             alt={t('productShotAlt')}

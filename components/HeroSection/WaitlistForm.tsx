@@ -19,7 +19,7 @@ type WaitlistFormProps = {
   tone?: 'light' | 'dark';
 };
 
-export default function WaitlistForm({ tone = 'light' }: WaitlistFormProps) {
+export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');

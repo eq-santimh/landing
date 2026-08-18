@@ -21,7 +21,7 @@ export default function ProductFrame({
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-        <span className="ml-3 truncate rounded-full bg-white px-3 py-1 text-[11px] text-eq-muted">
+        <span className="ml-3 truncate rounded-full bg-white/10 px-3 py-1 text-[11px] text-eq-muted">
           {url}
         </span>
       </div>

@@ -9,7 +9,7 @@ export default function FinalCta() {
   const locale = useLocale();
 
   return (
-    <section className="bg-[#09080d] py-20 text-[#f6f3ee] sm:py-24">
+    <section className="border-t border-white/10 bg-[#0c0c16] py-20 text-[#f6f3ee] sm:py-24">
       <div className="eq-shell grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <div>
           <p className="eq-text-small text-eq-brand">{t('eyebrow')}</p>

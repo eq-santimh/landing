@@ -12,7 +12,7 @@ export default function StatsSection() {
   const t = useTranslations('HomePage.Stats');
 
   return (
-    <section className="border-y border-eq-line bg-white">
+    <section className="border-y border-white/10 bg-eq-canvas">
       <div className="eq-shell grid gap-6 py-10 sm:grid-cols-3">
         {ITEMS.map(({ valueKey, descriptionKey }) => (
           <article key={valueKey} className="text-center">

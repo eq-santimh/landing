@@ -13,7 +13,7 @@ import { Toaster } from '@/components/ui/sonner';
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#f6f3ee',
+  themeColor: '#09080d',
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://equitty.vercel.app';
@@ -77,7 +77,7 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
     notFound();
   }
   return (
-    <html lang={locale} className="bg-eq-canvas">
+    <html lang={locale} className="dark bg-eq-canvas">
       <head>
         <link
           rel="preload"
@@ -98,6 +98,7 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <SileoToaster />
         <Toaster
+          theme="dark"
           position="top-center"
           toastOptions={{
             className: 'w-[calc(100vw-1rem)] max-w-none mx-auto',

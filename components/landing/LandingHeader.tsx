@@ -17,7 +17,7 @@ export default function LandingHeader() {
   const home = `/${locale}`;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-eq-line bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#09080d]/85 backdrop-blur-md">
       <div className="eq-shell flex h-[72px] items-center justify-between gap-4">
         <a href={home} className="flex items-center gap-2.5">
           <Image
@@ -29,7 +29,7 @@ export default function LandingHeader() {
             priority
           />
           <Image
-            src="/logo-accent.png"
+            src="/equitty_logo_white.png"
             alt="EQUITTY"
             width={120}
             height={24}

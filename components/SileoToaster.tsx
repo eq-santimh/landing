@@ -3,5 +3,5 @@
 import { Toaster } from 'sileo';
 
 export function SileoToaster() {
-  return <Toaster position="top-center" theme="light" options={{ fill: '#173743' }} />;
+  return <Toaster position="top-center" theme="dark" options={{ fill: '#14131c' }} />;
 }

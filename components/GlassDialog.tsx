@@ -15,9 +15,9 @@ interface GlassDialogProps {
 }
 
 const VARIANTS: Record<GlassVariant, string> = {
-  pure: 'bg-white border border-eq-line shadow-xl text-eq-ink',
-  glow: 'bg-white border border-eq-line shadow-2xl text-eq-ink',
-  aurora: 'bg-white border border-eq-line shadow-xl text-eq-ink',
+  pure: 'bg-[#14131c] border border-white/10 shadow-xl text-eq-ink',
+  glow: 'bg-[#14131c] border border-white/10 shadow-2xl text-eq-ink',
+  aurora: 'bg-[#14131c] border border-white/10 shadow-xl text-eq-ink',
 };
 
 export function GlassDialog({
