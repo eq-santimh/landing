@@ -2,76 +2,87 @@
 
 import { useTranslations } from 'next-intl';
 import SectionHeading from '@/components/landing/SectionHeading';
-import TeamAvatar from '@/components/landing/TeamAvatar';
+import TeamMemberCard from '@/components/landing/TeamMemberCard';
 
 const TEAM_SLUGS = ['martin', 'jose', 'mario', 'oscar'] as const;
 const BOARD_SLUGS = ['sigfredo', 'joseLuis', 'erick', 'ricardo'] as const;
 
 const teamPhotos: Record<string, string | undefined> = {
   martin: '/team/martin.webp',
+  jose: '/team/jose.webp',
   mario: '/team/mario.webp',
   oscar: '/team/oscar.webp',
 };
 
 const teamPhotoPositions: Record<string, string> = {
   oscar: 'center 10%',
-  jose: 'center 18%',
+  jose: 'center 15%',
   martin: 'center 15%',
+  ricardo: 'center 18%',
 };
 
 const boardPhotos: Record<string, string | undefined> = {
   sigfredo: '/team/sigfredo.webp',
   joseLuis: '/team/joseLuis.webp',
   erick: '/team/erick.webp',
+  ricardo: '/team/ricardo.webp',
 };
 
 export default function Team() {
   const t = useTranslations('HomePage.Team');
 
   return (
-    <section id="equipo" className="bg-eq-paper py-20 sm:py-28">
+    <section id="equipo" className="bg-eq-paper py-14 sm:py-20">
       <div className="eq-shell">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          <article className="marketplace-card p-6">
+        <div className="mt-8 grid gap-4 border-y border-white/8 py-6 lg:grid-cols-2 lg:gap-8 lg:py-7">
+          <article>
             <p className="eq-text-small text-eq-brand">{t('missionTitle')}</p>
-            <p className="mt-3 text-sm leading-relaxed text-eq-muted">{t('missionText')}</p>
+            <p className="mt-2 text-sm leading-relaxed text-eq-muted">{t('missionText')}</p>
           </article>
-          <article className="marketplace-card p-6">
+          <article>
             <p className="eq-text-small text-eq-brand">{t('whyTitle')}</p>
-            <p className="mt-3 text-sm leading-relaxed text-eq-muted">{t('whyText')}</p>
+            <p className="mt-2 text-sm leading-relaxed text-eq-muted">{t('whyText')}</p>
           </article>
         </div>
 
-        <h3 className="mt-14 text-2xl tracking-tight text-eq-ink">{t('foundingTitle')}</h3>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h3 className="text-xl tracking-tight text-eq-ink sm:text-2xl">{t('foundingTitle')}</h3>
+            <p className="mt-1 max-w-xl text-sm text-eq-muted">{t('foundingIntro')}</p>
+          </div>
+        </div>
+        <div className="mt-5 grid gap-4 lg:grid-cols-2">
           {TEAM_SLUGS.map((slug) => (
-            <article key={slug} className="group/card marketplace-card flex h-full flex-col items-center p-6 text-center">
-              <TeamAvatar
-                name={t(`members.${slug}.name`)}
-                src={teamPhotos[slug]}
-                size="md"
-                objectPosition={teamPhotoPositions[slug]}
-              />
-              <h4 className="mt-4 text-lg font-semibold text-eq-ink">{t(`members.${slug}.name`)}</h4>
-              <p className="eq-text-small mt-1 text-eq-brand">{t(`members.${slug}.role`)}</p>
-              <p className="mt-3 text-sm leading-relaxed text-eq-muted">{t(`members.${slug}.bio`)}</p>
-              <p className="mt-auto pt-4 text-xs leading-relaxed text-white/45">{t(`members.${slug}.signal`)}</p>
-            </article>
+            <TeamMemberCard
+              key={slug}
+              variant="founder"
+              name={t(`members.${slug}.name`)}
+              role={t(`members.${slug}.role`)}
+              bio={t(`members.${slug}.bio`)}
+              signal={t(`members.${slug}.signal`)}
+              photo={teamPhotos[slug]}
+              objectPosition={teamPhotoPositions[slug]}
+            />
           ))}
         </div>
 
-        <h3 className="mt-16 text-2xl tracking-tight text-eq-ink">{t('boardTitle')}</h3>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-eq-muted">{t('boardIntro')}</p>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12">
+          <h3 className="text-xl tracking-tight text-eq-ink sm:text-2xl">{t('boardTitle')}</h3>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-eq-muted">{t('boardIntro')}</p>
+        </div>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
           {BOARD_SLUGS.map((slug) => (
-            <article key={slug} className="group/card marketplace-card flex h-full flex-col items-center p-6 text-center">
-              <TeamAvatar name={t(`advisors.${slug}.name`)} src={boardPhotos[slug]} size="sm" />
-              <h4 className="mt-3 text-base font-semibold text-eq-ink">{t(`advisors.${slug}.name`)}</h4>
-              <p className="eq-text-small mt-1 text-eq-brand">{t(`advisors.${slug}.role`)}</p>
-              <p className="mt-3 text-sm leading-relaxed text-eq-muted">{t(`advisors.${slug}.bio`)}</p>
-            </article>
+            <TeamMemberCard
+              key={slug}
+              variant="advisor"
+              name={t(`advisors.${slug}.name`)}
+              role={t(`advisors.${slug}.role`)}
+              bio={t(`advisors.${slug}.bio`)}
+              photo={boardPhotos[slug]}
+              objectPosition={teamPhotoPositions[slug]}
+            />
           ))}
         </div>
       </div>
