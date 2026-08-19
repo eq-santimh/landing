@@ -1,116 +1,217 @@
 {
   "Metadata": {
-    "title": "Equitty - Invierte en Activos Reales",
-    "description": "Plataforma revolucionaria para invertir en activos reales con transparencia y seguridad.",
-    "keywords": "inversión, activos reales, fintech, equitty, invertir, activos, finanzas"
+    "title": "Equitty — Invierte en activos reales tokenizados",
+    "description": "Marketplace de propiedades e infraestructura tokenizada en El Salvador, con la misma plataforma Equitty y marco CNAD.",
+    "keywords": "inversión, activos reales, fintech, equitty, tokenización, bienes raíces, El Salvador, CNAD"
   },
   "HomePage": {
-    "badge": "Muy pronto",
-    "hero_title": "Inversión en",
-    "hero_title_mid": "Activos del mundo real",
-    "hero_title_highlight": "Activos Reales",
+    "badge": "Lista de espera · inversiones aún no abiertas",
+    "kicker": "Equitty · Marketplace",
+    "hero_title": "Invierte en",
+    "hero_title_highlight": "activos reales",
     "hero_title_end": "",
-    "headline": "La plataforma global de inversión\nen activos reales",
-    "subhead": "Estamos construyendo una plataforma para activos tokenizados. Actualmente no hay inversiones disponibles.",
-    "applicationPendingBadge": "Aplicacion de CNAD Pendiente",
+    "headline": "El marketplace de activos reales tokenizados",
+    "subhead": "La misma plataforma Equitty que ya opera el marketplace: inventario tokenizado, métricas de TIR, fondeo y liquidez en un flujo diseñado para inversionistas calificados. Hoy puedes reservar tu lugar. Las inversiones aún no están abiertas.",
+    "productShotAlt": "Marketplace de Equitty con propiedades tokenizadas, filtros de categoría y métricas de inversión",
+    "applicationPendingBadge": "Aplicación de CNAD pendiente",
     "Form": {
       "cardEyebrow": "Acceso anticipado",
-      "cardTitle": "Unete a la lista de espera",
-      "cardDescription": "Registra tu correo y nacionalidad. Si llegaste por invitacion, el flujo de referido sigue disponible aqui mismo.",
+      "cardTitle": "Únete a la lista de espera",
+      "cardDescription": "Deja tu correo y nacionalidad. Te avisaremos cuando las inversiones abran para inversionistas calificados.",
+      "emailLabel": "Correo electrónico",
       "emailPlaceholder": "Ingresa tu correo",
+      "nationalityLabel": "Nacionalidad",
       "nationalityPlaceholder": "Nacionalidad",
       "wasReferredLabel": "Fui referido por otro inversionista futuro",
-      "referralCodePlaceholder": "Ingresa el codigo de referido",
-      "button": "Unete a la lista de espera",
-      "microcopy": "Recibe actualizaciones del lanzamiento. Puedes darte de baja cuando quieras.",
+      "referralOptionalLabel": "Código de referido (opcional)",
+      "referralApplied": "Invitación aplicada: {code}",
+      "clearReferral": "Quitar código de referido",
+      "referralCodePlaceholder": "Si te invitaron, pégalo aquí",
+      "button": "Unirme a la lista",
+      "microcopy": "Unirte no es una oferta de inversión. Puedes darte de baja cuando quieras.",
       "Validation": {
-        "emailRequired": "La direccion de correo es obligatoria",
-        "emailInvalid": "Por favor, introduce una direccion de correo valida",
+        "emailRequired": "La dirección de correo es obligatoria",
+        "emailInvalid": "Por favor, introduce una dirección de correo válida",
         "nationalityRequired": "La nacionalidad es obligatoria",
-        "referralCodeRequired": "El codigo de referido es obligatorio",
-        "referralCodeInvalid": "El codigo de referido debe tener entre 6 y 12 caracteres alfanumericos"
+        "referralCodeRequired": "El código de referido es obligatorio",
+        "referralCodeInvalid": "El código de referido debe tener entre 6 y 12 caracteres alfanuméricos"
       },
       "Errors": {
-        "waitlistError": "Hubo un error al unirte a la lista de espera. Por favor, intentalo de nuevo mas tarde.",
+        "waitlistError": "Hubo un error al unirte a la lista de espera. Por favor, inténtalo de nuevo más tarde.",
         "emailAlreadyExists": {
-          "title": "Ya estas en la lista de espera",
+          "title": "Ya estás en la lista de espera",
           "message": "Gracias por unirte a la lista de espera de Equitty. Te mantendremos informado sobre nuestro lanzamiento y avances."
         },
         "invalidReferralCode": {
-          "title": "Codigo de referido no valido",
-          "message": "No encontramos ese codigo de referido. Verifica el codigo e intenta de nuevo."
+          "title": "Código de referido no válido",
+          "message": "No encontramos ese código de referido. Verifica el código e intenta de nuevo."
         }
       },
       "SuccessDialog": {
-        "title": "Estas en la lista de espera",
-        "message": "Gracias por unirte a la lista de espera de Equitty. Revisa tu correo para ver tu codigo de referido."
+        "title": "Estás en la lista de espera",
+        "message": "Gracias por unirte a la lista de espera de Equitty. Revisa tu correo para ver tu código de referido."
       }
     },
-      "Footer": {
-        "footerDisclaimer": "Unirte a la lista no es una oferta de inversion. Invertir implica riesgo, incluida la perdida del capital.",
-        "privacy": "Privacidad",
-        "terms": "Terminos y condiciones",
-        "termsModalTitle": "Terminos y condiciones de la lista de espera de Equitty",
-        "termsModalDescription": "Consulta el acuerdo oficial de la lista de espera directamente desde el documento que compartimos con los nuevos inversionistas.",
-        "termsModalFallback": "Si el visor no carga, puedes ",
-        "termsModalDownload": "descargar el PDF.",
-        "unsubscribeText": "Si ya no quieres ser parte de la lista de espera, cancela tu suscripcion",
-        "unsubscribeLink": "aquí",
-        "termsContent": {
-          "header": [
-            "Términos y condiciones de la lista de espera"
-          ],
-          "sections": [
-            {
-              "title": "1. NATURALEZA DEL REGISTRO Y AUSENCIA DE OBLIGACIÓN",
-              "body": "El registro en la lista de espera (en adelante, la \"Waitlist\") del proyecto EQUITTY (en adelante, la \"Plataforma\") constituye una mera expectativa de derecho para el usuario. Unirse a la Waitlist no garantiza la apertura de una cuenta, el acceso inmediato a los servicios, ni constituye una oferta vinculante de contrato por parte de la Plataforma. EQUITTY es una iniciativa en fase de lanzamiento; por tanto, el acceso será otorgado de manera gradual, discrecional y sujeto a la disponibilidad técnica del sistema."
-            },
-            {
-              "title": "2. CONSENTIMIENTO PARA COMUNICACIONES",
-              "body": "Al registrarse, el usuario otorga su consentimiento expreso, previo e informado para recibir comunicaciones electrónicas relativas a su estatus en la lista, actualizaciones sobre el cronograma de lanzamiento y noticias corporativas de EQUITTY. El usuario podrá revocar este consentimiento en cualquier momento utilizando el mecanismo de cancelación de suscripción (opt-out) incluido en cada correo electrónico."
-            },
-            {
-              "title": "3. PRIVACIDAD Y PROTECCIÓN DE DATOS",
-              "body": "EQUITTY se compromete a tratar los datos personales del usuario bajo estrictos estándares de confidencialidad, de conformidad con los principios de la normativa de protección de datos personales de la República de El Salvador. Los datos recolectados se utilizarán exclusivamente para gestionar el acceso a la plataforma y validar la identidad del usuario. No se realizarán transferencias de datos a terceros sin consentimiento previo, salvo requerimiento legal de autoridad competente."
-            },
-            {
-              "title": "4. EXENCIÓN DE ASESORÍA Y RIESGOS",
-              "body": "La información proporcionada en esta etapa de expectativa tiene carácter estrictamente informativo y no constituye asesoría financiera, legal, fiscal, ni una recomendación de inversión. El usuario reconoce que las inversiones conllevan riesgos inherentes y entiende que antes de recibir cualquier producto o servicio final, el usuario deberá completar satisfactoriamente un proceso de verificación legal, cumplimiento (KYC/AML) y firma de contratos definitivos."
-            },
-            {
-              "title": "5. PROPIEDAD INTELECTUAL",
-              "body": "Todos los derechos de propiedad intelectual sobre el contenido, marcas, logotipos y conceptos presentados en esta etapa son propiedad exclusiva de EQUITTY. El registro en la Waitlist no otorga licencia de uso ni derecho alguno sobre dichos activos."
-            },
-            {
-              "title": "6. MODIFICACIÓN Y TERMINACIÓN",
-              "body": "EQUITTY se reserva el derecho de modificar, suspender o cancelar la fase de Waitlist en cualquier momento y sin previo aviso, por razones técnicas, comerciales o legales, sin que ello genere derecho a indemnización alguna en favor de los usuarios inscritos."
-            },
-            {
-              "title": "7. JURISDICCIÓN Y RESOLUCIÓN DE DISPUTAS",
-              "body": "Cualquier controversia derivada de la interpretación o cumplimiento de estos Términos será resuelta mediante Arbitraje en Equidad, de conformidad con las Reglas del Centro de Mediación y Arbitraje de la Cámara de Comercio e Industria de El Salvador."
-            }
-          ],
-          "footer": ""
-        }
-      },
-      "Unsubscribe": {
-        "eyebrow": "Administra tu espacio",
-        "title": "Cancelar suscripción",
-        "description": "Ingresa el correo con el que te registraste y actualizaremos tu estado inmediatamente.",
-        "emailPlaceholder": "Correo electrónico",
-        "button": "Cancelar suscripción",
-        "processing": "Procesando...",
-        "success": "Ya no estás en la lista de espera.",
-        "error": "No encontramos ese correo en la lista de espera."
-      },
-      "Navigation": {
-      "cta": "Unete ahora"
+    "Footer": {
+      "tagline": "Infraestructura financiera para activos reales en El Salvador y Latinoamérica.",
+      "regulated": "Equitty — plataforma diseñada bajo el marco CNAD de El Salvador. Emisión privada para inversionistas calificados.",
+      "footerDisclaimer": "Unirte a la lista no es una oferta de inversión. Invertir implica riesgo, incluida la pérdida del capital.",
+      "privacy": "Privacidad",
+      "terms": "Términos y condiciones",
+      "termsModalTitle": "Términos y condiciones de la lista de espera de Equitty",
+      "termsModalDescription": "Consulta el acuerdo oficial de la lista de espera directamente desde el documento que compartimos con los nuevos inversionistas.",
+      "termsModalFallback": "Si el visor no carga, puedes ",
+      "termsModalDownload": "descargar el PDF.",
+      "unsubscribeText": "Si ya no quieres ser parte de la lista de espera, cancela tu suscripción",
+      "unsubscribeLink": "aquí",
+      "termsContent": {
+        "header": [
+          "Términos y condiciones de la lista de espera"
+        ],
+        "sections": [
+          {
+            "title": "1. NATURALEZA DEL REGISTRO Y AUSENCIA DE OBLIGACIÓN",
+            "body": "El registro en la lista de espera (en adelante, la \"Waitlist\") del proyecto EQUITTY (en adelante, la \"Plataforma\") constituye una mera expectativa de derecho para el usuario. Unirse a la Waitlist no garantiza la apertura de una cuenta, el acceso inmediato a los servicios, ni constituye una oferta vinculante de contrato por parte de la Plataforma. EQUITTY es una iniciativa en fase de lanzamiento; por tanto, el acceso será otorgado de manera gradual, discrecional y sujeto a la disponibilidad técnica del sistema."
+          },
+          {
+            "title": "2. CONSENTIMIENTO PARA COMUNICACIONES",
+            "body": "Al registrarse, el usuario otorga su consentimiento expreso, previo e informado para recibir comunicaciones electrónicas relativas a su estatus en la lista, actualizaciones sobre el cronograma de lanzamiento y noticias corporativas de EQUITTY. El usuario podrá revocar este consentimiento en cualquier momento utilizando el mecanismo de cancelación de suscripción (opt-out) incluido en cada correo electrónico."
+          },
+          {
+            "title": "3. PRIVACIDAD Y PROTECCIÓN DE DATOS",
+            "body": "EQUITTY se compromete a tratar los datos personales del usuario bajo estrictos estándares de confidencialidad, de conformidad con los principios de la normativa de protección de datos personales de la República de El Salvador. Los datos recolectados se utilizarán exclusivamente para gestionar el acceso a la plataforma y validar la identidad del usuario. No se realizarán transferencias de datos a terceros sin consentimiento previo, salvo requerimiento legal de autoridad competente."
+          },
+          {
+            "title": "4. EXENCIÓN DE ASESORÍA Y RIESGOS",
+            "body": "La información proporcionada en esta etapa de expectativa tiene carácter estrictamente informativo y no constituye asesoría financiera, legal, fiscal, ni una recomendación de inversión. El usuario reconoce que las inversiones conllevan riesgos inherentes y entiende que antes de recibir cualquier producto o servicio final, el usuario deberá completar satisfactoriamente un proceso de verificación legal, cumplimiento (KYC/AML) y firma de contratos definitivos."
+          },
+          {
+            "title": "5. PROPIEDAD INTELECTUAL",
+            "body": "Todos los derechos de propiedad intelectual sobre el contenido, marcas, logotipos y conceptos presentados en esta etapa son propiedad exclusiva de EQUITTY. El registro en la Waitlist no otorga licencia de uso ni derecho alguno sobre dichos activos."
+          },
+          {
+            "title": "6. MODIFICACIÓN Y TERMINACIÓN",
+            "body": "EQUITTY se reserva el derecho de modificar, suspender o cancelar la fase de Waitlist en cualquier momento y sin previo aviso, por razones técnicas, comerciales o legales, sin que ello genere derecho a indemnización alguna en favor de los usuarios inscritos."
+          },
+          {
+            "title": "7. JURISDICCIÓN Y RESOLUCIÓN DE DISPUTAS",
+            "body": "Cualquier controversia derivada de la interpretación o cumplimiento de estos Términos será resuelta mediante Arbitraje en Equidad, de conformidad con las Reglas del Centro de Mediación y Arbitraje de la Cámara de Comercio e Industria de El Salvador."
+          }
+        ],
+        "footer": ""
+      }
+    },
+    "Unsubscribe": {
+      "eyebrow": "Administra tu lugar",
+      "title": "Cancelar suscripción",
+      "description": "Ingresa el correo con el que te registraste y actualizaremos tu estado inmediatamente.",
+      "emailPlaceholder": "Correo electrónico",
+      "button": "Cancelar suscripción",
+      "processing": "Procesando...",
+      "success": "Ya no estás en la lista de espera.",
+      "error": "No encontramos ese correo en la lista de espera."
+    },
+    "Navigation": {
+      "cta": "Unirme",
+      "product": "Plataforma",
+      "team": "Equipo",
+      "process": "Proceso",
+      "faq": "FAQ"
+    },
+    "Trust": {
+      "cnad": "Diseñada bajo regulación CNAD",
+      "salvador": "Activos tokenizados · El Salvador",
+      "team": "Fundadores y mesa de asesores con trayectoria institucional"
     },
     "Stats": {
-      "waitlist": "Personas en lista de espera",
-      "trading": "Trading disponible",
-      "yield": "Rentabilidad objetivo",
-      "assetClass": "Activos reales tokenizados"
+      "minTicket": "Participación objetivo al lanzamiento",
+      "minTicketValue": "Desde $100",
+      "market": "Mercado global de RWA a 2030",
+      "marketValue": "$16T",
+      "team": "Equipo fundador y mesa de asesores",
+      "teamValue": "8 líderes"
+    },
+    "Product": {
+      "eyebrow": "La plataforma",
+      "title": "El marketplace que ya ves en Equitty",
+      "subtitle": "Cards de propiedad, TIR, plazo, liquidez, barras de construcción y fondeo, y un CTA de invertir. La landing ahora usa el mismo lenguaje visual que el producto.",
+      "cardsAlt": "Detalle de tarjetas de propiedad en el marketplace de Equitty",
+      "point1": {
+        "label": "Inventario",
+        "title": "Propiedades con foto, ubicación y categoría",
+        "description": "Cada oportunidad se presenta como ficha de producto: foto, ubicación, estado y contexto, sin adelantar el pipeline."
+      },
+      "point2": {
+        "label": "Datos",
+        "title": "TIR, token, retorno y supply en un vistazo",
+        "description": "La misma jerarquía de métricas del marketplace, pensada para comparar oportunidades con claridad."
+      },
+      "point3": {
+        "label": "Confianza",
+        "title": "Progreso de construcción y fondeo",
+        "description": "Barras duales y copy regulatorio para que la experiencia se sienta institucional, no de crypto neon."
+      }
+    },
+    "Team": {
+      "eyebrow": "Quiénes estamos detrás",
+      "title": "Construido por operadores. Gobernado por líderes.",
+      "subtitle": "EQUITTY lo construye un equipo transfronterizo de fundadores fintech, estrategas de capital, arquitectos legales y líderes de tecnología, con una mesa de asesores diseñada para credibilidad institucional.",
+      "missionTitle": "Misión",
+      "whyTitle": "Por qué existimos",
+      "missionText": "Conectar capital de EE. UU. y global con activos reales en América Latina mediante una plataforma en cumplimiento, transparente y escalable que abre el acceso a inversionistas calificados retail e institucionales.",
+      "whyText": "El capital existe. Los activos existen. La infraestructura regulada que los conecta, no. EQUITTY está cerrando esa brecha desde El Salvador y escalando por América Latina.",
+      "foundingTitle": "Equipo fundador",
+      "foundingIntro": "Operadores con experiencia en mercados EE. UU.–LatAm, finanzas, crecimiento e infraestructura.",
+      "boardTitle": "Mesa de asesores",
+      "boardIntro": "EQUITTY se apoya en una mesa de asesores con estándares institucionales desde el día uno. Aporta supervisión estratégica, experiencia sectorial y credibilidad ante reguladores e inversionistas.",
+      "members": {
+        "martin": {
+          "name": "Martín Cruz",
+          "role": "Fundador y CEO",
+          "bio": "Más de 25 años escalando negocios entre Texas y El Salvador. Defensor de Bitcoin y pionero en tokenización; lidera la visión, la estrategia regulatoria y el licenciamiento DASP de EQUITTY.",
+          "signal": "Desarrollo de mercado EE. UU.–LatAm, adopción blockchain, ejecución de fundador"
+        },
+        "jose": {
+          "name": "José Landaverde",
+          "role": "Cofundador y CFO",
+          "bio": "CPA, con más de 20 años de experiencia en auditoría y consultoría financiera en organizaciones de EE.UU. y El Salvador. Con experiencia en el sector inmobiliario y atención a inversionistas, actualmente lidera la estrategia de inversión y planeación financiera.",
+          "signal": "Auditoría y consultoría financiera, estrategia de inversión, planeación financiera"
+        },
+        "mario": {
+          "name": "Mario Meléndez",
+          "role": "Cofundador y COO",
+          "bio": "Más de 15 años en operaciones y marketing de desempeño para mercados de EE. UU. Fundador de The Hub Lab. Lidera crecimiento, alianzas y expansión de mercado.",
+          "signal": "Escalamiento operativo, estrategia de crecimiento, ejecución en mercado de EE. UU."
+        },
+        "oscar": {
+          "name": "Oscar Merino",
+          "role": "Cofundador y CTO",
+          "bio": "Más de 12 años construyendo infraestructura de misión crítica. Lideró integraciones empresariales en Save the Children US. Dirige la arquitectura Web3 y los estándares técnicos institucionales de EQUITTY.",
+          "signal": "Sistemas de misión crítica, integraciones empresariales, infraestructura blockchain"
+        }
+      },
+      "advisors": {
+        "sigfredo": {
+          "name": "Sigfredo Figueroa",
+          "role": "Asesor",
+          "bio": "Fundador de LEXGLOBAL | Asesor legal de la Dirección de Energía de El Salvador | Asesor legal clave en la redacción de la Ley de Emisión de Activos Digitales (LEAD)"
+        },
+        "joseLuis": {
+          "name": "José Luis Ortiz",
+          "role": "Asesor",
+          "bio": "Fundador de TechyWe.com | Liderazgo en infraestructura tecnológica empresarial"
+        },
+        "erick": {
+          "name": "Erick Chacón",
+          "role": "Asesor",
+          "bio": "Fundador de PaySea | Presidente de ASAFINTECH | Liderazgo fintech en El Salvador"
+        },
+        "ricardo": {
+          "name": "Ricardo Granillo",
+          "role": "Asesor estratégico",
+          "bio": "Más de 30 años escalando mercados en LatAm | TACA, Bayer, GSK, TIGO | Red institucional y acceso sectorial"
+        }
+      }
     },
     "FeatureHighlight": {
       "eyebrow": "Destacado",
@@ -118,80 +219,83 @@
       "subtitle": "Oportunidades de activos reales respaldadas por blockchain con precios claros y liquidación instantánea."
     },
     "Testimonials": {
-      "eyebrow": "Con la confianza de +10K usuarios",
+      "eyebrow": "Construido para inversionistas serios",
       "title": "Invierte con confianza",
-      "subtitle": "Haz de Equitty tu portafolio completo: una plataforma segura para gestionar, crecer y maximizar tus activos."
+      "subtitle": "Haz de Equitty tu portafolio de activos reales: una plataforma para gestionar, crecer y seguir el rendimiento."
     },
     "Toast": {
       "welcomeTitle": "Bienvenido nuevo inversionista",
       "welcomeDescription": "Comienza tu camino con activos reales."
     },
     "Benefits": {
-      "eyebrow": "Por que Equitty",
-      "title": "Una entrada mas clara a los activos reales",
-      "subtitle": "La nueva pagina pone mas foco en confianza, velocidad y acceso sin cambiar como funciona el producto por dentro.",
+      "eyebrow": "Por qué Equitty",
+      "title": "Una forma más clara de entrar a activos reales",
+      "subtitle": "El marketplace muestra inventario, métricas y estado regulatorio antes de pedir una decisión de inversión.",
       "item1": {
-        "title": "Tokenizacion con enfoque pionero",
-        "description": "Una puerta de entrada mas clara para inversionistas interesados en participar en activos reales."
+        "title": "Marco CNAD, no letra pequeña",
+        "description": "El Salvador y el marco de activos digitales como contexto de producto, visible desde el primer pantallazo."
       },
       "item2": {
-        "title": "Experiencia de incorporacion mas rapida",
-        "description": "La interfaz ahora prioriza jerarquia visual, claridad y una mejor toma de decision."
+        "title": "Métricas de inversión a la vista",
+        "description": "TIR, plazo, liquidez, token, retorno y supply con la misma jerarquía que el marketplace."
       },
       "item3": {
-        "title": "Captura de datos del inversionista intacta",
-        "description": "Nacionalidad, correo y flujo de referido se mantienen mientras la interfaz se vuelve mas solida."
+        "title": "Fondeo y construcción con progreso real",
+        "description": "Barras duales para ver cuánto está construido y cuánto está fondeado, sin narrativa opaca."
       },
       "item4": {
-        "title": "Sistema visual con mayor recordacion",
-        "description": "El lenguaje visual se siente mas premium, mas intencional y mas cercano al diseno de referencia."
+        "title": "Participación diseñada desde $100",
+        "description": "Cuando las inversiones abran para inversionistas calificados, el ticket objetivo es accesible, no institucional-only."
       }
     },
     "FinalCta": {
-      "title": "¿Listo para tomar control de tu futuro?",
-      "subtitle": "Elige Equitty como tu portafolio unificado — infraestructura segura, acceso fluido y una plataforma diseñada para inversionistas serios.",
-      "cta": "Empieza ahora"
+      "eyebrow": "Siguiente paso",
+      "title": "Reserva tu lugar en el marketplace",
+      "subtitle": "Cuando las inversiones abran, vas a entrar a la misma Equitty que ya ves aquí: inventario, métricas y un flujo regulado.",
+      "cta": "Unirme a la lista",
+      "shotAlt": "Vista completa del marketplace de Equitty",
+      "caption": "Activos tokenizados · El Salvador"
     },
     "HowItWorks": {
       "eyebrow": "Proceso",
-      "title": "El mismo flujo de lista de espera, mejor presentado",
-      "subtitle": "Aqui solo cambia la interfaz. La validacion, el envio y el manejo de referidos siguen conectados a la implementacion existente.",
+      "title": "De la lista de espera al marketplace",
+      "subtitle": "El formulario no cambia por dentro. Cambia cómo se presenta el camino hacia invertir en activos reales.",
       "step1": {
-        "title": "Elige nacionalidad",
-        "description": "El catalogo actual de paises sigue conectado al formulario real y a su esquema de validacion."
+        "title": "Únete con tu nacionalidad",
+        "description": "El catálogo de países y la validación actuales siguen conectados al formulario real."
       },
       "step2": {
-        "title": "Ingresa tu correo",
-        "description": "El envio sigue pasando por la accion del servidor actual sin alterar el contrato del servidor."
+        "title": "Deja tu correo",
+        "description": "El envío pasa por la misma acción de servidor. Recibirás actualizaciones del lanzamiento."
       },
       "step3": {
-        "title": "Agrega referido si aplica",
-        "description": "La validacion del codigo de referido sigue disponible dentro del mismo formulario."
+        "title": "Código de referido, si aplica",
+        "description": "Si llegaste por invitación, el código es opcional y se valida en el mismo envío. No es un paso extra."
       },
       "step4": {
-        "title": "Entra a la lista",
-        "description": "Los dialogos de exito y error siguen usando la logica actual de la lista de espera y sus textos traducidos."
+        "title": "Espera el marketplace",
+        "description": "Cuando haya oferta, el producto que verás es el marketplace: propiedades, métricas e Invertir ahora."
       }
     },
     "Faq": {
       "eyebrow": "FAQ",
-      "title": "Que cambia y que no cambia",
-      "subtitle": "El rediseño mejora la experiencia de la landing manteniendo estable el comportamiento operativo.",
+      "title": "Preguntas de inversionistas",
+      "subtitle": "Transparencia de producto y de lista de espera, con el mismo tono del marketplace.",
       "item1": {
-        "question": "Cambia la logica de la lista de espera?",
-        "answer": "No. Se conservan la misma accion del servidor, reglas de validacion, manejo de referidos y flujos de exito o error."
+        "question": "¿Ya puedo invertir?",
+        "answer": "Todavía no. Equitty está en lista de espera. Unirte no es una oferta ni una solicitud de inversión. Las oportunidades se abrirán para inversionistas calificados."
       },
       "item2": {
-        "question": "Seguira funcionando el cambio de idioma?",
-        "answer": "Si. El nuevo diseno sigue usando el enrutamiento localizado actual y traducciones para espanol e ingles."
+        "question": "¿Esto es la misma plataforma Equitty?",
+        "answer": "Sí. El lenguaje visual y las capturas vienen del marketplace en producción: header, fichas de propiedad, métricas y CTAs de Invertir ahora."
       },
       "item3": {
-        "question": "Se elimino el campo de referido?",
-        "answer": "No. Sigue dentro del formulario y aparece cuando se activa la opcion de inversionista referido."
+        "question": "¿Sigue existiendo el código de referido?",
+        "answer": "Sí, pero es opcional. Si te invitaron, puedes pegarlo debajo del botón. Si llegas con un enlace de referido, el código se aplica solo."
       },
       "item4": {
-        "question": "Esto esta basado en el diseno de newDesign/EQ-main?",
-        "answer": "Si. La nueva composicion, la jerarquia, el tratamiento de tarjetas y los efectos visuales se adaptaron de esa referencia al proyecto real."
+        "question": "¿Bajo qué regulación opera?",
+        "answer": "La plataforma está diseñada para El Salvador y el marco CNAD. La licencia DASP está en proceso; las emisiones serán privadas y para inversionistas calificados."
       }
     },
     "Dialog": {

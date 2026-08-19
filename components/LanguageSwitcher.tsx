@@ -25,13 +25,13 @@ function LanguageItem({
       aria-label={code === 'en' ? 'Switch to English' : 'Cambiar a Espanol'}
       aria-current={isActive ? 'page' : undefined}
       className={`relative z-10 rounded-full px-3 py-1 text-[11px] font-bold tracking-widest transition-colors ${
-        isActive ? 'text-[#050A14]' : 'text-slate-400 hover:text-white'
+        isActive ? 'text-[#09080d]' : 'text-eq-muted hover:text-eq-ink'
       }`}
     >
       {isActive && (
         <motion.div
           layoutId="activeLang"
-          className="absolute inset-0 rounded-full bg-[#00B4C4] shadow-[0_0_10px_rgba(0,180,196,0.35)]"
+          className="absolute inset-0 rounded-full bg-eq-brand"
           transition={{ duration: 0.25, ease: 'easeInOut' }}
         />
       )}
@@ -54,7 +54,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="relative flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-md">
+    <div className="relative flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
       <LanguageItem code="es" locale={locale} href={getLocalizedPath('es')} />
       <LanguageItem code="en" locale={locale} href={getLocalizedPath('en')} />
     </div>

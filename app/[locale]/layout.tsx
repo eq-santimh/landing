@@ -13,6 +13,7 @@ import { Toaster } from '@/components/ui/sonner';
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  themeColor: '#09080d',
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://equitty.vercel.app';
@@ -42,7 +43,7 @@ export async function generateMetadata({
       url: `${BASE_URL}/${locale}`,
       images: [
         {
-          url: '/Equitty_logo_blue_background.png',
+          url: '/product/marketplace-home.webp',
           width: 1200,
           height: 630,
           alt: t('title'),
@@ -54,7 +55,7 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
       creator: '@equitty',
-      images: ['/Equitty_logo_blue_background.png'],
+      images: ['/product/marketplace-home.webp'],
     },
     alternates: {
       languages: {
@@ -76,7 +77,7 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
     notFound();
   }
   return (
-    <html lang={locale} className="dark bg-[#08070E]">
+    <html lang={locale} className="dark bg-eq-canvas">
       <head>
         <link
           rel="preload"
@@ -92,13 +93,12 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
           type="font/woff2"
           crossOrigin=""
         />
-        <link rel="preload" href="/background.mp4" as="video" type="video/mp4" />
-        <link rel="dns-prefetch" href="//vercel.com" />
       </head>
-      <body className={`${alexandria.variable} ${newBlack.variable} min-h-dvh bg-[#08070E] font-sans antialiased`}>
+      <body className={`${alexandria.variable} ${newBlack.variable} min-h-dvh bg-eq-canvas font-sans antialiased`}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <SileoToaster />
         <Toaster
+          theme="dark"
           position="top-center"
           toastOptions={{
             className: 'w-[calc(100vw-1rem)] max-w-none mx-auto',
