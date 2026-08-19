@@ -11,16 +11,21 @@
     "hero_title_highlight": "real-world assets",
     "hero_title_end": "",
     "headline": "The marketplace for tokenized real-world assets",
-    "subhead": "The same Equitty platform that already runs the marketplace: hospitality, residential, energy, and infrastructure with clear IRR, funding, and liquidity data. You can reserve your seat today. Investments will open for qualified investors.",
+    "subhead": "The same Equitty platform that already runs the marketplace: tokenized inventory with clear IRR, funding, and liquidity data in a flow designed for qualified investors. You can reserve your seat today. Investments are not open yet.",
     "productShotAlt": "Equitty marketplace with tokenized properties, category filters, and investment metrics",
     "Form": {
       "cardEyebrow": "Early access",
       "cardTitle": "Join the waitlist",
-      "cardDescription": "Register with your email and nationality. If you were invited, keep your referral code in the same flow.",
+      "cardDescription": "Leave your email and nationality. We will notify you when investments open for qualified investors.",
+      "emailLabel": "Email address",
       "emailPlaceholder": "Enter your email",
+      "nationalityLabel": "Nationality",
       "nationalityPlaceholder": "Nationality",
       "wasReferredLabel": "I was referred by another future investor",
-      "referralCodePlaceholder": "Enter the referral code",
+      "referralOptionalLabel": "Referral code (optional)",
+      "referralApplied": "Invite applied: {code}",
+      "clearReferral": "Remove referral code",
+      "referralCodePlaceholder": "If you were invited, paste it here",
       "button": "Join the waitlist",
       "microcopy": "Joining is not an investment offer. Unsubscribe anytime.",
       "Validation": {
@@ -72,22 +77,22 @@
     "Navigation": {
       "cta": "Join",
       "product": "Platform",
-      "assets": "Assets",
+      "team": "Team",
       "process": "Process",
       "faq": "FAQ"
     },
     "Trust": {
       "cnad": "Designed under CNAD regulation",
       "salvador": "Tokenized assets · El Salvador",
-      "assets": "Hospitality, residential, commercial, energy, and infrastructure"
+      "team": "Founders and advisors with institutional track records"
     },
     "Stats": {
       "minTicket": "Target participation at launch",
       "minTicketValue": "From $100",
       "market": "Projected global RWA market by 2030",
       "marketValue": "$16T",
-      "classes": "Marketplace asset classes",
-      "classesValue": "5"
+      "team": "Founding team and advisory panel",
+      "teamValue": "8 leaders"
     },
     "Product": {
       "eyebrow": "The platform",
@@ -97,7 +102,7 @@
       "point1": {
         "label": "Inventory",
         "title": "Properties with photo, location, and category",
-        "description": "Hospitality, residential, commercial, energy, and infrastructure, with tags and states such as private sale."
+        "description": "Each opportunity is presented as a product card: photo, location, status, and context, without previewing the pipeline."
       },
       "point2": {
         "label": "Data",
@@ -110,45 +115,64 @@
         "description": "Dual progress bars and regulatory copy so the experience feels institutional, not neon crypto."
       }
     },
-    "Assets": {
-      "eyebrow": "Asset classes",
-      "title": "One marketplace, five entry points",
-      "subtitle": "The same filters as the product. Opportunities will open for qualified investors when licensing allows.",
-      "filters": {
-        "all": "All",
-        "hospitality": "Hospitality",
-        "residential": "Residential",
-        "commercial": "Commercial",
-        "energy": "Energy",
-        "infra": "Infrastructure"
+    "Team": {
+      "eyebrow": "Who is behind this",
+      "title": "Built by operators. Governed by leaders.",
+      "subtitle": "EQUITTY is being built by a cross-border team of fintech founders, capital strategists, legal architects, and technology leaders—with an advisory panel designed for institutional credibility.",
+      "missionTitle": "Mission",
+      "whyTitle": "Why we exist",
+      "missionText": "To connect U.S. and global capital to real-world assets across Latin America—through a compliant, transparent, and scalable platform that opens access for both qualified retail and institutional investors.",
+      "whyText": "Capital exists. Assets exist. The regulated infrastructure connecting them does not. EQUITTY is closing that gap—starting in El Salvador, scaling across Latin America.",
+      "foundingTitle": "Founding team",
+      "boardTitle": "Advisory panel",
+      "boardIntro": "EQUITTY is supported by an advisory panel with institutional standards from day one. It provides strategic oversight, sector expertise, and credibility with regulators and investors alike.",
+      "members": {
+        "martin": {
+          "name": "Martín Cruz",
+          "role": "Founder & CEO",
+          "bio": "25+ years scaling businesses across Texas and El Salvador. Bitcoin advocate and tokenization pioneer leading EQUITTY's vision, regulatory strategy, and DASP licensing.",
+          "signal": "U.S.–LatAm market development, blockchain adoption, founder-led execution"
+        },
+        "jose": {
+          "name": "José Landaverde",
+          "role": "Co-Founder & CFO",
+          "bio": "CPA with more than 20 years of experience in auditing and financial consulting at organizations in the U.S. and El Salvador. With experience in real estate and investor relations, he currently leads investment strategy and financial planning.",
+          "signal": "Financial audit and consulting, investment strategy, financial planning"
+        },
+        "mario": {
+          "name": "Mario Meléndez",
+          "role": "Co-Founder & COO",
+          "bio": "15+ years in operations and performance marketing for U.S. markets. Founder of The Hub Lab. Leads EQUITTY's growth engine, partnerships, and market expansion.",
+          "signal": "Operations scale-up, growth strategy, U.S. market execution"
+        },
+        "oscar": {
+          "name": "Oscar Merino",
+          "role": "Co-Founder & CTO",
+          "bio": "12+ years building mission-critical infrastructure. Led enterprise technology integrations at Save the Children US. Drives EQUITTY's Web3 architecture and institutional-grade technical standards.",
+          "signal": "Mission-critical systems, enterprise integrations, blockchain infrastructure"
+        }
       },
-      "hospitality": {
-        "title": "Hospitality assets",
-        "description": "Fractional participation in hospitality projects with visible funding and return data."
-      },
-      "residential": {
-        "title": "Residential",
-        "description": "Tokenized housing inventory, presented with the same marketplace card."
-      },
-      "commercial": {
-        "title": "Commercial and offices",
-        "description": "Towers, retail, and productive space with token, supply, and liquidity metrics."
-      },
-      "energy": {
-        "title": "Energy",
-        "description": "Generation and energy infrastructure projects prepared for private issuance."
-      },
-      "infra": {
-        "title": "Infrastructure",
-        "description": "Long-horizon assets connecting diaspora capital with real projects in the region."
-      },
-      "metrics": {
-        "access": "Ticket",
-        "accessValue": "$100",
-        "structure": "Structure",
-        "structureValue": "Token",
-        "status": "Status",
-        "statusValue": "Waitlist"
+      "advisors": {
+        "sigfredo": {
+          "name": "Sigfredo Figueroa",
+          "role": "Advisor",
+          "bio": "Founder of LEXGLOBAL | Legal advisor, El Salvador Energy Directorate | Key legal advisor in drafting the Law on the Issuance of Digital Assets (LEAD)"
+        },
+        "joseLuis": {
+          "name": "José Luis Ortiz",
+          "role": "Advisor",
+          "bio": "Founder of TechyWe.com | Technology infrastructure and enterprise leadership"
+        },
+        "erick": {
+          "name": "Erick Chacón",
+          "role": "Advisor",
+          "bio": "Founder of PaySea | President at ASAFINTECH | FinTech industry leadership in El Salvador"
+        },
+        "ricardo": {
+          "name": "Ricardo Granillo",
+          "role": "Strategic advisor",
+          "bio": "30+ years scaling markets across LatAm | TACA, Bayer, GSK, TIGO | Institutional network and sector access"
+        }
       }
     },
     "FeatureHighlight": {
@@ -199,8 +223,8 @@
         "description": "Submission still goes through the same server action. You will get launch updates."
       },
       "step3": {
-        "title": "Add a referral if needed",
-        "description": "Referral codes are still validated inside the same form."
+        "title": "Referral code, if you have one",
+        "description": "If you were invited, the code is optional and validated in the same submission. It is not an extra step."
       },
       "step4": {
         "title": "Wait for the marketplace",
@@ -225,11 +249,11 @@
       },
       "item2": {
         "question": "Is this the same Equitty platform?",
-        "answer": "Yes. The visual language, asset classes, and screenshots come from the production marketplace: header, cards, filters, and Invest now CTAs."
+        "answer": "Yes. The visual language and screenshots come from the production marketplace: header, property cards, metrics, and Invest now CTAs."
       },
       "item3": {
         "question": "Is the referral code still there?",
-        "answer": "Yes. Enable the referred-investor option in the form and the code is validated with the same logic as before."
+        "answer": "Yes, but it is optional. If you were invited, you can paste it below the button. If you arrive with a referral link, the code is applied for you."
       },
       "item4": {
         "question": "What regulation does this sit under?",

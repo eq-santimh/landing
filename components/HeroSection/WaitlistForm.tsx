@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useMemo, useState, useTransition } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useLocale, useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { addEmailToWaitlist } from '@/app/[locale]/actions';
 import CustomDialog from '@/components/CustomDialog';
@@ -12,12 +13,16 @@ import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 import { countries } from '@/lib/countries';
 import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type WaitlistFormProps = {
   tone?: 'light' | 'dark';
 };
+
+function sanitizeReferral(value: string) {
+  return value.replace(/[^a-zA-Z0-9]/g, '').slice(0, 12);
+}
 
 export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
   const [isPending, startTransition] = useTransition();
@@ -25,6 +30,7 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
   const [dialogTitle, setDialogTitle] = useState('');
   const [dialogMessage, setDialogMessage] = useState('');
   const isDark = tone === 'dark';
+  const searchParams = useSearchParams();
 
   const tForm = useTranslations('HomePage.Form');
   const tValidation = useTranslations('HomePage.Form.Validation');
@@ -41,21 +47,27 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
     );
   }, []);
 
+  const presetReferral = useMemo(() => {
+    const raw = searchParams.get('ref') ?? searchParams.get('referral') ?? '';
+    return sanitizeReferral(raw);
+  }, [searchParams]);
+
   const form = useForm<registryForm>({
     defaultValues: {
       email: '',
       nationality: defaultNationality || '',
-      wasReferred: false,
-      referralCode: '',
+      wasReferred: Boolean(presetReferral),
+      referralCode: presetReferral,
     },
     mode: 'onSubmit',
   });
 
-  const wasReferred = useWatch({
-    control: form.control,
-    name: 'wasReferred',
-    defaultValue: false,
-  });
+  useEffect(() => {
+    if (presetReferral) {
+      form.setValue('wasReferred', true);
+      form.setValue('referralCode', presetReferral);
+    }
+  }, [form, presetReferral]);
 
   useEffect(() => {
     if (defaultNationality && !form.getValues('nationality')) {
@@ -63,17 +75,15 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
     }
   }, [defaultNationality, form]);
 
-  useEffect(() => {
-    if (!wasReferred) {
-      form.setValue('referralCode', '');
-      form.clearErrors('referralCode');
-    }
-  }, [form, wasReferred]);
-
   function onSubmit(data: registryForm) {
     startTransition(async () => {
       form.clearErrors();
-      const parsed = registrySchema.safeParse(data);
+      const referralCode = sanitizeReferral(data.referralCode ?? '');
+      const parsed = registrySchema.safeParse({
+        ...data,
+        referralCode,
+        wasReferred: Boolean(referralCode),
+      });
 
       if (!parsed.success) {
         for (const issue of parsed.error.issues) {
@@ -118,35 +128,47 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
     });
   }
 
-  const labelNationality = locale === 'es' ? 'NACIONALIDAD' : 'NATIONALITY';
-  const labelEmail = locale === 'es' ? 'CORREO ELECTRONICO *' : 'EMAIL ADDRESS *';
-  const labelReferral = locale === 'es' ? 'CODIGO DE REFERIDO' : 'REFERRAL CODE';
   const fieldBase = cn(
     'h-12 w-full rounded-[10px] px-4 py-3 text-sm outline-none transition-all duration-200',
-    isDark ? 'dark-eq-input' : 'eq-input'
+    isDark ? 'dark-eq-input' : 'eq-input',
+  );
+  const quietField = cn(
+    'h-10 w-full rounded-[10px] px-4 py-2 text-sm outline-none transition-all duration-200',
+    isDark
+      ? 'border border-white/10 bg-transparent text-white/80 placeholder:text-white/35'
+      : 'border border-eq-line bg-transparent text-eq-ink placeholder:text-eq-muted',
   );
 
   return (
     <>
-      <div className={cn('rounded-2xl border p-5 sm:p-6', isDark ? 'border-white/10 bg-white/5' : 'border-eq-line bg-white shadow-[0_2px_8px_rgba(9,8,13,0.06)]')}>
+      <div
+        className={cn(
+          'rounded-2xl border p-5 sm:p-6',
+          isDark ? 'border-white/10 bg-white/5' : 'border-eq-line bg-white shadow-[0_2px_8px_rgba(9,8,13,0.06)]',
+        )}
+      >
         <p className="eq-text-small text-eq-brand">{tForm('cardEyebrow')}</p>
         <h2 className={cn('mt-2 text-xl font-semibold', isDark ? 'text-white' : 'text-eq-ink')}>{tForm('cardTitle')}</h2>
         <p className={cn('mt-1 mb-5 text-sm', isDark ? 'text-[#d7cfc7]' : 'text-eq-muted')}>{tForm('cardDescription')}</p>
 
         <Form {...form}>
-          <form className="w-full space-y-4" onSubmit={form.handleSubmit(onSubmit)} aria-label="Join waitlist form">
+          <form className="w-full space-y-3.5" onSubmit={form.handleSubmit(onSubmit)} aria-label="Join waitlist form">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem>
+                  <label htmlFor="waitlist-email" className={cn('eq-text-small', isDark ? 'text-white/55' : 'text-eq-muted')}>
+                    {tForm('emailLabel')}
+                  </label>
                   <FormControl>
                     <Input
                       {...field}
+                      id="waitlist-email"
                       type="email"
                       placeholder={tForm('emailPlaceholder')}
                       className={fieldBase}
-                      aria-label={labelEmail}
+                      aria-label={tForm('emailLabel')}
                       aria-describedby="email-error"
                       autoComplete="email"
                       required
@@ -162,12 +184,16 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
               name="nationality"
               render={({ field }) => (
                 <FormItem>
+                  <label htmlFor="waitlist-nationality" className={cn('eq-text-small', isDark ? 'text-white/55' : 'text-eq-muted')}>
+                    {tForm('nationalityLabel')}
+                  </label>
                   <FormControl>
                     <div className="relative">
                       <select
                         {...field}
+                        id="waitlist-nationality"
                         className={`${fieldBase} appearance-none pr-12`}
-                        aria-label={labelNationality}
+                        aria-label={tForm('nationalityLabel')}
                         aria-describedby="nationality-error"
                         required
                       >
@@ -187,7 +213,7 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
                       <svg
                         className={cn(
                           'pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2',
-                          isDark ? 'text-white/50' : 'text-eq-muted'
+                          isDark ? 'text-white/50' : 'text-eq-muted',
                         )}
                         fill="none"
                         stroke="currentColor"
@@ -203,53 +229,6 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="wasReferred"
-              render={({ field }) => (
-                <FormItem>
-                  <label
-                    className={cn(
-                      'flex cursor-pointer items-start gap-3 rounded-[10px] border px-4 py-3 text-sm',
-                      isDark ? 'border-white/10 bg-white/5 text-white/85' : 'border-eq-line bg-eq-canvas text-eq-ink'
-                    )}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={field.value}
-                      onChange={(event) => field.onChange(event.target.checked)}
-                      className="mt-0.5 h-4 w-4 rounded border-eq-line accent-[#00B4C4]"
-                    />
-                    <span>{tForm('wasReferredLabel')}</span>
-                  </label>
-                </FormItem>
-              )}
-            />
-
-            {wasReferred ? (
-              <FormField
-                control={form.control}
-                name="referralCode"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        type="text"
-                        placeholder={tForm('referralCodePlaceholder')}
-                        className={`${fieldBase} uppercase`}
-                        aria-label={labelReferral}
-                        aria-describedby="referral-code-error"
-                        autoComplete="off"
-                        maxLength={12}
-                      />
-                    </FormControl>
-                    <FormMessage className="text-left text-xs" id="referral-code-error" />
-                  </FormItem>
-                )}
-              />
-            ) : null}
-
             <Button
               className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-eq-brand font-semibold text-white shadow-none transition hover:bg-eq-brand-strong"
               type="submit"
@@ -262,6 +241,69 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Button>
+
+            <FormField
+              control={form.control}
+              name="referralCode"
+              render={({ field }) => {
+                const applied = Boolean(presetReferral && field.value === presetReferral);
+                return (
+                  <FormItem className="pt-1">
+                    {applied ? (
+                      <div
+                        className={cn(
+                          'flex items-center justify-between gap-3 rounded-xl border px-3 py-2',
+                          isDark ? 'border-eq-brand/25 bg-eq-brand/10' : 'border-eq-brand/20 bg-eq-brand/5',
+                        )}
+                      >
+                        <p className={cn('text-xs', isDark ? 'text-white/80' : 'text-eq-ink')}>
+                          {tForm('referralApplied', { code: presetReferral })}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            field.onChange('');
+                            form.setValue('wasReferred', false);
+                          }}
+                          className={cn(
+                            'rounded-full p-1 transition',
+                            isDark ? 'text-white/50 hover:text-white' : 'text-eq-muted hover:text-eq-ink',
+                          )}
+                          aria-label={tForm('clearReferral')}
+                        >
+                          <X className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <label
+                          htmlFor="waitlist-referral"
+                          className={cn('text-[11px] font-medium tracking-wide', isDark ? 'text-white/40' : 'text-eq-muted')}
+                        >
+                          {tForm('referralOptionalLabel')}
+                        </label>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            id="waitlist-referral"
+                            type="text"
+                            value={field.value ?? ''}
+                            onChange={(event) => field.onChange(sanitizeReferral(event.target.value))}
+                            placeholder={tForm('referralCodePlaceholder')}
+                            className={`${quietField} uppercase`}
+                            aria-label={tForm('referralOptionalLabel')}
+                            aria-describedby="referral-code-error"
+                            autoComplete="off"
+                            maxLength={12}
+                          />
+                        </FormControl>
+                      </>
+                    )}
+                    <FormMessage className="text-left text-xs" id="referral-code-error" />
+                  </FormItem>
+                );
+              }}
+            />
 
             <p className={cn('text-center text-xs', isDark ? 'text-white/50' : 'text-eq-muted')}>{tForm('microcopy')}</p>
           </form>

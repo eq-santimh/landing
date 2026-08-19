@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useTranslations } from 'next-intl';
 import ComingSoonBadge from '@/components/landing/ComingSoonBadge';
 import ProductFrame from '@/components/landing/ProductFrame';
@@ -21,7 +22,9 @@ export default function Hero() {
           </h1>
           <p className="eq-text-body mt-5 max-w-lg text-eq-muted">{t('subhead')}</p>
           <div id="espera" className="mt-8">
-            <WaitlistForm tone="dark" />
+            <Suspense fallback={<div className="h-[320px] rounded-2xl border border-white/10 bg-white/5" />}>
+              <WaitlistForm tone="dark" />
+            </Suspense>
           </div>
         </div>
 

@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 const ITEMS = [
   { valueKey: 'minTicketValue', descriptionKey: 'minTicket' },
   { valueKey: 'marketValue', descriptionKey: 'market' },
-  { valueKey: 'classesValue', descriptionKey: 'classes' },
+  { valueKey: 'teamValue', descriptionKey: 'team' },
 ] as const;
 
 export default function StatsSection() {

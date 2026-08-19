@@ -6,7 +6,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const NAV = [
   { href: '#producto', key: 'product' },
-  { href: '#activos', key: 'assets' },
+  { href: '#equipo', key: 'team' },
   { href: '#proceso', key: 'process' },
   { href: '#faq', key: 'faq' },
 ] as const;

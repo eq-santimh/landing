@@ -1,6 +1,6 @@
 'use client';
 
-import { Building2, Landmark, ShieldCheck } from 'lucide-react';
+import { Landmark, ShieldCheck, Users } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export default function TrustBar() {
@@ -8,7 +8,7 @@ export default function TrustBar() {
   const items = [
     { icon: ShieldCheck, label: t('cnad') },
     { icon: Landmark, label: t('salvador') },
-    { icon: Building2, label: t('assets') },
+    { icon: Users, label: t('team') },
   ];
 
   return (

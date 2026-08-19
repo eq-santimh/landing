@@ -11,16 +11,21 @@
     "hero_title_highlight": "activos reales",
     "hero_title_end": "",
     "headline": "El marketplace de activos reales tokenizados",
-    "subhead": "La misma plataforma Equitty que ya opera el marketplace: propiedades, hotelería, energía e infraestructura con datos claros de TIR, fondeo y liquidez. Hoy puedes reservar tu lugar. Las inversiones se abrirán para inversionistas calificados.",
+    "subhead": "La misma plataforma Equitty que ya opera el marketplace: inventario tokenizado, métricas de TIR, fondeo y liquidez en un flujo diseñado para inversionistas calificados. Hoy puedes reservar tu lugar. Las inversiones aún no están abiertas.",
     "productShotAlt": "Marketplace de Equitty con propiedades tokenizadas, filtros de categoría y métricas de inversión",
     "Form": {
       "cardEyebrow": "Acceso anticipado",
       "cardTitle": "Únete a la lista de espera",
-      "cardDescription": "Registra tu correo y nacionalidad. Si llegaste por invitación, el código de referido entra en el mismo flujo.",
+      "cardDescription": "Deja tu correo y nacionalidad. Te avisaremos cuando las inversiones abran para inversionistas calificados.",
+      "emailLabel": "Correo electrónico",
       "emailPlaceholder": "Ingresa tu correo",
+      "nationalityLabel": "Nacionalidad",
       "nationalityPlaceholder": "Nacionalidad",
       "wasReferredLabel": "Fui referido por otro inversionista futuro",
-      "referralCodePlaceholder": "Ingresa el código de referido",
+      "referralOptionalLabel": "Código de referido (opcional)",
+      "referralApplied": "Invitación aplicada: {code}",
+      "clearReferral": "Quitar código de referido",
+      "referralCodePlaceholder": "Si te invitaron, pégalo aquí",
       "button": "Unirme a la lista",
       "microcopy": "Unirte no es una oferta de inversión. Puedes darte de baja cuando quieras.",
       "Validation": {
@@ -72,22 +77,22 @@
     "Navigation": {
       "cta": "Unirme",
       "product": "Plataforma",
-      "assets": "Activos",
+      "team": "Equipo",
       "process": "Proceso",
       "faq": "FAQ"
     },
     "Trust": {
       "cnad": "Diseñada bajo regulación CNAD",
       "salvador": "Activos tokenizados · El Salvador",
-      "assets": "Hotelería, residencial, comercial, energía e infraestructura"
+      "team": "Fundadores y mesa de asesores con trayectoria institucional"
     },
     "Stats": {
       "minTicket": "Participación objetivo al lanzamiento",
       "minTicketValue": "Desde $100",
       "market": "Mercado global de RWA a 2030",
       "marketValue": "$16T",
-      "classes": "Clases de activo en marketplace",
-      "classesValue": "5"
+      "team": "Equipo fundador y mesa de asesores",
+      "teamValue": "8 líderes"
     },
     "Product": {
       "eyebrow": "La plataforma",
@@ -97,7 +102,7 @@
       "point1": {
         "label": "Inventario",
         "title": "Propiedades con foto, ubicación y categoría",
-        "description": "Hotelería, residencial, comercial, energía e infraestructura, con tags y estados como venta privada."
+        "description": "Cada oportunidad se presenta como ficha de producto: foto, ubicación, estado y contexto, sin adelantar el pipeline."
       },
       "point2": {
         "label": "Datos",
@@ -110,45 +115,64 @@
         "description": "Barras duales y copy regulatorio para que la experiencia se sienta institucional, no de crypto neon."
       }
     },
-    "Assets": {
-      "eyebrow": "Clases de activo",
-      "title": "Un marketplace, cinco puertas de entrada",
-      "subtitle": "Los mismos filtros del producto. Las oportunidades se abrirán para inversionistas calificados cuando la licencia lo permita.",
-      "filters": {
-        "all": "Todas",
-        "hospitality": "Hotelería",
-        "residential": "Residencial",
-        "commercial": "Comercial",
-        "energy": "Energía",
-        "infra": "Infraestructura"
+    "Team": {
+      "eyebrow": "Quiénes estamos detrás",
+      "title": "Construido por operadores. Gobernado por líderes.",
+      "subtitle": "EQUITTY lo construye un equipo transfronterizo de fundadores fintech, estrategas de capital, arquitectos legales y líderes de tecnología, con una mesa de asesores diseñada para credibilidad institucional.",
+      "missionTitle": "Misión",
+      "whyTitle": "Por qué existimos",
+      "missionText": "Conectar capital de EE. UU. y global con activos reales en América Latina mediante una plataforma en cumplimiento, transparente y escalable que abre el acceso a inversionistas calificados retail e institucionales.",
+      "whyText": "El capital existe. Los activos existen. La infraestructura regulada que los conecta, no. EQUITTY está cerrando esa brecha desde El Salvador y escalando por América Latina.",
+      "foundingTitle": "Equipo fundador",
+      "boardTitle": "Mesa de asesores",
+      "boardIntro": "EQUITTY se apoya en una mesa de asesores con estándares institucionales desde el día uno. Aporta supervisión estratégica, experiencia sectorial y credibilidad ante reguladores e inversionistas.",
+      "members": {
+        "martin": {
+          "name": "Martín Cruz",
+          "role": "Fundador y CEO",
+          "bio": "Más de 25 años escalando negocios entre Texas y El Salvador. Defensor de Bitcoin y pionero en tokenización; lidera la visión, la estrategia regulatoria y el licenciamiento DASP de EQUITTY.",
+          "signal": "Desarrollo de mercado EE. UU.–LatAm, adopción blockchain, ejecución de fundador"
+        },
+        "jose": {
+          "name": "José Landaverde",
+          "role": "Cofundador y CFO",
+          "bio": "CPA, con más de 20 años de experiencia en auditoría y consultoría financiera en organizaciones de EE.UU. y El Salvador. Con experiencia en el sector inmobiliario y atención a inversionistas, actualmente lidera la estrategia de inversión y planeación financiera.",
+          "signal": "Auditoría y consultoría financiera, estrategia de inversión, planeación financiera"
+        },
+        "mario": {
+          "name": "Mario Meléndez",
+          "role": "Cofundador y COO",
+          "bio": "Más de 15 años en operaciones y marketing de desempeño para mercados de EE. UU. Fundador de The Hub Lab. Lidera crecimiento, alianzas y expansión de mercado.",
+          "signal": "Escalamiento operativo, estrategia de crecimiento, ejecución en mercado de EE. UU."
+        },
+        "oscar": {
+          "name": "Oscar Merino",
+          "role": "Cofundador y CTO",
+          "bio": "Más de 12 años construyendo infraestructura de misión crítica. Lideró integraciones empresariales en Save the Children US. Dirige la arquitectura Web3 y los estándares técnicos institucionales de EQUITTY.",
+          "signal": "Sistemas de misión crítica, integraciones empresariales, infraestructura blockchain"
+        }
       },
-      "hospitality": {
-        "title": "Activos hoteleros",
-        "description": "Participación fraccionada en proyectos de hospitalidad con visibilidad de fondeo y retorno."
-      },
-      "residential": {
-        "title": "Residencial",
-        "description": "Vivienda e inventario residencial tokenizado, presentado con la misma ficha del marketplace."
-      },
-      "commercial": {
-        "title": "Comercial y oficinas",
-        "description": "Torres, retail y espacios productivos con métricas de token, supply y liquidez."
-      },
-      "energy": {
-        "title": "Energía",
-        "description": "Proyectos de generación e infraestructura energética listos para una emisión privada."
-      },
-      "infra": {
-        "title": "Infraestructura",
-        "description": "Activos de largo plazo para conectar capital de la diáspora con obras reales en la región."
-      },
-      "metrics": {
-        "access": "Ticket",
-        "accessValue": "$100",
-        "structure": "Estructura",
-        "structureValue": "Token",
-        "status": "Estado",
-        "statusValue": "Lista de espera"
+      "advisors": {
+        "sigfredo": {
+          "name": "Sigfredo Figueroa",
+          "role": "Asesor",
+          "bio": "Fundador de LEXGLOBAL | Asesor legal de la Dirección de Energía de El Salvador | Asesor legal clave en la redacción de la Ley de Emisión de Activos Digitales (LEAD)"
+        },
+        "joseLuis": {
+          "name": "José Luis Ortiz",
+          "role": "Asesor",
+          "bio": "Fundador de TechyWe.com | Liderazgo en infraestructura tecnológica empresarial"
+        },
+        "erick": {
+          "name": "Erick Chacón",
+          "role": "Asesor",
+          "bio": "Fundador de PaySea | Presidente de ASAFINTECH | Liderazgo fintech en El Salvador"
+        },
+        "ricardo": {
+          "name": "Ricardo Granillo",
+          "role": "Asesor estratégico",
+          "bio": "Más de 30 años escalando mercados en LatAm | TACA, Bayer, GSK, TIGO | Red institucional y acceso sectorial"
+        }
       }
     },
     "FeatureHighlight": {
@@ -207,8 +231,8 @@
         "description": "El envío pasa por la misma acción de servidor. Recibirás actualizaciones del lanzamiento."
       },
       "step3": {
-        "title": "Usa un referido si aplica",
-        "description": "El código de referido se valida dentro del mismo formulario, igual que hoy."
+        "title": "Código de referido, si aplica",
+        "description": "Si llegaste por invitación, el código es opcional y se valida en el mismo envío. No es un paso extra."
       },
       "step4": {
         "title": "Espera el marketplace",
@@ -225,11 +249,11 @@
       },
       "item2": {
         "question": "¿Esto es la misma plataforma Equitty?",
-        "answer": "Sí. El lenguaje visual, las clases de activo y las capturas vienen del marketplace en producción: header, cards, filtros y CTAs de Invertir ahora."
+        "answer": "Sí. El lenguaje visual y las capturas vienen del marketplace en producción: header, fichas de propiedad, métricas y CTAs de Invertir ahora."
       },
       "item3": {
         "question": "¿Sigue existiendo el código de referido?",
-        "answer": "Sí. Activa la opción de referido en el formulario y el código se valida con la misma lógica de siempre."
+        "answer": "Sí, pero es opcional. Si te invitaron, puedes pegarlo debajo del botón. Si llegas con un enlace de referido, el código se aplica solo."
       },
       "item4": {
         "question": "¿Bajo qué regulación opera?",

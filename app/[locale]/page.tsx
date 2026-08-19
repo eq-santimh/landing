@@ -1,4 +1,3 @@
-import AssetClasses from '@/components/landing/AssetClasses';
 import Benefits from '@/components/landing/Benefits';
 import Faq from '@/components/landing/Faq';
 import FinalCta from '@/components/landing/FinalCta';
@@ -8,6 +7,7 @@ import LandingFooter from '@/components/landing/LandingFooter';
 import LandingHeader from '@/components/landing/LandingHeader';
 import ProductPreview from '@/components/landing/ProductPreview';
 import StatsSection from '@/components/landing/StatsSection';
+import Team from '@/components/landing/Team';
 import TrustBar from '@/components/landing/TrustBar';
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <TrustBar />
         <StatsSection />
         <ProductPreview />
-        <AssetClasses />
+        <Team />
         <HowItWorks />
         <Benefits />
         <Faq />
