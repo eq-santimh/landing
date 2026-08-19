@@ -21,6 +21,9 @@ export default function Hero() {
             <span className="text-gradient">{t('hero_title_highlight')}</span>
           </h1>
           <p className="eq-text-body mt-5 max-w-lg text-eq-muted">{t('subhead')}</p>
+          <div className="mt-4">
+            <ComingSoonBadge label={t('applicationPendingBadge')} />
+          </div>
           <div id="espera" className="mt-8">
             <Suspense fallback={<div className="h-[320px] rounded-2xl border border-white/10 bg-white/5" />}>
               <WaitlistForm tone="dark" />
