@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 type TeamAvatarProps = {
   name: string;
   src?: string;
-  size?: 'md' | 'sm' | 'xs' | 'card';
+  size?: 'md' | 'sm' | 'xs' | 'card' | 'square';
   objectPosition?: string;
   className?: string;
 };
@@ -17,6 +17,7 @@ const sizeClasses = {
   sm: 'h-20 w-20 rounded-2xl sm:h-24 sm:w-24',
   xs: 'h-16 w-16 rounded-2xl sm:h-[4.5rem] sm:w-[4.5rem]',
   card: 'h-full w-full min-h-[6.25rem] rounded-2xl',
+  square: 'h-28 w-28 rounded-xl sm:h-32 sm:w-32',
 } as const;
 
 const sizePixels = {
@@ -24,6 +25,7 @@ const sizePixels = {
   sm: 96,
   xs: 72,
   card: 224,
+  square: 128,
 } as const;
 
 const initialsTextClasses = {
@@ -31,6 +33,7 @@ const initialsTextClasses = {
   sm: 'text-xl sm:text-2xl',
   xs: 'text-base sm:text-lg',
   card: 'text-2xl sm:text-3xl',
+  square: 'text-2xl',
 } as const;
 
 function getInitials(name: string) {
@@ -68,7 +71,7 @@ export default function TeamAvatar({
           alt={name}
           width={dimension}
           height={dimension}
-          sizes={size === 'card' ? '(min-width: 640px) 112px, 84px' : `${dimension}px`}
+          sizes={size === 'card' ? '(min-width: 640px) 112px, 84px' : size === 'square' ? '(min-width: 640px) 128px, 112px' : `${dimension}px`}
           onError={() => setErrored(true)}
           style={{ objectPosition }}
           className="h-full w-full object-cover transition-[filter,transform] duration-500 ease-out group-hover/card:scale-[1.04]"

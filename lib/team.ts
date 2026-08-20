@@ -20,5 +20,7 @@ export const teamPhotoPositions: Record<string, string> = {
   jose: 'center 15%',
   martin: 'center 15%',
   ricardo: 'center 18%',
-  mike: 'center 18%',
+  joseLuis: 'center 12%',
+  erick: 'center 18%',
+  mike: 'center 12%',
 };
