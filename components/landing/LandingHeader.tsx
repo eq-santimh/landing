@@ -6,8 +6,10 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const NAV = [
   { href: '#producto', key: 'product' },
+  { href: '/about', key: 'about' },
   { href: '#equipo', key: 'team' },
   { href: '#proceso', key: 'process' },
+  { href: '/regulatory', key: 'regulatory' },
   { href: '#faq', key: 'faq' },
 ] as const;
 
@@ -38,7 +40,7 @@ export default function LandingHeader() {
           />
         </a>
 
-        <nav className="hidden items-center gap-7 text-sm font-medium text-eq-muted lg:flex">
+        <nav className="hidden items-center gap-5 text-[13px] font-medium text-eq-muted lg:flex xl:gap-7 xl:text-sm">
           {NAV.map((item) => (
             <a key={item.href} href={`${home}${item.href}`} className="transition-colors hover:text-eq-ink">
               {t(item.key)}

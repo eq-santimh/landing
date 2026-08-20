@@ -16,7 +16,10 @@ export const viewport: Viewport = {
   themeColor: '#09080d',
 };
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://equitty.vercel.app';
+const BASE_URL = (
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://equitty.vercel.app')
+).replace(/\/$/, '');
 
 export async function generateMetadata({
   params,
@@ -27,6 +30,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return {
+    metadataBase: new URL(BASE_URL),
     title: t('title'),
     description: t('description'),
     keywords: t('keywords')

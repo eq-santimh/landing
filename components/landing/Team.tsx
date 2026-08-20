@@ -3,30 +3,7 @@
 import { useTranslations } from 'next-intl';
 import SectionHeading from '@/components/landing/SectionHeading';
 import TeamMemberCard from '@/components/landing/TeamMemberCard';
-
-const TEAM_SLUGS = ['martin', 'jose', 'mario', 'oscar'] as const;
-const BOARD_SLUGS = ['sigfredo', 'joseLuis', 'erick', 'ricardo'] as const;
-
-const teamPhotos: Record<string, string | undefined> = {
-  martin: '/team/martin.webp',
-  jose: '/team/jose.webp',
-  mario: '/team/mario.webp',
-  oscar: '/team/oscar.webp',
-};
-
-const teamPhotoPositions: Record<string, string> = {
-  oscar: 'center 10%',
-  jose: 'center 15%',
-  martin: 'center 15%',
-  ricardo: 'center 18%',
-};
-
-const boardPhotos: Record<string, string | undefined> = {
-  sigfredo: '/team/sigfredo.webp',
-  joseLuis: '/team/joseLuis.webp',
-  erick: '/team/erick.webp',
-  ricardo: '/team/ricardo.webp',
-};
+import { BOARD_SLUGS, TEAM_SLUGS, boardPhotos, teamPhotoPositions, teamPhotos } from '@/lib/team';
 
 export default function Team() {
   const t = useTranslations('HomePage.Team');

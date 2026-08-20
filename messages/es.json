@@ -99,7 +99,11 @@
           }
         ],
         "footer": ""
-      }
+      },
+      "siteAbout": "Nosotros",
+      "sitePlatform": "Plataforma",
+      "siteRegulatory": "Cumplimiento",
+      "siteUpdates": "Blog"
     },
     "Unsubscribe": {
       "eyebrow": "Administra tu lugar",
@@ -116,7 +120,11 @@
       "product": "Plataforma",
       "team": "Equipo",
       "process": "Proceso",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "about": "Nosotros",
+      "platform": "Plataforma",
+      "regulatory": "Cumplimiento",
+      "updates": "Blog"
     },
     "Trust": {
       "cnad": "Diseñada bajo regulación CNAD",
@@ -191,11 +199,6 @@
         }
       },
       "advisors": {
-        "sigfredo": {
-          "name": "Sigfredo Figueroa",
-          "role": "Asesor",
-          "bio": "Fundador de LEXGLOBAL | Asesor legal de la Dirección de Energía de El Salvador | Asesor legal clave en la redacción de la Ley de Emisión de Activos Digitales (LEAD)"
-        },
         "joseLuis": {
           "name": "José Luis Ortiz",
           "role": "Asesor",
@@ -208,8 +211,13 @@
         },
         "ricardo": {
           "name": "Ricardo Granillo",
-          "role": "Asesor estratégico",
+          "role": "Miembro de la mesa de asesores",
           "bio": "Más de 30 años escalando mercados en LatAm | TACA, Bayer, GSK, TIGO | Red institucional y acceso sectorial"
+        },
+        "mike": {
+          "name": "Mike Angel",
+          "role": "Miembro de la mesa de asesores",
+          "bio": "Relaciones globales con inversionistas y alianzas estratégicas"
         }
       }
     },
@@ -300,6 +308,168 @@
     },
     "Dialog": {
       "confirmButton": "Confirmar"
+    }
+  },
+  "SiteNav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "platform": "Plataforma",
+    "regulatory": "Cumplimiento",
+    "updates": "Blog",
+    "primaryCta": "Sigue nuestro progreso",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú de navegación"
+  },
+  "Common": {
+    "daspStatus": "Licencia DASP: solicitud pendiente — CNAD, El Salvador",
+    "platformStatus": "Plataforma: en desarrollo",
+    "investmentsStatus": "Inversiones: no abiertas — solo inversionistas calificados al lanzamiento",
+    "contactCta": "Contáctanos",
+    "followProgress": "Sigue nuestro progreso",
+    "subscribeUpdates": "Suscríbete a actualizaciones",
+    "complianceDisclaimer": "Ninguna página, sección, botón o formulario en equitty.com puede implicar que ya hay inversiones disponibles, que se están incorporando inversionistas o que EQUITTY ya cuenta con licencia para operar un mercado de activos digitales."
+  },
+  "Newsletter": {
+    "title": "Sigue la construcción",
+    "description": "Compartimos hitos, actualizaciones regulatorias, perspectivas del ecosistema y avances de la compañía mientras construimos. Sin spam. Sin solicitud de inversión. Solo la historia real de construir EQUITTY.",
+    "firstNameLabel": "Nombre",
+    "firstNamePlaceholder": "Ingresa tu nombre",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "Ingresa tu correo",
+    "interestLabel": "Me interesa como",
+    "interestInvestor": "Futuro inversionista",
+    "interestAssetPartner": "Socio de activos",
+    "interestIndustryObserver": "Observador de la industria",
+    "interestOther": "Otro",
+    "button": "Enviar actualizaciones",
+    "microcopy": "Solo actualizaciones informativas. Puedes darte de baja cuando quieras.",
+    "successTitle": "Suscripción confirmada",
+    "successMessage": "Gracias por seguir nuestro progreso. Te enviaremos hitos mientras construimos.",
+    "errors": {
+      "submit": "Hubo un error al suscribirte. Inténtalo de nuevo más tarde.",
+      "alreadyExists": "Este correo ya está suscrito a las actualizaciones."
+    },
+    "validation": {
+      "firstNameRequired": "El nombre es obligatorio.",
+      "emailRequired": "El correo es obligatorio.",
+      "emailInvalid": "Ingresa un correo válido.",
+      "interestRequired": "Selecciona al menos un interés."
+    }
+  },
+  "About": {
+    "heroTitle": "Construido por operadores. Gobernado por líderes. Diseñado a largo plazo.",
+    "heroSubtitle": "EQUITTY está siendo construido por un equipo transfronterizo de fundadores fintech, estrategas de capital, arquitectos legales y líderes de tecnología, con una mesa de asesores diseñada para credibilidad institucional.",
+    "missionTitle": "Misión",
+    "whyTitle": "Por qué existimos",
+    "missionText": "Conectar capital de EE. UU. y global con activos reales en América Latina mediante una plataforma en cumplimiento, transparente y escalable que abre el acceso a inversionistas calificados retail e institucionales.",
+    "whyText": "El capital existe. Los activos existen. La infraestructura regulada que los conecta, no. EQUITTY está cerrando esa brecha desde El Salvador y escalando por América Latina.",
+    "foundingTitle": "Equipo fundador",
+    "boardTitle": "Mesa de asesores",
+    "boardIntro": "EQUITTY se apoya en una mesa de asesores con estándares institucionales desde el día uno. Aporta supervisión estratégica, experiencia sectorial y credibilidad ante reguladores e inversionistas.",
+    "closingTitle": "¿Quieres saber más o explorar una alianza?",
+    "closingPrimary": "Sigue nuestro progreso",
+    "closingSecondary": "Contáctanos",
+    "team": {
+      "martin": {
+        "name": "Martín Cruz",
+        "role": "Fundador y CEO",
+        "bio": "Más de 25 años escalando negocios entre Texas y El Salvador. Defensor de Bitcoin y pionero en tokenización; lidera la visión, la estrategia regulatoria y el licenciamiento DASP de EQUITTY.",
+        "signal": "Desarrollo de mercado EE. UU.–LatAm, adopción blockchain, ejecución de fundador"
+      },
+      "jose": {
+        "name": "José Landaverde",
+        "role": "Cofundador y CFO",
+        "bio": "CPA, con más de 20 años de experiencia en auditoría y consultoría financiera en organizaciones de EE.UU. y El Salvador. Con experiencia en el sector inmobiliario y atención a inversionistas, actualmente lidera la estrategia de inversión y planeación financiera.",
+        "signal": "Auditoría y consultoría financiera, estrategia de inversión, planeación financiera"
+      },
+      "mario": {
+        "name": "Mario Meléndez",
+        "role": "Cofundador y COO",
+        "bio": "Más de 15 años en operaciones y marketing de desempeño para mercados de EE. UU. Fundador de The Hub Lab. Lidera crecimiento, alianzas y expansión de mercado.",
+        "signal": "Escalamiento operativo, estrategia de crecimiento, ejecución en mercado de EE. UU."
+      },
+      "oscar": {
+        "name": "Oscar Merino",
+        "role": "Cofundador y CTO",
+        "bio": "Más de 12 años construyendo infraestructura de misión crítica. Lideró integraciones empresariales en Save the Children US. Dirige la arquitectura Web3 y los estándares técnicos institucionales de EQUITTY.",
+        "signal": "Sistemas de misión crítica, integraciones empresariales, infraestructura blockchain"
+      }
+    },
+    "board": {
+      "ricardo": {
+        "name": "Ricardo Granillo",
+        "role": "Miembro de la mesa de asesores",
+        "bio": "Relaciones regionales con inversionistas y alianzas estratégicas"
+      },
+      "joseLuis": {
+        "name": "José Luis Ortiz",
+        "role": "Asesor",
+        "bio": "Fundador de TechyWe.com | Liderazgo en infraestructura tecnológica empresarial"
+      },
+      "erick": {
+        "name": "Erick Chacón",
+        "role": "Asesor",
+        "bio": "Fundador de PaySea | Presidente de ASAFINTECH | Liderazgo fintech en El Salvador"
+      },
+      "mike": {
+        "name": "Mike Angel",
+        "role": "Miembro de la mesa de asesores",
+        "bio": "Relaciones globales con inversionistas y alianzas estratégicas"
+      }
+    }
+  },
+  "Platform": {
+    "heroTitle": "La plataforma",
+    "heroSubtitle": "Una vista previa creíble de cómo EQUITTY conectará capital con activos reales bajo un marco regulado.",
+    "problemTitle": "El capital existe. Los activos existen. El acceso no.",
+    "problemBody": "Hoy no existe infraestructura regulada que conecte capital global y de diáspora con bienes raíces, infraestructura y activos privados de América Latina. Los canales tradicionales exigen mínimos de 250 000 USD o más. No hay punto de acceso retail. No hay puerta de entrada institucional. No hay mercado secundario.",
+    "problemBodyTwo": "EQUITTY está diseñada para resolver esto dentro de un marco en cumplimiento y regulado.",
+    "journeyTitle": "Cómo funcionará la plataforma",
+    "discoverTitle": "DESCUBRE",
+    "discoverText": "Explora activos reales curados y validados — bienes raíces, infraestructura y crédito privado en América Latina, cada uno con información financiera y documentación regulatoria transparente.",
+    "investTitle": "INVIERTE",
+    "investText": "Participa mediante un proceso de incorporación en cumplimiento. La plataforma está siendo diseñada para permitir participación desde 100 USD (cuando esté licenciada), con estructuración institucional a escala.",
+    "earnTitle": "GANA",
+    "earnText": "Recibe distribuciones y da seguimiento al desempeño en tiempo real desde el panel del inversionista, diseñado para transparencia y reportes continuos.",
+    "exitTitle": "SALIDA",
+    "exitText": "Accede a liquidez de mercado secundario a través de la infraestructura de trading de la plataforma, planificada para la fase 4 y sujeta a hitos regulatorios.",
+    "disclaimer": "Todas las funciones de plataforma descritas están en desarrollo y sujetas a aprobación regulatoria, licenciamiento y preparación por fases.",
+    "listingCta": "¿Te interesa listar tu proyecto? Contáctanos"
+  },
+  "Regulatory": {
+    "heroTitle": "El cumplimiento no es un checkbox. Es la base.",
+    "heroSubtitle": "EQUITTY está siendo diseñada dentro del marco regulatorio de activos digitales de El Salvador desde el día uno. No lanzamos primero y regularizamos después. Primero tramitamos, luego construimos infraestructura y lanzamos cuando estemos listos.",
+    "architectureTitle": "Nuestra arquitectura de cumplimiento",
+    "pillarOneTitle": "1. Pioneros regulatorios",
+    "pillarOneText": "EQUITTY aplicará en 2026 a la licencia DASP bajo la Ley de Activos Digitales de El Salvador, la única ley integral de activos digitales en América Latina. No operaremos en zona gris legal. Operaremos sobre la ley.",
+    "pillarTwoTitle": "2. Estructura de doble jurisdicción",
+    "pillarTwoText": "EQUITTY Holdings Inc. (Delaware C-Corp) es propietaria de EQUITTY S.A.S. de C.V. (El Salvador). Esta estructura brinda gobernanza institucional bajo ley de EE. UU. mientras opera bajo el marco favorable de activos digitales en El Salvador.",
+    "pillarThreeTitle": "3. Protección al inversionista por diseño",
+    "pillarThreeText": "Los activos se estructurarán mediante SPVs dedicados en Delaware. El despliegue de capital seguirá hitos de liberación por etapas. KYC/AML estará integrado antes de cualquier movimiento de fondos. Cada oferta se presentará ante CNAD bajo el marco privado aplicable.",
+    "pillarFourTitle": "4. Transparencia como política",
+    "pillarFourText": "EQUITTY se compromete a divulgar su estado regulatorio de forma clara y pública en todo momento. Cuando se otorgue la licencia DASP lo comunicaremos. Cuando se cumplan hitos de fase también.",
+    "launchTitle": "Quién puede invertir al lanzamiento",
+    "launchBody": "Cuando EQUITTY lance su primera oferta (objetivo Q3 2026, sujeto a aprobación DASP), el acceso estará inicialmente restringido a inversionistas autorizados y calificados según la ley aplicable bajo el marco CNAD. El acceso retail general vendrá en una fase posterior. No estamos aceptando solicitudes de inversión, expresiones de interés ni compromisos de capital en este momento."
+  },
+  "Updates": {
+    "heroTitle": "Construyendo EQUITTY — en público",
+    "heroSubtitle": "Sigue nuestro progreso: hitos regulatorios, desarrollo de producto, perspectivas del ecosistema y actualizaciones corporativas mientras construimos la infraestructura financiera para activos reales en América Latina.",
+    "primaryCta": "Suscríbete a actualizaciones",
+    "introTitle": "Últimas actualizaciones",
+    "introBody": "Este newsroom publicará hitos, señales del ecosistema y noticias corporativas conforme avancemos hacia el lanzamiento.",
+    "cards": {
+      "regulatory": {
+        "title": "Regulatorio",
+        "body": "Próximas novedades del proceso CNAD e hitos de cumplimiento."
+      },
+      "product": {
+        "title": "Producto",
+        "body": "Arquitectura de la plataforma, seguridad y avance del desarrollo de incorporación de usuarios."
+      },
+      "ecosystem": {
+        "title": "Ecosistema",
+        "body": "Alianzas, señales de mercado y perspectivas sobre tokenización regional."
+      }
     }
   }
 }

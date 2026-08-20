@@ -2,7 +2,7 @@
 
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
 import {
   Dialog,
@@ -51,8 +51,17 @@ const socials = [
   { href: FACEBOOK_URL, label: 'Facebook', icon: Facebook },
 ];
 
+const SITE_LINKS = [
+  { href: '/about', key: 'siteAbout' },
+  { href: '/platform', key: 'sitePlatform' },
+  { href: '/regulatory', key: 'siteRegulatory' },
+  { href: '/updates', key: 'siteUpdates' },
+] as const;
+
 export default function LandingFooter() {
   const t = useTranslations('HomePage.Footer');
+  const locale = useLocale();
+  const home = `/${locale}`;
   const [isTermsOpen, setIsTermsOpen] = useState(false);
   const waitlistTermsHeader = t.raw('termsContent.header') as string[];
   const waitlistTermsSections = t.raw('termsContent.sections') as TermsSection[];
@@ -65,6 +74,13 @@ export default function LandingFooter() {
           <div>
             <Image src="/equitty_logo_white.png" alt="EQUITTY" width={140} height={32} className="h-8 w-auto" />
             <p className="mt-3 max-w-sm text-sm text-eq-muted">{t('tagline')}</p>
+            <nav className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+              {SITE_LINKS.map((item) => (
+                <a key={item.href} href={`${home}${item.href}`} className="text-eq-muted transition hover:text-eq-brand">
+                  {t(item.key)}
+                </a>
+              ))}
+            </nav>
           </div>
 
           <div className="flex items-center gap-4 text-sm">
