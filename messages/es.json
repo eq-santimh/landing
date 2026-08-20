@@ -5,7 +5,7 @@
     "keywords": "inversión, activos reales, fintech, equitty, tokenización, bienes raíces, El Salvador, CNAD"
   },
   "HomePage": {
-    "badge": "Lista de espera · inversiones aún no abiertas",
+    "badge": "Lista de espera",
     "kicker": "Equitty · Marketplace",
     "hero_title": "Invierte en",
     "hero_title_highlight": "activos reales",
@@ -13,7 +13,7 @@
     "headline": "El marketplace de activos reales tokenizados",
     "subhead": "La misma plataforma Equitty que ya opera el marketplace: inventario tokenizado, métricas de TIR, fondeo y liquidez en un flujo diseñado para inversionistas calificados. Hoy puedes reservar tu lugar. Las inversiones aún no están abiertas.",
     "productShotAlt": "Marketplace de Equitty con propiedades tokenizadas, filtros de categoría y métricas de inversión",
-    "applicationPendingBadge": "Aplicación de CNAD pendiente",
+    "applicationPendingBadge": "CNAD · en revisión",
     "Form": {
       "cardEyebrow": "Acceso anticipado",
       "cardTitle": "Únete a la lista de espera",
@@ -124,7 +124,9 @@
       "about": "Nosotros",
       "platform": "Plataforma",
       "regulatory": "Cumplimiento",
-      "updates": "Blog"
+      "updates": "Blog",
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú"
     },
     "Trust": {
       "cnad": "Diseñada bajo regulación CNAD",
@@ -157,7 +159,7 @@
       "point3": {
         "label": "Confianza",
         "title": "Progreso de construcción y fondeo",
-        "description": "Barras duales y copy regulatorio para que la experiencia se sienta institucional, no de crypto neon."
+        "description": "Barras duales y copy regulatorio para que la ficha se sienta institucional y clara."
       }
     },
     "Team": {
@@ -252,8 +254,8 @@
         "description": "Barras duales para ver cuánto está construido y cuánto está fondeado, sin narrativa opaca."
       },
       "item4": {
-        "title": "Participación diseñada desde $100",
-        "description": "Cuando las inversiones abran para inversionistas calificados, el ticket objetivo es accesible, no institucional-only."
+        "title": "Hoy reservas tu lugar. Invertir viene después",
+        "description": "Unirte a la lista no es una oferta. Cuando haya oferta, será para inversionistas calificados, en un flujo regulado."
       }
     },
     "FinalCta": {

@@ -5,7 +5,7 @@
     "keywords": "investment, real-world assets, fintech, equitty, tokenization, real estate, El Salvador, CNAD"
   },
   "HomePage": {
-    "badge": "Waitlist · investments are not open yet",
+    "badge": "Waitlist",
     "kicker": "Equitty · Marketplace",
     "hero_title": "Invest in",
     "hero_title_highlight": "real-world assets",
@@ -13,7 +13,7 @@
     "headline": "The marketplace for tokenized real-world assets",
     "subhead": "The same Equitty platform that already runs the marketplace: tokenized inventory with clear IRR, funding, and liquidity data in a flow designed for qualified investors. You can reserve your seat today. Investments are not open yet.",
     "productShotAlt": "Equitty marketplace with tokenized properties, category filters, and investment metrics",
-    "applicationPendingBadge": "CNAD application pending",
+    "applicationPendingBadge": "CNAD · under review",
     "Form": {
       "cardEyebrow": "Early access",
       "cardTitle": "Join the waitlist",
@@ -124,7 +124,9 @@
       "about": "About",
       "platform": "Platform",
       "regulatory": "Compliance",
-      "updates": "Blog"
+      "updates": "Blog",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
     },
     "Trust": {
       "cnad": "Designed under CNAD regulation",
@@ -157,7 +159,7 @@
       "point3": {
         "label": "Trust",
         "title": "Construction and funding progress",
-        "description": "Dual progress bars and regulatory copy so the experience feels institutional, not neon crypto."
+        "description": "Dual progress bars and regulatory copy so the card feels institutional and clear."
       }
     },
     "Team": {
@@ -247,8 +249,8 @@
         "description": "Dual bars show how much is built and how much is funded, without opaque narrative."
       },
       "item4": {
-        "title": "Participation designed from $100",
-        "description": "When investments open for qualified investors, the target ticket is accessible, not institution-only."
+        "title": "Reserve your seat today. Investing comes later",
+        "description": "Joining the waitlist is not an offer. When offerings open, they will be for qualified investors, in a regulated flow."
       }
     },
     "Testimonials": {

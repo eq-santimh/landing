@@ -9,15 +9,15 @@ export default function FinalCta() {
   const locale = useLocale();
 
   return (
-    <section className="border-t border-white/10 bg-[#0c0c16] py-20 text-[#f6f3ee] sm:py-24">
-      <div className="eq-shell grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+    <section className="border-t border-white/10 bg-[#0c0c16] py-16 text-[#f6f3ee] sm:py-20 lg:py-24">
+      <div className="eq-shell grid items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-10">
         <div>
           <p className="eq-text-small text-eq-brand">{t('eyebrow')}</p>
-          <h2 className="mt-3 text-3xl tracking-tight sm:text-5xl">{t('title')}</h2>
+          <h2 className="mt-3 text-3xl tracking-tight sm:text-4xl lg:text-5xl">{t('title')}</h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-[#d7cfc7]">{t('subtitle')}</p>
           <a
             href={`/${locale}#espera`}
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-eq-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-eq-brand-strong"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-eq-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_0_22px_rgba(0,180,196,0.4)] transition hover:bg-eq-brand-strong sm:mt-8 sm:w-auto"
           >
             {t('cta')}
           </a>

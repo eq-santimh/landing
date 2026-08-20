@@ -129,8 +129,8 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
   }
 
   const fieldBase = cn(
-    'h-12 w-full rounded-[10px] px-4 py-3 text-sm outline-none transition-all duration-200',
-    isDark ? 'dark-eq-input' : 'eq-input',
+    'h-11 w-full rounded-[10px] px-4 py-3 text-sm outline-none transition-all duration-200 sm:h-12',
+    isDark ? 'dark-eq-input eq-neon-field' : 'eq-input',
   );
   const quietField = cn(
     'h-10 w-full rounded-[10px] px-4 py-2 text-sm outline-none transition-all duration-200',
@@ -143,8 +143,8 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
     <>
       <div
         className={cn(
-          'rounded-2xl border p-5 sm:p-6',
-          isDark ? 'border-white/10 bg-white/5' : 'border-eq-line bg-white shadow-[0_2px_8px_rgba(9,8,13,0.06)]',
+          'p-5 sm:p-6',
+          isDark ? 'eq-glass-neon' : 'rounded-2xl border border-eq-line bg-white shadow-[0_2px_8px_rgba(9,8,13,0.06)]',
         )}
       >
         <p className="eq-text-small text-eq-brand">{tForm('cardEyebrow')}</p>
@@ -230,7 +230,7 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
             />
 
             <Button
-              className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-eq-brand font-semibold text-white shadow-none transition hover:bg-eq-brand-strong"
+              className="eq-neon-cta flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-eq-brand font-semibold text-white transition hover:bg-eq-brand-strong"
               type="submit"
               disabled={isPending}
               aria-label={isPending ? 'Submitting...' : tForm('button')}

@@ -25,21 +25,18 @@ export default function TeamMemberCard({
   const isFounder = variant === 'founder';
 
   return (
-    <article
-      className={cn(
-        'group/card marketplace-card flex gap-4 p-4 sm:gap-5 sm:p-5',
-        isFounder ? 'sm:items-start' : 'items-start',
-      )}
-    >
-      <TeamAvatar
-        name={name}
-        src={photo}
-        size={isFounder ? 'sm' : 'xs'}
-        objectPosition={objectPosition}
-        className="shrink-0"
-      />
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+    <article className="group/card marketplace-card flex overflow-hidden p-3 sm:p-3.5">
+      <div className={cn('shrink-0 self-stretch', isFounder ? 'w-[5.25rem] sm:w-28' : 'w-[4.5rem] sm:w-24')}>
+        <TeamAvatar
+          name={name}
+          src={photo}
+          size="card"
+          objectPosition={objectPosition}
+          className="h-full min-h-[6.25rem]"
+        />
+      </div>
+      <div className="min-w-0 flex-1 px-3 py-1 sm:px-4 sm:py-2">
+        <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-2">
           <h4 className={cn('font-semibold text-eq-ink', isFounder ? 'text-base sm:text-lg' : 'text-sm sm:text-base')}>
             {name}
           </h4>
