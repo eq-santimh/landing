@@ -1,4 +1,5 @@
 import Benefits from '@/components/landing/Benefits';
+import Compliance from '@/components/landing/Compliance';
 import Faq from '@/components/landing/Faq';
 import FinalCta from '@/components/landing/FinalCta';
 import Hero from '@/components/landing/Hero';
@@ -20,6 +21,7 @@ export default function Home() {
         <Team />
         <HowItWorks />
         <Benefits />
+        <Compliance />
         <Faq />
         <FinalCta />
       </main>

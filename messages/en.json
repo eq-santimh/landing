@@ -442,19 +442,47 @@
     "listingCta": "Interested in listing your project? Contact us"
   },
   "Regulatory": {
+    "eyebrow": "Compliance",
     "heroTitle": "Compliance is not a checkbox. It is the foundation.",
-    "heroSubtitle": "EQUITTY is being designed within El Salvador's digital asset regulatory framework from day one. We are not launching first and filing later. We are filing first, building the infrastructure, and launching only when ready.",
-    "architectureTitle": "Our compliance architecture",
-    "pillarOneTitle": "1. Regulatory first-mover",
-    "pillarOneText": "EQUITTY will apply in 2026 for the DASP license under El Salvador's Ley de Activos Digitales—the only end-to-end digital asset law in Latin America. We will not operate in a legal gray area. We will operate on the law.",
-    "pillarTwoTitle": "2. Dual-jurisdiction structure",
-    "pillarTwoText": "EQUITTY Holdings Inc. (Delaware C-Corp) owns EQUITTY S.A.S. de C.V. (El Salvador). This dual structure provides institutional-grade governance through U.S. law while operating under El Salvador's favorable digital asset framework.",
-    "pillarThreeTitle": "3. Investor protection by design",
-    "pillarThreeText": "Assets will be structured through dedicated Delaware SPVs. Capital deployment will follow milestone-based release triggers. KYC/AML will be embedded before any funds move. Each offering will be filed with CNAD under the applicable private tokenization framework.",
-    "pillarFourTitle": "4. Transparency as policy",
-    "pillarFourText": "EQUITTY is committed to disclosing regulatory status clearly and publicly at all times. When the DASP license is granted, we will announce it. When phase milestones are reached, we will share them.",
-    "launchTitle": "Who can invest when we launch",
-    "launchBody": "When EQUITTY launches its first offering (targeted Q3 2026, subject to DASP approval), access will initially be restricted to authorized and qualified investors as defined by applicable law under the CNAD framework. General public retail access will follow in a subsequent phase. We are not accepting investor applications, expressions of interest, or capital commitments at this time."
+    "heroSubtitle": "Designed from day one inside El Salvador's digital-asset framework: file first, build the infrastructure, and launch only when ready.",
+    "statusDasp": "DASP · application 2026",
+    "pillars": {
+      "license": {
+        "title": "License first",
+        "text": "We will apply in 2026 for the DASP license under El Salvador's Digital Assets Law. We will not operate in a gray area; we will operate on the law."
+      },
+      "structure": {
+        "title": "Dual jurisdiction",
+        "text": "EQUITTY Holdings Inc. (Delaware) owns EQUITTY S.A.S. de C.V. (El Salvador): U.S. governance with operations under El Salvador's digital-asset framework."
+      },
+      "protection": {
+        "title": "Investor protection",
+        "text": "Dedicated Delaware SPVs, milestone-based capital release, KYC/AML before funds move, and CNAD filings for each private offering."
+      },
+      "transparency": {
+        "title": "Public status",
+        "text": "Regulatory status stays public. If the DASP license is granted or a phase milestone lands, we will say so."
+      }
+    },
+    "launchEyebrow": "At launch",
+    "launchTitle": "Who can invest",
+    "launchLead": "Access opens in phases. Nothing is for sale today.",
+    "launchTiles": {
+      "timing": {
+        "label": "When",
+        "text": "First offering targeted for Q3 2026, subject to DASP approval."
+      },
+      "who": {
+        "label": "Who",
+        "text": "Authorized and qualified investors under the CNAD framework."
+      },
+      "next": {
+        "label": "Later",
+        "text": "General retail access is planned for a later phase."
+      }
+    },
+    "launchNote": "We are not accepting investor applications, expressions of interest, or capital commitments at this time.",
+    "cta": "Join the waitlist"
   },
   "Updates": {
     "heroTitle": "Building EQUITTY—in public",

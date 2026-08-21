@@ -442,19 +442,47 @@
     "listingCta": "¿Te interesa listar tu proyecto? Contáctanos"
   },
   "Regulatory": {
+    "eyebrow": "Cumplimiento",
     "heroTitle": "El cumplimiento no es un checkbox. Es la base.",
-    "heroSubtitle": "EQUITTY está siendo diseñada dentro del marco regulatorio de activos digitales de El Salvador desde el día uno. No lanzamos primero y regularizamos después. Primero tramitamos, luego construimos infraestructura y lanzamos cuando estemos listos.",
-    "architectureTitle": "Nuestra arquitectura de cumplimiento",
-    "pillarOneTitle": "1. Pioneros regulatorios",
-    "pillarOneText": "EQUITTY aplicará en 2026 a la licencia DASP bajo la Ley de Activos Digitales de El Salvador, la única ley integral de activos digitales en América Latina. No operaremos en zona gris legal. Operaremos sobre la ley.",
-    "pillarTwoTitle": "2. Estructura de doble jurisdicción",
-    "pillarTwoText": "EQUITTY Holdings Inc. (Delaware C-Corp) es propietaria de EQUITTY S.A.S. de C.V. (El Salvador). Esta estructura brinda gobernanza institucional bajo ley de EE. UU. mientras opera bajo el marco favorable de activos digitales en El Salvador.",
-    "pillarThreeTitle": "3. Protección al inversionista por diseño",
-    "pillarThreeText": "Los activos se estructurarán mediante SPVs dedicados en Delaware. El despliegue de capital seguirá hitos de liberación por etapas. KYC/AML estará integrado antes de cualquier movimiento de fondos. Cada oferta se presentará ante CNAD bajo el marco privado aplicable.",
-    "pillarFourTitle": "4. Transparencia como política",
-    "pillarFourText": "EQUITTY se compromete a divulgar su estado regulatorio de forma clara y pública en todo momento. Cuando se otorgue la licencia DASP lo comunicaremos. Cuando se cumplan hitos de fase también.",
-    "launchTitle": "Quién puede invertir al lanzamiento",
-    "launchBody": "Cuando EQUITTY lance su primera oferta (objetivo Q3 2026, sujeto a aprobación DASP), el acceso estará inicialmente restringido a inversionistas autorizados y calificados según la ley aplicable bajo el marco CNAD. El acceso retail general vendrá en una fase posterior. No estamos aceptando solicitudes de inversión, expresiones de interés ni compromisos de capital en este momento."
+    "heroSubtitle": "Diseñada desde el día uno dentro del marco de activos digitales de El Salvador: primero el trámite, después la infraestructura, y el lanzamiento solo cuando esté listo.",
+    "statusDasp": "DASP · solicitud 2026",
+    "pillars": {
+      "license": {
+        "title": "Licencia primero",
+        "text": "En 2026 solicitaremos la licencia DASP bajo la Ley de Activos Digitales de El Salvador. No operamos en zona gris: operamos sobre la ley."
+      },
+      "structure": {
+        "title": "Doble jurisdicción",
+        "text": "EQUITTY Holdings Inc. (Delaware) es dueña de EQUITTY S.A.S. de C.V. (El Salvador): gobernanza de EE. UU. y operación bajo el marco salvadoreño."
+      },
+      "protection": {
+        "title": "Protección al inversionista",
+        "text": "SPVs en Delaware, capital por hitos, KYC/AML antes de mover fondos y cada oferta presentada ante CNAD en el marco privado aplicable."
+      },
+      "transparency": {
+        "title": "Estado público",
+        "text": "El estatus regulatorio se comunica con claridad. Si se otorga la DASP o hay un hito de fase, lo diremos."
+      }
+    },
+    "launchEyebrow": "Al lanzamiento",
+    "launchTitle": "Quién puede invertir",
+    "launchLead": "El acceso abre por fases. Hoy no hay oferta ni captación de capital.",
+    "launchTiles": {
+      "timing": {
+        "label": "Cuándo",
+        "text": "Primera oferta objetivo: 3T 2026, sujeta a aprobación DASP."
+      },
+      "who": {
+        "label": "Quién",
+        "text": "Inversionistas autorizados y calificados bajo el marco CNAD."
+      },
+      "next": {
+        "label": "Después",
+        "text": "El acceso retail general queda para una fase posterior."
+      }
+    },
+    "launchNote": "No aceptamos solicitudes de inversión, expresiones de interés ni compromisos de capital en este momento.",
+    "cta": "Únete a la lista de espera"
   },
   "Updates": {
     "heroTitle": "Construyendo EQUITTY — en público",

@@ -10,7 +10,7 @@ import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
 
-const HOME_SECTIONS = ['producto', 'equipo', 'proceso', 'faq'] as const;
+const HOME_SECTIONS = ['producto', 'equipo', 'proceso', 'cumplimiento', 'faq'] as const;
 type HomeSection = (typeof HOME_SECTIONS)[number];
 
 const NAV = [
@@ -18,7 +18,7 @@ const NAV = [
   { href: '/about', key: 'about', page: 'about' },
   { href: '#equipo', key: 'team', section: 'equipo' },
   { href: '#proceso', key: 'process', section: 'proceso' },
-  { href: '/regulatory', key: 'regulatory', page: 'regulatory' },
+  { href: '#cumplimiento', key: 'regulatory', section: 'cumplimiento', page: 'regulatory' },
   { href: '#faq', key: 'faq', section: 'faq' },
 ] as const;
 
@@ -97,10 +97,10 @@ export default function LandingHeader() {
   }, [isHome, pathname]);
 
   function isActive(item: (typeof NAV)[number]) {
-    if ('page' in item) {
-      return slug === `/${item.page}` || slug.startsWith(`/${item.page}/`);
+    if ('page' in item && (slug === `/${item.page}` || slug.startsWith(`/${item.page}/`))) {
+      return true;
     }
-    return isHome && activeSection === item.section;
+    return isHome && 'section' in item && activeSection === item.section;
   }
 
   return (
