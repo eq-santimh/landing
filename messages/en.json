@@ -23,10 +23,11 @@
       "nationalityLabel": "Nationality",
       "nationalityPlaceholder": "Nationality",
       "wasReferredLabel": "I was referred by another future investor",
+      "referralTrigger": "Were you referred?",
       "referralOptionalLabel": "Referral code (optional)",
       "referralApplied": "Invite applied: {code}",
       "clearReferral": "Remove referral code",
-      "referralCodePlaceholder": "If you were invited, paste it here",
+      "referralCodePlaceholder": "Paste the code",
       "button": "Join the waitlist",
       "microcopy": "Joining is not an investment offer. Unsubscribe anytime.",
       "Validation": {

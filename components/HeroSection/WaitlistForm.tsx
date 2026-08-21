@@ -13,7 +13,7 @@ import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 import { countries } from '@/lib/countries';
 import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, ChevronRight, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type WaitlistFormProps = {
@@ -29,6 +29,7 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');
   const [dialogMessage, setDialogMessage] = useState('');
+  const [referralOpen, setReferralOpen] = useState(false);
   const isDark = tone === 'dark';
   const searchParams = useSearchParams();
 
@@ -66,6 +67,7 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
     if (presetReferral) {
       form.setValue('wasReferred', true);
       form.setValue('referralCode', presetReferral);
+      setReferralOpen(true);
     }
   }, [form, presetReferral]);
 
@@ -107,6 +109,9 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
           wasReferred: false,
           referralCode: '',
         });
+        if (!presetReferral) {
+          setReferralOpen(false);
+        }
         return;
       }
 
@@ -229,6 +234,79 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
               )}
             />
 
+            <FormField
+              control={form.control}
+              name="referralCode"
+              render={({ field }) => {
+                const applied = Boolean(presetReferral && field.value === presetReferral);
+                return (
+                  <FormItem className="space-y-1">
+                    {applied ? (
+                      <div
+                        className={cn(
+                          'flex min-h-9 items-center justify-between gap-3 rounded-lg px-1',
+                          isDark ? 'text-white/70' : 'text-eq-ink',
+                        )}
+                      >
+                        <p className="truncate text-xs">{tForm('referralApplied', { code: presetReferral })}</p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            field.onChange('');
+                            form.setValue('wasReferred', false);
+                            setReferralOpen(true);
+                          }}
+                          className={cn(
+                            'rounded-full p-1 transition',
+                            isDark ? 'text-white/40 hover:text-white' : 'text-eq-muted hover:text-eq-ink',
+                          )}
+                          aria-label={tForm('clearReferral')}
+                        >
+                          <X className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex min-h-9 items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => setReferralOpen((open) => !open)}
+                          className={cn(
+                            'inline-flex shrink-0 items-center gap-1 text-left text-xs transition',
+                            isDark ? 'text-white/40 hover:text-eq-brand' : 'text-eq-muted hover:text-eq-brand',
+                          )}
+                          aria-expanded={referralOpen}
+                          aria-controls="waitlist-referral"
+                        >
+                          <ChevronRight
+                            className={cn('h-3.5 w-3.5 transition-transform duration-200', referralOpen && 'rotate-90')}
+                          />
+                          {tForm('referralTrigger')}
+                        </button>
+                        {referralOpen ? (
+                          <FormControl>
+                            <Input
+                              {...field}
+                              id="waitlist-referral"
+                              type="text"
+                              value={field.value ?? ''}
+                              onChange={(event) => field.onChange(sanitizeReferral(event.target.value))}
+                              placeholder={tForm('referralCodePlaceholder')}
+                              className={`${quietField} h-8 min-w-0 flex-1 px-3 text-xs uppercase`}
+                              aria-label={tForm('referralOptionalLabel')}
+                              aria-describedby="referral-code-error"
+                              autoComplete="off"
+                              maxLength={12}
+                            />
+                          </FormControl>
+                        ) : null}
+                      </div>
+                    )}
+                    <FormMessage className="text-left text-xs" id="referral-code-error" />
+                  </FormItem>
+                );
+              }}
+            />
+
             <Button
               className="eq-neon-cta flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-eq-brand font-semibold text-white transition hover:bg-eq-brand-strong"
               type="submit"
@@ -241,69 +319,6 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Button>
-
-            <FormField
-              control={form.control}
-              name="referralCode"
-              render={({ field }) => {
-                const applied = Boolean(presetReferral && field.value === presetReferral);
-                return (
-                  <FormItem className="pt-1">
-                    {applied ? (
-                      <div
-                        className={cn(
-                          'flex items-center justify-between gap-3 rounded-xl border px-3 py-2',
-                          isDark ? 'border-eq-brand/25 bg-eq-brand/10' : 'border-eq-brand/20 bg-eq-brand/5',
-                        )}
-                      >
-                        <p className={cn('text-xs', isDark ? 'text-white/80' : 'text-eq-ink')}>
-                          {tForm('referralApplied', { code: presetReferral })}
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            field.onChange('');
-                            form.setValue('wasReferred', false);
-                          }}
-                          className={cn(
-                            'rounded-full p-1 transition',
-                            isDark ? 'text-white/50 hover:text-white' : 'text-eq-muted hover:text-eq-ink',
-                          )}
-                          aria-label={tForm('clearReferral')}
-                        >
-                          <X className="h-3.5 w-3.5" />
-                        </button>
-                      </div>
-                    ) : (
-                      <>
-                        <label
-                          htmlFor="waitlist-referral"
-                          className={cn('text-[11px] font-medium tracking-wide', isDark ? 'text-white/40' : 'text-eq-muted')}
-                        >
-                          {tForm('referralOptionalLabel')}
-                        </label>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            id="waitlist-referral"
-                            type="text"
-                            value={field.value ?? ''}
-                            onChange={(event) => field.onChange(sanitizeReferral(event.target.value))}
-                            placeholder={tForm('referralCodePlaceholder')}
-                            className={`${quietField} uppercase`}
-                            aria-label={tForm('referralOptionalLabel')}
-                            aria-describedby="referral-code-error"
-                            autoComplete="off"
-                            maxLength={12}
-                          />
-                        </FormControl>
-                      </>
-                    )}
-                    <FormMessage className="text-left text-xs" id="referral-code-error" />
-                  </FormItem>
-                );
-              }}
-            />
 
             <p className={cn('text-center text-xs', isDark ? 'text-white/50' : 'text-eq-muted')}>{tForm('microcopy')}</p>
           </form>

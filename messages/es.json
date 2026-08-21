@@ -23,10 +23,11 @@
       "nationalityLabel": "Nacionalidad",
       "nationalityPlaceholder": "Nacionalidad",
       "wasReferredLabel": "Fui referido por otro inversionista futuro",
+      "referralTrigger": "¿Eres referido?",
       "referralOptionalLabel": "Código de referido (opcional)",
       "referralApplied": "Invitación aplicada: {code}",
       "clearReferral": "Quitar código de referido",
-      "referralCodePlaceholder": "Si te invitaron, pégalo aquí",
+      "referralCodePlaceholder": "Pega el código",
       "button": "Unirme a la lista",
       "microcopy": "Unirte no es una oferta de inversión. Puedes darte de baja cuando quieras.",
       "Validation": {
