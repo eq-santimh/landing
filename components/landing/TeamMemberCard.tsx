@@ -45,14 +45,7 @@ export default function TeamMemberCard({
           isFounder ? 'mt-5 w-full' : 'flex-1 px-3 py-0.5 sm:px-4 sm:py-1',
         )}
       >
-        <div
-          className={cn(
-            'flex flex-col gap-1',
-            isFounder
-              ? 'items-center text-center'
-              : 'sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-2',
-          )}
-        >
+        <div className={cn('flex flex-col gap-1', isFounder && 'items-center text-center')}>
           <h4
             className={cn(
               'font-semibold text-eq-ink',
