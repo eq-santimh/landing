@@ -29,7 +29,6 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');
   const [dialogMessage, setDialogMessage] = useState('');
-  const [referralOpen, setReferralOpen] = useState(false);
   const isDark = tone === 'dark';
   const searchParams = useSearchParams();
 
@@ -53,6 +52,8 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
     return sanitizeReferral(raw);
   }, [searchParams]);
 
+  const [referralOpen, setReferralOpen] = useState(() => Boolean(presetReferral));
+
   const form = useForm<registryForm>({
     defaultValues: {
       email: '',
@@ -67,7 +68,6 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
     if (presetReferral) {
       form.setValue('wasReferred', true);
       form.setValue('referralCode', presetReferral);
-      setReferralOpen(true);
     }
   }, [form, presetReferral]);
 
