@@ -15,6 +15,7 @@ import { countries } from '@/lib/countries';
 import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
 import { ArrowRight, ChevronRight, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import CountrySelect from '@/components/HeroSection/CountrySelect';
 
 type WaitlistFormProps = {
   tone?: 'light' | 'dark';
@@ -193,40 +194,21 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
                     {tForm('nationalityLabel')}
                   </label>
                   <FormControl>
-                    <div className="relative">
-                      <select
-                        {...field}
+                    <div className="w-full">
+                      <CountrySelect
                         id="waitlist-nationality"
-                        className={`${fieldBase} appearance-none pr-12`}
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        locale={locale}
+                        placeholder={tForm('nationalityPlaceholder')}
+                        searchPlaceholder={tForm('countrySearchPlaceholder')}
+                        emptyLabel={tForm('countryEmpty')}
+                        isDark={isDark}
+                        className={`${fieldBase} pr-3`}
                         aria-label={tForm('nationalityLabel')}
                         aria-describedby="nationality-error"
-                        required
-                      >
-                        <option value="" disabled className={isDark ? 'bg-[#09080d] text-white/60' : 'bg-white text-eq-muted'}>
-                          {tForm('nationalityPlaceholder')}
-                        </option>
-                        {countries.map((country) => (
-                          <option
-                            key={country.code}
-                            value={country.code}
-                            className={isDark ? 'bg-[#09080d] text-white' : 'bg-white text-eq-ink'}
-                          >
-                            {locale === 'es' ? country.nameEs : country.name}
-                          </option>
-                        ))}
-                      </select>
-                      <svg
-                        className={cn(
-                          'pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2',
-                          isDark ? 'text-white/50' : 'text-eq-muted',
-                        )}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
+                      />
                     </div>
                   </FormControl>
                   <FormMessage className="text-left text-xs" id="nationality-error" />

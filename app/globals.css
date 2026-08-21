@@ -311,6 +311,26 @@
     0 0 18px rgba(0, 180, 196, 0.28);
 }
 
+.eq-select-menu {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 180, 196, 0.55) rgba(255, 255, 255, 0.06);
+}
+
+.eq-select-options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.eq-select-options::-webkit-scrollbar-track {
+  margin: 6px 0;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+.eq-select-options::-webkit-scrollbar-thumb {
+  background: rgba(0, 180, 196, 0.45);
+  border-radius: 999px;
+}
+
 .hero-product-frame {
   max-height: 220px;
 }

@@ -22,6 +22,8 @@
       "emailPlaceholder": "Ingresa tu correo",
       "nationalityLabel": "Nacionalidad",
       "nationalityPlaceholder": "Nacionalidad",
+      "countrySearchPlaceholder": "Buscar país",
+      "countryEmpty": "No encontramos ese país",
       "wasReferredLabel": "Fui referido por otro inversionista futuro",
       "referralTrigger": "¿Eres referido?",
       "referralOptionalLabel": "Código de referido (opcional)",

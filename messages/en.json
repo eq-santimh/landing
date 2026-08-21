@@ -22,6 +22,8 @@
       "emailPlaceholder": "Enter your email",
       "nationalityLabel": "Nationality",
       "nationalityPlaceholder": "Nationality",
+      "countrySearchPlaceholder": "Search country",
+      "countryEmpty": "No countries match that search",
       "wasReferredLabel": "I was referred by another future investor",
       "referralTrigger": "Were you referred?",
       "referralOptionalLabel": "Referral code (optional)",
