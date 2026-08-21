@@ -11,7 +11,7 @@ export default function Faq() {
   const faqKeys = ['item1', 'item2', 'item3', 'item4'] as const;
 
   return (
-    <section id="faq" className="bg-eq-canvas py-16 sm:py-20 lg:py-28">
+    <section id="faq" className="scroll-mt-20 bg-eq-canvas py-16 sm:scroll-mt-24 sm:py-20 lg:py-28">
       <div className="eq-shell">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 

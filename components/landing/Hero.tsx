@@ -27,7 +27,7 @@ export default function Hero() {
             <span className="text-gradient">{t('hero_title_highlight')}</span>
           </h1>
           <p className="eq-text-body mt-4 max-w-lg text-sm text-eq-muted sm:mt-5 sm:text-base">{t('subhead')}</p>
-          <div id="espera" className="mt-6 sm:mt-8">
+          <div id="espera" className="mt-6 scroll-mt-24 sm:mt-8">
             <Suspense fallback={<div className="h-[320px] rounded-2xl border border-eq-brand/20 bg-white/5" />}>
               <WaitlistForm tone="dark" />
             </Suspense>

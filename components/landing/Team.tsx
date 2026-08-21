@@ -9,7 +9,7 @@ export default function Team() {
   const t = useTranslations('HomePage.Team');
 
   return (
-    <section id="equipo" className="bg-eq-paper py-16 sm:py-20 lg:py-24">
+    <section id="equipo" className="scroll-mt-20 bg-eq-paper py-16 sm:scroll-mt-24 sm:py-20 lg:py-24">
       <div className="eq-shell">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 

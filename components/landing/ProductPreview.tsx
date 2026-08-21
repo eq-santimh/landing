@@ -16,7 +16,7 @@ export default function ProductPreview() {
   const t = useTranslations('HomePage.Product');
 
   return (
-    <section id="producto" className="bg-eq-canvas py-16 sm:py-20 lg:py-28">
+    <section id="producto" className="scroll-mt-20 bg-eq-canvas py-16 sm:scroll-mt-24 sm:py-20 lg:py-28">
       <div className="eq-shell">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
         <div className="mt-8 grid gap-4 sm:mt-10 lg:grid-cols-3">

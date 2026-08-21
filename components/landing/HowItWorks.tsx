@@ -26,7 +26,7 @@ export default function HowItWorks() {
   const lineWidth = useTransform(progress, [0, 1], ['0%', '100%']);
 
   return (
-    <section id="proceso" className="bg-eq-canvas py-16 sm:py-20 lg:py-28">
+    <section id="proceso" className="scroll-mt-20 bg-eq-canvas py-16 sm:scroll-mt-24 sm:py-20 lg:py-28">
       <div className="eq-shell">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
