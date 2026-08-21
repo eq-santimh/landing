@@ -26,10 +26,10 @@ export default function Benefits() {
           {BENEFITS.map((item) => (
             <article
               key={item.key}
-              className="eq-glass-neon group/benefit p-6 sm:p-7"
+              className="eq-glass-neon group/benefit p-5 sm:p-7"
             >
               <NeonIcon icon={item.icon} accent={item.accent} />
-              <h3 className="mt-5 text-xl font-semibold tracking-tight text-eq-ink sm:text-2xl">
+              <h3 className="mt-5 text-lg font-semibold tracking-tight text-eq-ink sm:text-2xl">
                 {t(`${item.key}.title`)}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-eq-muted sm:text-base">

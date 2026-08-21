@@ -38,8 +38,8 @@ export default async function PlatformPage({ params }: Props) {
         </ContentCard>
       </ContentSection>
 
-      <ContentSection title={t('journeyTitle')}>
-        <div className="grid gap-4 lg:grid-cols-4">
+      <ContentSection title={t('journeyTitle')} headingAs="h2">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {steps.map((step) => (
             <ContentCard key={step.title}>
               <p className="eq-text-small text-eq-brand">{step.title}</p>

@@ -30,7 +30,7 @@ export default function Team() {
             <p className="mt-1 max-w-xl text-sm text-eq-muted">{t('foundingIntro')}</p>
           </div>
         </div>
-        <div className="mt-5 grid gap-4 lg:grid-cols-2">
+        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {TEAM_SLUGS.map((slug) => (
             <TeamMemberCard
               key={slug}

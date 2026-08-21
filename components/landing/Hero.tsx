@@ -15,14 +15,14 @@ export default function Hero() {
       <div className="pointer-events-none absolute top-32 left-[-15%] h-64 w-64 rounded-full bg-violet-500/15 blur-3xl" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_top_right,rgba(0,180,196,0.16),transparent_55%)]" />
 
-      <div className="eq-shell relative grid items-start gap-8 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:items-center lg:gap-12">
+      <div className="eq-shell relative grid items-start gap-8 xl:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] xl:items-center xl:gap-12">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <ComingSoonBadge label={t('badge')} variant="waitlist" />
             <ComingSoonBadge label={t('applicationPendingBadge')} variant="regulatory" />
           </div>
           <p className="eq-text-small mt-5 text-eq-brand sm:mt-6">{t('kicker')}</p>
-          <h1 className="mt-3 text-[1.85rem] leading-[1.12] tracking-tight text-eq-ink sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+          <h1 className="mt-3 text-[1.75rem] leading-[1.12] tracking-tight text-eq-ink sm:text-4xl lg:text-[2.75rem] xl:text-[3.15rem]">
             {t('hero_title')}{' '}
             <span className="text-gradient">{t('hero_title_highlight')}</span>
           </h1>
@@ -34,7 +34,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative min-w-0 lg:order-last">
+        <div className="relative min-w-0">
           <div className="absolute -inset-4 -z-10 rounded-[28px] bg-[#00b4c4]/20 blur-3xl sm:-inset-6" />
           <ProductFrame
             src="/product/marketplace-home.webp"

@@ -25,7 +25,7 @@ export default function Faq() {
                   onClick={() => setOpenIndex(open ? -1 : index)}
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                 >
-                  <span className="text-lg font-semibold text-eq-ink">{t(`${key}.question`)}</span>
+                  <span className="text-base font-semibold text-eq-ink sm:text-lg">{t(`${key}.question`)}</span>
                   {open ? (
                     <Minus className="h-5 w-5 shrink-0 text-eq-brand" />
                   ) : (

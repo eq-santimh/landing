@@ -38,8 +38,8 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </ContentSection>
 
-      <ContentSection title={t('foundingTitle')}>
-        <div className="grid gap-4 lg:grid-cols-2">
+      <ContentSection id="equipo" title={t('foundingTitle')} headingAs="h2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {TEAM_SLUGS.map((slug) => (
             <TeamMemberCard
               key={slug}
@@ -55,7 +55,7 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </ContentSection>
 
-      <ContentSection title={t('boardTitle')} description={t('boardIntro')}>
+      <ContentSection title={t('boardTitle')} description={t('boardIntro')} headingAs="h2">
         <div className="grid gap-4 md:grid-cols-2">
           {BOARD_SLUGS.map((slug) => (
             <TeamMemberCard

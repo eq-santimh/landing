@@ -13,7 +13,7 @@ export default function FinalCta() {
       <div className="eq-shell grid items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-10">
         <div>
           <p className="eq-text-small text-eq-brand">{t('eyebrow')}</p>
-          <h2 className="mt-3 text-3xl tracking-tight sm:text-4xl lg:text-5xl">{t('title')}</h2>
+          <h2 className="mt-3 text-2xl tracking-tight sm:text-4xl lg:text-[2.75rem]">{t('title')}</h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-[#d7cfc7]">{t('subtitle')}</p>
           <a
             href={`/${locale}#espera`}

@@ -148,13 +148,13 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
     <>
       <div
         className={cn(
-          'p-5 sm:p-6',
+          'p-4 sm:p-6',
           isDark ? 'eq-glass-neon' : 'rounded-2xl border border-eq-line bg-white shadow-[0_2px_8px_rgba(9,8,13,0.06)]',
         )}
       >
         <p className="eq-text-small text-eq-brand">{tForm('cardEyebrow')}</p>
-        <h2 className={cn('mt-2 text-xl font-semibold', isDark ? 'text-white' : 'text-eq-ink')}>{tForm('cardTitle')}</h2>
-        <p className={cn('mt-1 mb-5 text-sm', isDark ? 'text-[#d7cfc7]' : 'text-eq-muted')}>{tForm('cardDescription')}</p>
+        <h2 className={cn('mt-2 text-lg font-semibold sm:text-xl', isDark ? 'text-white' : 'text-eq-ink')}>{tForm('cardTitle')}</h2>
+        <p className={cn('mt-1 mb-4 text-sm sm:mb-5', isDark ? 'text-[#d7cfc7]' : 'text-eq-muted')}>{tForm('cardDescription')}</p>
 
         <Form {...form}>
           <form className="w-full space-y-3.5" onSubmit={form.handleSubmit(onSubmit)} aria-label="Join waitlist form">
@@ -266,7 +266,7 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
                         </button>
                       </div>
                     ) : (
-                      <div className="flex min-h-9 items-center gap-3">
+                      <div className="flex min-h-9 flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
                         <button
                           type="button"
                           onClick={() => setReferralOpen((open) => !open)}
@@ -291,7 +291,7 @@ export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
                               value={field.value ?? ''}
                               onChange={(event) => field.onChange(sanitizeReferral(event.target.value))}
                               placeholder={tForm('referralCodePlaceholder')}
-                              className={`${quietField} h-8 min-w-0 flex-1 px-3 text-xs uppercase`}
+                              className={`${quietField} h-8 w-full min-w-0 px-3 text-xs uppercase sm:flex-1`}
                               aria-label={tForm('referralOptionalLabel')}
                               aria-describedby="referral-code-error"
                               autoComplete="off"

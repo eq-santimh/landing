@@ -30,7 +30,7 @@ export default async function RegulatoryPage({ params }: Props) {
   return (
     <PageShell>
       <ContentSection className="pt-10 sm:pt-14" title={t('heroTitle')} description={t('heroSubtitle')} />
-      <ContentSection title={t('architectureTitle')}>
+      <ContentSection title={t('architectureTitle')} headingAs="h2">
         <div className="grid gap-4 md:grid-cols-2">
           {pillars.map((pillar) => (
             <ContentCard key={pillar.title}>
@@ -40,7 +40,7 @@ export default async function RegulatoryPage({ params }: Props) {
           ))}
         </div>
       </ContentSection>
-      <ContentSection title={t('launchTitle')}>
+      <ContentSection title={t('launchTitle')} headingAs="h2">
         <ContentCard>
           <p className="eq-text-small text-eq-brand">{t('launchTitle')}</p>
           <p className="mt-3 text-sm leading-relaxed text-eq-muted">{t('launchBody')}</p>

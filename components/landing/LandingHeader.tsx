@@ -55,13 +55,13 @@ export default function LandingHeader() {
           <LanguageSwitcher />
           <a
             href={`${home}#espera`}
-            className="inline-flex rounded-full bg-eq-brand px-3 py-2 text-xs font-semibold text-white shadow-[0_0_18px_rgba(0,180,196,0.35)] transition hover:bg-eq-brand-strong sm:px-4 sm:text-sm"
+            className="inline-flex rounded-full bg-eq-brand px-2.5 py-2 text-[11px] font-semibold text-white shadow-[0_0_18px_rgba(0,180,196,0.35)] transition hover:bg-eq-brand-strong sm:px-4 sm:text-sm"
           >
             {t('cta')}
           </a>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-eq-ink xl:hidden"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-eq-ink xl:hidden"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-label={open ? t('closeMenu') : t('openMenu')}

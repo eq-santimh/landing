@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 type TeamAvatarProps = {
   name: string;
   src?: string;
-  size?: 'md' | 'sm' | 'xs' | 'card' | 'square';
+  size?: 'md' | 'sm' | 'xs' | 'square' | 'founder';
   objectPosition?: string;
   className?: string;
 };
@@ -16,24 +16,32 @@ const sizeClasses = {
   md: 'h-40 w-40 rounded-2xl sm:h-48 sm:w-48',
   sm: 'h-20 w-20 rounded-2xl sm:h-24 sm:w-24',
   xs: 'h-16 w-16 rounded-2xl sm:h-[4.5rem] sm:w-[4.5rem]',
-  card: 'h-full w-full min-h-[6.25rem] rounded-2xl',
-  square: 'h-28 w-28 rounded-xl sm:h-32 sm:w-32',
+  square: 'h-28 w-28 shrink-0 rounded-xl sm:h-32 sm:w-32',
+  founder: 'h-52 w-52 shrink-0 rounded-2xl sm:h-48 sm:w-48 xl:h-40 xl:w-40',
 } as const;
 
 const sizePixels = {
   md: 192,
   sm: 96,
   xs: 72,
-  card: 224,
   square: 128,
+  founder: 208,
 } as const;
 
 const initialsTextClasses = {
   md: 'text-3xl sm:text-4xl',
   sm: 'text-xl sm:text-2xl',
   xs: 'text-base sm:text-lg',
-  card: 'text-2xl sm:text-3xl',
   square: 'text-2xl',
+  founder: 'text-3xl sm:text-4xl',
+} as const;
+
+const sizeSrcSet = {
+  md: '192px',
+  sm: '96px',
+  xs: '72px',
+  square: '(min-width: 640px) 128px, 112px',
+  founder: '(min-width: 1280px) 160px, (min-width: 640px) 192px, 208px',
 } as const;
 
 function getInitials(name: string) {
@@ -71,7 +79,7 @@ export default function TeamAvatar({
           alt={name}
           width={dimension}
           height={dimension}
-          sizes={size === 'card' ? '(min-width: 640px) 112px, 84px' : size === 'square' ? '(min-width: 640px) 128px, 112px' : `${dimension}px`}
+          sizes={sizeSrcSet[size]}
           onError={() => setErrored(true)}
           style={{ objectPosition }}
           className="h-full w-full object-cover transition-[filter,transform] duration-500 ease-out group-hover/card:scale-[1.04]"

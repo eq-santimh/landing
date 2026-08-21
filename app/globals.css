@@ -229,7 +229,7 @@
 }
 
 .eq-shell {
-  width: min(1200px, calc(100% - 1.25rem));
+  width: min(1200px, calc(100% - 1.5rem));
   margin-inline: auto;
 }
 
@@ -325,11 +325,18 @@
 @media (min-width: 640px) {
   .hero-product-frame,
   .hero-product-frame img {
-    max-height: 320px;
+    max-height: 340px;
   }
 }
 
 @media (min-width: 1024px) {
+  .hero-product-frame,
+  .hero-product-frame img {
+    max-height: 420px;
+  }
+}
+
+@media (min-width: 1280px) {
   .hero-product-frame,
   .hero-product-frame img {
     max-height: none;

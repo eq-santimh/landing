@@ -26,8 +26,8 @@ export default async function UpdatesPage({ params }: Props) {
   return (
     <PageShell>
       <ContentSection className="pt-10 sm:pt-14" title={t('heroTitle')} description={t('heroSubtitle')} />
-      <ContentSection title={t('introTitle')} description={t('introBody')}>
-        <div className="grid gap-4 md:grid-cols-3">
+      <ContentSection title={t('introTitle')} description={t('introBody')} headingAs="h2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {updateCardSlugs.map((slug) => (
             <ContentCard key={slug}>
               <p className="eq-text-small text-eq-brand">{t(`cards.${slug}.title`)}</p>

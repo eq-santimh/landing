@@ -24,7 +24,7 @@ function LanguageItem({
       scroll={false}
       aria-label={code === 'en' ? 'Switch to English' : 'Cambiar a Espanol'}
       aria-current={isActive ? 'page' : undefined}
-      className={`relative z-10 rounded-full px-3 py-1 text-[11px] font-bold tracking-widest transition-colors ${
+      className={`relative z-10 rounded-full px-2 py-1 text-[11px] font-bold tracking-widest transition-colors sm:px-3 ${
         isActive ? 'text-[#09080d]' : 'text-eq-muted hover:text-eq-ink'
       }`}
     >
