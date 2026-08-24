@@ -9,6 +9,6 @@ export const EQUITTY_MARK_FACETS = [
   {
     id: 'steel-blue',
     points: '100,0 100,100 50,50',
-    fill: '#46728e',
+    fill: '#3f6889',
   },
 ] as const;

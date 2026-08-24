@@ -12,7 +12,7 @@ export function runEquittyMarkTests() {
     {
       id: 'steel-blue',
       points: '100,0 100,100 50,50',
-      fill: '#46728e',
+      fill: '#3f6889',
     },
   ]);
   assert.equal(EQUITTY_MARK_FACETS.length, 2, 'the mark contains only the two supplied triangles');

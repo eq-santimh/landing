@@ -390,20 +390,6 @@
   overflow: visible;
 }
 
-.hero-isotipo-glass {
-  position: absolute;
-  inset: 8%;
-  border-radius: 28px;
-  background: linear-gradient(160deg, rgba(126, 231, 240, 0.12), rgba(12, 12, 22, 0.22) 46%, rgba(69, 107, 137, 0.16));
-  border: 1px solid rgba(126, 231, 240, 0.22);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-    0 18px 48px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(18px) saturate(160%);
-  pointer-events: none;
-  animation: glass-breathe 4.8s ease-in-out 2.4s infinite;
-}
-
 .hero-isotipo-energy {
   position: absolute;
   inset: 0;
@@ -434,7 +420,6 @@
 .triangle-assembly,
 .triangle-top,
 .triangle-bottom,
-.triangle-shine,
 .triangle-trail {
   transform-box: fill-box;
   transform-origin: center;
@@ -461,14 +446,14 @@
 }
 
 .triangle-top {
-  filter: drop-shadow(0 0 10px rgba(79, 186, 189, 0.9));
+  filter: drop-shadow(0 0 6px rgba(75, 185, 192, 0.45));
   transition:
     transform 0.4s ease,
     filter 0.3s ease;
 }
 
 .triangle-bottom {
-  filter: drop-shadow(0 0 10px rgba(69, 107, 137, 0.9));
+  filter: drop-shadow(0 0 6px rgba(63, 104, 137, 0.4));
   transition:
     transform 0.4s ease,
     filter 0.3s ease;
@@ -488,18 +473,12 @@
 
 .hero-isotipo:hover .triangle-top {
   transform: translate(-3px, -3px);
-  filter: drop-shadow(0 0 18px rgba(126, 231, 240, 1));
+  filter: drop-shadow(0 0 10px rgba(75, 185, 192, 0.7));
 }
 
 .hero-isotipo:hover .triangle-bottom {
   transform: translate(3px, 3px);
-  filter: drop-shadow(0 0 18px rgba(142, 184, 216, 0.95));
-}
-
-.hero-isotipo:hover .hero-isotipo-svg {
-  filter: drop-shadow(0 0 15px rgba(126, 231, 240, 0.35));
-  transform: scale(1.02);
-  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(63, 104, 137, 0.6));
 }
 
 @keyframes assemble {
@@ -555,22 +534,6 @@
   }
 }
 
-@keyframes glass-breathe {
-  0%,
-  100% {
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-      0 18px 48px rgba(0, 0, 0, 0.28),
-      0 0 24px rgba(0, 180, 196, 0.12);
-  }
-  50% {
-    box-shadow:
-      0 0 0 1px rgba(126, 231, 240, 0.18) inset,
-      0 18px 48px rgba(0, 0, 0, 0.28),
-      0 0 36px rgba(0, 180, 196, 0.28);
-  }
-}
-
 @keyframes gold-neon-pulse {
   0%,
   100% {
@@ -589,7 +552,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-isotipo,
-  .hero-isotipo-glass,
   .triangle-assembly,
   .triangle-trail,
   .hero-particle,
@@ -608,14 +570,12 @@
   }
 
   .triangle-top,
-  .triangle-bottom,
-  .hero-isotipo-svg {
+  .triangle-bottom {
     transition: none;
   }
 
   .hero-isotipo:hover .triangle-top,
-  .hero-isotipo:hover .triangle-bottom,
-  .hero-isotipo:hover .hero-isotipo-svg {
+  .hero-isotipo:hover .triangle-bottom {
     transform: none;
     filter: none;
   }
