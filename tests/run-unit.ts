@@ -1,3 +1,4 @@
+import { runAsciiMarkTests } from './asciiMark.test.ts';
 import {
   runMailerLocaleTests,
   runNewsletterSchemaTests,
@@ -12,6 +13,10 @@ type Suite = {
 };
 
 const suites: Suite[] = [
+  {
+    name: 'asciiMark',
+    run: runAsciiMarkTests,
+  },
   {
     name: 'registrySchema',
     run: runRegistrySchemaTests,

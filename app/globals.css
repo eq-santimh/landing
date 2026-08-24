@@ -331,6 +331,191 @@
   border-radius: 999px;
 }
 
+.hero-ascii-frame {
+  min-height: 240px;
+}
+
+@media (min-width: 640px) {
+  .hero-ascii-frame {
+    min-height: 340px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-ascii-frame {
+    min-height: 420px;
+  }
+}
+
+.eq-ascii-mark {
+  --eq-ascii-cycle: 7.6s;
+}
+
+.eq-ascii-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-duration: var(--eq-ascii-cycle);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.eq-ascii-dot--field {
+  animation-name: eq-ascii-field;
+}
+
+.eq-ascii-dot--teal {
+  animation-name: eq-ascii-teal;
+}
+
+.eq-ascii-dot--core {
+  animation-name: eq-ascii-core;
+}
+
+.eq-ascii-dot--scan {
+  animation-name: eq-ascii-scan;
+}
+
+.eq-ascii-dot--seam {
+  animation-name: eq-ascii-seam;
+}
+
+@keyframes eq-ascii-field {
+  0%,
+  14% {
+    opacity: 0.32;
+    transform: scale(0.92);
+  }
+  30% {
+    opacity: 0.14;
+    transform: scale(0.62);
+  }
+  48% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+  66% {
+    opacity: 0.08;
+    transform: scale(0.5);
+  }
+  84%,
+  100% {
+    opacity: 0.36;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes eq-ascii-teal {
+  0%,
+  12% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  28% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+  46% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+  64% {
+    opacity: 0.22;
+    transform: scale(0.7);
+  }
+  84%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+}
+
+@keyframes eq-ascii-core {
+  0%,
+  10% {
+    opacity: 0.12;
+    transform: scale(0.45);
+  }
+  26%,
+  44% {
+    opacity: 1;
+    transform: scale(1.28);
+  }
+  60% {
+    opacity: 0.28;
+    transform: scale(0.72);
+  }
+  78%,
+  100% {
+    opacity: 0.16;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes eq-ascii-scan {
+  0%,
+  50% {
+    opacity: 0.34;
+    transform: scale(0.9);
+  }
+  58% {
+    opacity: 0.05;
+    transform: scale(0.35);
+  }
+  66% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+  74% {
+    opacity: 0.06;
+    transform: scale(0.4);
+  }
+  88%,
+  100% {
+    opacity: 0.38;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes eq-ascii-seam {
+  0%,
+  38% {
+    opacity: 0.12;
+    transform: scale(0.85);
+  }
+  68%,
+  82% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.18;
+    transform: scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eq-ascii-dot {
+    animation: none !important;
+  }
+
+  .eq-ascii-dot--field,
+  .eq-ascii-dot--scan {
+    opacity: 0.35;
+  }
+
+  .eq-ascii-dot--teal {
+    opacity: 0.75;
+  }
+
+  .eq-ascii-dot--core {
+    opacity: 1;
+  }
+
+  .eq-ascii-dot--seam {
+    opacity: 0.55;
+  }
+}
+
 .hero-product-frame {
   max-height: 220px;
 }

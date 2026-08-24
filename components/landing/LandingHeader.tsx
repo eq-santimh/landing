@@ -9,6 +9,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
+import { SHOW_WAITLIST } from '@/lib/landingFlags';
 
 const HOME_SECTIONS = ['producto', 'equipo', 'proceso', 'cumplimiento', 'faq'] as const;
 type HomeSection = (typeof HOME_SECTIONS)[number];
@@ -162,12 +163,14 @@ export default function LandingHeader() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <LanguageSwitcher />
-            <Link
-              href={`${home}#espera`}
-              className="inline-flex rounded-full bg-eq-brand px-2.5 py-2 text-[11px] font-semibold text-white shadow-[0_0_18px_rgba(0,180,196,0.35)] transition hover:bg-eq-brand-strong sm:px-4 sm:text-sm"
-            >
-              {t('cta')}
-            </Link>
+            {SHOW_WAITLIST ? (
+              <Link
+                href={`${home}#espera`}
+                className="inline-flex rounded-full bg-eq-brand px-2.5 py-2 text-[11px] font-semibold text-white shadow-[0_0_18px_rgba(0,180,196,0.35)] transition hover:bg-eq-brand-strong sm:px-4 sm:text-sm"
+              >
+                {t('cta')}
+              </Link>
+            ) : null}
             <button
               type="button"
               className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-eq-ink xl:hidden"

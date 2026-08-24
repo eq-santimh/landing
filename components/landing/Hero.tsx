@@ -1,13 +1,17 @@
 'use client';
 
 import { Suspense } from 'react';
-import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
 import ComingSoonBadge from '@/components/landing/ComingSoonBadge';
-import ProductFrame from '@/components/landing/ProductFrame';
+import HeroAsciiMark from '@/components/landing/HeroAsciiMark';
 import WaitlistForm from '@/components/HeroSection/WaitlistForm';
+import ProductFrame from '@/components/landing/ProductFrame';
+import { SHOW_PLATFORM_SHOTS, SHOW_WAITLIST } from '@/lib/landingFlags';
 
 export default function Hero() {
   const t = useTranslations('HomePage');
+  const locale = useLocale();
 
   return (
     <section className="relative overflow-hidden bg-eq-canvas pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
@@ -18,7 +22,7 @@ export default function Hero() {
       <div className="eq-shell relative grid items-start gap-8 xl:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] xl:items-center xl:gap-12">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <ComingSoonBadge label={t('badge')} variant="waitlist" />
+            {SHOW_WAITLIST ? <ComingSoonBadge label={t('badge')} variant="waitlist" /> : null}
             <ComingSoonBadge label={t('applicationPendingBadge')} variant="regulatory" />
           </div>
           <p className="eq-text-small mt-5 text-eq-brand sm:mt-6">{t('kicker')}</p>
@@ -27,21 +31,42 @@ export default function Hero() {
             <span className="text-gradient">{t('hero_title_highlight')}</span>
           </h1>
           <p className="eq-text-body mt-4 max-w-lg text-sm text-eq-muted sm:mt-5 sm:text-base">{t('subhead')}</p>
-          <div id="espera" className="mt-6 scroll-mt-24 sm:mt-8">
-            <Suspense fallback={<div className="h-[320px] rounded-2xl border border-eq-brand/20 bg-white/5" />}>
-              <WaitlistForm tone="dark" />
-            </Suspense>
-          </div>
+          {SHOW_WAITLIST ? (
+            <div id="espera" className="mt-6 scroll-mt-24 sm:mt-8">
+              <Suspense fallback={<div className="h-[320px] rounded-2xl border border-eq-brand/20 bg-white/5" />}>
+                <WaitlistForm tone="dark" />
+              </Suspense>
+            </div>
+          ) : (
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
+              <Link
+                href={`/${locale}#cumplimiento`}
+                className="eq-neon-cta inline-flex h-11 items-center justify-center rounded-full bg-eq-brand px-5 text-sm font-semibold text-white transition hover:bg-eq-brand-strong"
+              >
+                {t('heroSecondaryCta')}
+              </Link>
+              <Link
+                href={`/${locale}#equipo`}
+                className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-5 text-sm font-semibold text-eq-ink transition hover:border-eq-brand/50 hover:text-white"
+              >
+                {t('heroTertiaryCta')}
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className="relative min-w-0">
           <div className="absolute -inset-4 -z-10 rounded-[28px] bg-[#00b4c4]/20 blur-3xl sm:-inset-6" />
-          <ProductFrame
-            src="/product/marketplace-home.webp"
-            alt={t('productShotAlt')}
-            priority
-            className="hero-product-frame"
-          />
+          {SHOW_PLATFORM_SHOTS ? (
+            <ProductFrame
+              src="/product/marketplace-home.webp"
+              alt={t('productShotAlt')}
+              priority
+              className="hero-product-frame"
+            />
+          ) : (
+            <HeroAsciiMark className="hero-ascii-frame aspect-square w-full max-w-[560px] xl:ml-auto" label={t('heroArtAlt')} />
+          )}
         </div>
       </div>
     </section>
