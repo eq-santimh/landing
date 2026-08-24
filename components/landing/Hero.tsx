@@ -52,7 +52,7 @@ export default function Hero() {
           )}
         </div>
 
-        <div className="relative min-w-0">
+        <div className="relative order-first min-w-0 xl:order-none">
           {SHOW_PLATFORM_SHOTS ? (
             <ProductFrame
               src="/product/marketplace-home.webp"
@@ -62,7 +62,7 @@ export default function Hero() {
             />
           ) : (
             <HeroLogoMark
-              className="mx-auto w-full max-w-[560px] xl:mr-0"
+              className="mx-auto w-full max-w-[400px] xl:mr-0"
               label={t('heroArtAlt')}
             />
           )}

@@ -8,7 +8,7 @@ type HeroLogoMarkProps = {
 
 export default function HeroLogoMark({ className, label }: HeroLogoMarkProps) {
   return (
-    <div className={cn('relative aspect-square', className)}>
+    <div className={cn('hero-isotipo relative aspect-square', className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox={EQUITTY_MARK_VIEW_BOX}
@@ -16,16 +16,17 @@ export default function HeroLogoMark({ className, label }: HeroLogoMarkProps) {
         height="100%"
         role="img"
         aria-label={label}
-        className="eq-hero-mark h-full w-full"
+        className="h-full w-full"
       >
-        {EQUITTY_MARK_FACETS.map((facet) => (
-          <polygon
-            key={facet.id}
-            points={facet.points}
-            fill={facet.fill}
-            className={`eq-hero-mark__facet eq-hero-mark__facet--${facet.id}`}
-          />
-        ))}
+        {EQUITTY_MARK_FACETS.map((facet) => {
+          const position = facet.id === 'turquoise' ? 'top' : 'bottom';
+
+          return (
+            <g key={facet.id} className={`triangle-assembly triangle-assembly--${position}`}>
+              <polygon points={facet.points} fill={facet.fill} className={`triangle-${position}`} />
+            </g>
+          );
+        })}
       </svg>
     </div>
   );
