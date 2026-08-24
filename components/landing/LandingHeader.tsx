@@ -87,14 +87,17 @@ export default function LandingHeader() {
     const sections = HOME_SECTIONS.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => Boolean(el));
     if (sections.length === 0) return;
 
+    pickSection();
     const observer = new IntersectionObserver(pickSection, {
       rootMargin: '-72px 0px 0px 0px',
       threshold: [0, 0.15, 0.35, 0.6, 1],
     });
     sections.forEach((section) => observer.observe(section));
+    window.addEventListener('scroll', pickSection, { passive: true });
     window.addEventListener('hashchange', pickSection);
     return () => {
       observer.disconnect();
+      window.removeEventListener('scroll', pickSection);
       window.removeEventListener('hashchange', pickSection);
     };
   }, [isHome, pathname]);
