@@ -174,31 +174,17 @@ export default function LandingHeader() {
                 />
               ) : null;
 
-              if ('section' in item) {
-                return (
-                  <HashLink
-                    key={item.href}
-                    id={item.section}
-                    href={sectionHref(item.section)}
-                    className={className}
-                    aria-current={active ? 'page' : undefined}
-                  >
-                    {t(item.key)}
-                    {underline}
-                  </HashLink>
-                );
-              }
-
               return (
-                <Link
+                <HashLink
                   key={item.href}
-                  href={`${home}${item.href}`}
-                  aria-current={active ? 'page' : undefined}
+                  id={item.section}
+                  href={sectionHref(item.section)}
                   className={className}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {t(item.key)}
                   {underline}
-                </Link>
+                </HashLink>
               );
             })}
           </nav>
@@ -242,33 +228,18 @@ export default function LandingHeader() {
                   <span className="absolute bottom-2 left-3 right-3 h-px rounded-full bg-eq-brand shadow-[0_0_10px_rgba(0,180,196,0.85)]" />
                 ) : null;
 
-                if ('section' in item) {
-                  return (
-                    <HashLink
-                      key={item.href}
-                      id={item.section}
-                      href={sectionHref(item.section)}
-                      className={className}
-                      aria-current={active ? 'page' : undefined}
-                      onNavigate={() => setOpen(false)}
-                    >
-                      {t(item.key)}
-                      {underline}
-                    </HashLink>
-                  );
-                }
-
                 return (
-                  <Link
+                  <HashLink
                     key={item.href}
-                    href={`${home}${item.href}`}
-                    onClick={() => setOpen(false)}
-                    aria-current={active ? 'page' : undefined}
+                    id={item.section}
+                    href={sectionHref(item.section)}
                     className={className}
+                    aria-current={active ? 'page' : undefined}
+                    onNavigate={() => setOpen(false)}
                   >
                     {t(item.key)}
                     {underline}
-                  </Link>
+                  </HashLink>
                 );
               })}
             </div>
