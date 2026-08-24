@@ -16,7 +16,7 @@ export default function TrustBar() {
       <div className="eq-shell flex gap-4 overflow-x-auto py-5 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:py-6 [&::-webkit-scrollbar]:hidden">
         {items.map(({ icon: Icon, label }) => (
           <div key={label} className="flex min-w-[16.5rem] items-center gap-3 text-sm text-eq-muted sm:min-w-0">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-eq-brand/25 bg-eq-brand/10 text-eq-brand shadow-[0_0_16px_rgba(0,180,196,0.18)]">
+            <span className="eq-icon-halo flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#7ee7f0]/55 bg-eq-brand/10 text-eq-brand">
               <Icon className="h-4 w-4" />
             </span>
             <span className="font-medium text-eq-ink">{label}</span>
