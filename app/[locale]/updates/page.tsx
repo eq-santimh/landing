@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { GlassCard, Section } from '@/components/landing/Section';
+import { ContentCard, ContentSection } from '@/components/landing/ContentSection';
+import NewsletterForm from '@/components/landing/NewsletterForm';
+import PageShell from '@/components/landing/PageShell';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -22,23 +24,21 @@ export default async function UpdatesPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: 'Updates' });
 
   return (
-    <div className="bg-background text-white">
-      <Section className="pt-14 sm:pt-20" title={t('heroTitle')} description={t('heroSubtitle')}>
-        {null}
-      </Section>
-
-      <Section title={t('introTitle')} description={t('introBody')}>
-        <div className="grid gap-5 md:grid-cols-3">
+    <PageShell>
+      <ContentSection className="pt-10 sm:pt-14" title={t('heroTitle')} description={t('heroSubtitle')} />
+      <ContentSection title={t('introTitle')} description={t('introBody')} headingAs="h2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {updateCardSlugs.map((slug) => (
-            <GlassCard key={slug}>
-              <p className="eq-focus-cue text-xs uppercase text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
-                {t(`cards.${slug}.title`)}
-              </p>
-              <p className="mt-2 text-sm text-white/80">{t(`cards.${slug}.body`)}</p>
-            </GlassCard>
+            <ContentCard key={slug}>
+              <p className="eq-text-small text-eq-brand">{t(`cards.${slug}.title`)}</p>
+              <p className="mt-3 text-sm leading-relaxed text-eq-muted">{t(`cards.${slug}.body`)}</p>
+            </ContentCard>
           ))}
         </div>
-      </Section>
-    </div>
+      </ContentSection>
+      <ContentSection>
+        <NewsletterForm />
+      </ContentSection>
+    </PageShell>
   );
 }

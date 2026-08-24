@@ -1,237 +1,216 @@
 'use client';
 
-import { ArrowRight, Menu, TrendingUp, X } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Link } from '@/i18n/navigation';
-import { getContrastingTextColor, getRouteAccent, normalizeRoutePath } from '@/lib/route-accent';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
 
-const navLinks = [
-  { href: '/', key: 'home' },
-  { href: '/about', key: 'about' },
-  { href: '/platform', key: 'platform' },
-  { href: '/regulatory', key: 'regulatory' },
-  { href: '/updates', key: 'updates' },
+const HOME_SECTIONS = ['producto', 'equipo', 'proceso', 'cumplimiento', 'faq'] as const;
+type HomeSection = (typeof HOME_SECTIONS)[number];
+
+const NAV = [
+  { href: '#producto', key: 'product', section: 'producto' },
+  { href: '/about', key: 'about', page: 'about' },
+  { href: '#equipo', key: 'team', section: 'equipo' },
+  { href: '#proceso', key: 'process', section: 'proceso' },
+  { href: '#cumplimiento', key: 'regulatory', section: 'cumplimiento', page: 'regulatory' },
+  { href: '#faq', key: 'faq', section: 'faq' },
 ] as const;
 
+function pageSlug(pathname: string, locale: string) {
+  const rest = pathname.replace(new RegExp(`^/${locale}`), '') || '/';
+  return rest;
+}
+
 export default function LandingHeader() {
-  const t = useTranslations('SiteNav');
+  const t = useTranslations('HomePage.Navigation');
+  const locale = useLocale();
   const pathname = usePathname();
-  const routePath = normalizeRoutePath(pathname);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  const lastScrollY = useRef(0);
-  const scrollDelta = useRef(0);
-  const prefersReducedMotion = useReducedMotion();
-  const activeAccent = getRouteAccent(pathname);
-  const activeTextColor = getContrastingTextColor(activeAccent);
+  const reduceMotion = useReducedMotion();
+  const home = `/${locale}`;
+  const slug = pageSlug(pathname, locale);
+  const isHome = slug === '/';
+  const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [activeSection, setActiveSection] = useState<HomeSection | null>(null);
+  const openRef = useRef(false);
 
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1024px)');
-    const closeMobileIfDesktop = () => {
-      if (mq.matches) setMobileOpen(false);
-    };
-    closeMobileIfDesktop();
-    mq.addEventListener('change', closeMobileIfDesktop);
-    return () => mq.removeEventListener('change', closeMobileIfDesktop);
+    openRef.current = open;
+  }, [open]);
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+
+    function onScroll() {
+      const y = window.scrollY;
+      const delta = y - lastY;
+
+      if (openRef.current || y < 24 || Math.abs(delta) > 160) {
+        setHidden(false);
+      } else if (delta > 8) {
+        setHidden(true);
+      } else if (delta < -8) {
+        setHidden(false);
+      }
+
+      lastY = y;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    const TOP_ZONE = 56;
-    const HIDE_THRESHOLD = 24;
-    const SHOW_THRESHOLD = 12;
+    if (!isHome) return;
 
-    let ticking = false;
-
-    const update = () => {
-      ticking = false;
-
-      if (mobileOpen) {
-        lastScrollY.current = window.scrollY;
-        scrollDelta.current = 0;
-        return;
+    function pickSection() {
+      const marker = 96;
+      let current: HomeSection | null = null;
+      for (const id of HOME_SECTIONS) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= marker) {
+          current = id;
+        }
       }
+      setActiveSection(current);
+    }
 
-      const currentScrollY = Math.max(0, window.scrollY);
-      const delta = currentScrollY - lastScrollY.current;
-      lastScrollY.current = currentScrollY;
+    const sections = HOME_SECTIONS.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => Boolean(el));
+    if (sections.length === 0) return;
 
-      if (currentScrollY <= TOP_ZONE) {
-        scrollDelta.current = 0;
-        setIsHeaderVisible(true);
-        return;
-      }
-
-      if (Math.sign(delta) !== Math.sign(scrollDelta.current)) {
-        scrollDelta.current = 0;
-      }
-      scrollDelta.current += delta;
-
-      if (scrollDelta.current > HIDE_THRESHOLD) {
-        setIsHeaderVisible(false);
-        scrollDelta.current = 0;
-      } else if (scrollDelta.current < -SHOW_THRESHOLD) {
-        setIsHeaderVisible(true);
-        scrollDelta.current = 0;
-      }
+    const observer = new IntersectionObserver(pickSection, {
+      rootMargin: '-72px 0px 0px 0px',
+      threshold: [0, 0.15, 0.35, 0.6, 1],
+    });
+    sections.forEach((section) => observer.observe(section));
+    window.addEventListener('hashchange', pickSection);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('hashchange', pickSection);
     };
+  }, [isHome, pathname]);
 
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(update);
-    };
-
-    lastScrollY.current = window.scrollY;
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [mobileOpen]);
-
-  const accentGlow = {
-    background:
-      'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.28) 0%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.09) 42%, transparent 72%)',
-  };
-
-  const shouldShowHeader = isHeaderVisible || mobileOpen;
+  function isActive(item: (typeof NAV)[number]) {
+    if ('page' in item && (slug === `/${item.page}` || slug.startsWith(`/${item.page}/`))) {
+      return true;
+    }
+    return isHome && 'section' in item && activeSection === item.section;
+  }
 
   return (
-    <motion.header
-      initial={false}
-      animate={{ y: shouldShowHeader ? '0%' : '-100%' }}
-      transition={
-        prefersReducedMotion
-          ? { duration: 0 }
-          : { type: 'tween', ease: [0.22, 1, 0.36, 1], duration: 0.55 }
-      }
-      className="sticky top-0 z-50 border-b border-[rgba(var(--eq-page-accent-rgb,0,180,196),0.12)] bg-[#08070E]/80 backdrop-blur-lg transition-[border-color] duration-300 will-change-transform"
-    >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-16.5 lg:h-17"
-        style={accentGlow}
-        aria-hidden
-      />
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <div className="flex items-center gap-4">
-          <Link
-            href="/"
-            aria-label="EQUITTY home"
-            className="inline-block"
-            style={{
-              filter: 'drop-shadow(0 0 18px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.38))',
-            }}
-          >
+    <>
+      <header
+        className={cn(
+          'fixed top-0 z-50 w-full border-b border-white/10 bg-[#09080d]/85 backdrop-blur-md',
+          'motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out',
+          hidden && !open ? '-translate-y-full' : 'translate-y-0',
+        )}
+      >
+        <div className="eq-shell flex h-16 items-center justify-between gap-3 sm:h-[72px] sm:gap-4">
+          <Link href={home} className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
             <Image
-              src="/logo-accent.png"
+              src="/equitty_isotipo.png"
+              alt=""
+              width={28}
+              height={28}
+              className="h-7 w-7 object-contain"
+              priority
+            />
+            <Image
+              src="/equitty_logo_white.png"
               alt="EQUITTY"
-              width={160}
-              height={48}
-              className="h-auto w-28 object-contain sm:w-36"
+              width={120}
+              height={24}
+              className="hidden h-6 w-auto object-contain sm:block"
               priority
             />
           </Link>
-          <nav className="hidden items-center gap-1 rounded-full bg-white/5 p-1 lg:flex">
-            {navLinks.map((item) => {
-              const isActive = routePath === item.href;
+
+          <nav className="hidden items-center gap-4 text-[13px] font-medium xl:flex xl:gap-7 xl:text-sm">
+            {NAV.map((item) => {
+              const active = isActive(item);
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={`${home}${item.href}`}
+                  aria-current={active ? 'page' : undefined}
                   className={cn(
-                    'relative rounded-full px-4 py-2 text-sm transition-colors',
-                    isActive ? '' : 'text-white/75 hover:text-white'
+                    'relative inline-flex items-center py-1 transition-colors',
+                    active ? 'text-eq-ink' : 'text-eq-muted hover:text-eq-ink',
                   )}
-                  aria-current={isActive ? 'page' : undefined}
                 >
-                  {isActive ? (
+                  {t(item.key)}
+                  {active ? (
                     <motion.span
-                      layoutId="active-nav-pill"
-                      className="absolute inset-0 rounded-full transition-colors duration-300"
+                      layoutId="nav-active-underline"
+                      className="absolute inset-x-0 -bottom-1 h-[2px] rounded-full bg-eq-brand shadow-[0_0_12px_rgba(0,180,196,0.95)]"
                       transition={
-                        prefersReducedMotion
-                          ? { duration: 0 }
-                          : { type: 'spring', stiffness: 260, damping: 30, mass: 0.6 }
+                        reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 32 }
                       }
-                      style={{
-                        backgroundColor: 'rgb(var(--eq-page-accent-rgb, 0, 180, 196))',
-                        boxShadow: '0 0 18px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.35)',
-                      }}
                     />
                   ) : null}
-                  <span className="relative z-10" style={isActive ? { color: activeTextColor } : undefined}>
-                    {t(item.key)}
-                  </span>
                 </Link>
               );
             })}
           </nav>
-        </div>
-        <div className="flex items-center gap-2">
 
-          {/* 
-          <Button
-            asChild
-            className="hidden sm:inline-flex rounded-full border border-[rgba(var(--eq-page-accent-rgb,0,180,196),0.65)] bg-[rgba(var(--eq-page-accent-rgb,0,180,196),0.06)] text-white shadow-[0_0_0px_rgba(var(--eq-page-accent-rgb,0,180,196),0.2)] hover:bg-[rgba(var(--eq-page-accent-rgb,0,180,196),0.18)] hover:shadow-[0_0_24px_rgba(var(--eq-page-accent-rgb,0,180,196),0.45)]"
-          >
-            <Link href="/#newsletter">
-              {t('primaryCta')}
-              <TrendingUp className="h-4 w-4" />
+          <div className="flex items-center gap-2 sm:gap-3">
+            <LanguageSwitcher />
+            <Link
+              href={`${home}#espera`}
+              className="inline-flex rounded-full bg-eq-brand px-2.5 py-2 text-[11px] font-semibold text-white shadow-[0_0_18px_rgba(0,180,196,0.35)] transition hover:bg-eq-brand-strong sm:px-4 sm:text-sm"
+            >
+              {t('cta')}
             </Link>
-          </Button> */}
-
-          <button
-            type="button"
-            onClick={() => setMobileOpen((value) => !value)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-white/10 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--eq-page-accent-rgb,0,180,196),0.55)] lg:hidden"
-            aria-label={mobileOpen ? t('closeMenu') : t('openMenu')}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-navigation"
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-eq-ink xl:hidden"
+              onClick={() => {
+                setHidden(false);
+                setOpen((value) => !value);
+              }}
+              aria-expanded={open}
+              aria-label={open ? t('closeMenu') : t('openMenu')}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
-      </div>
-      <div
-        id="mobile-navigation"
-        className={cn(
-          'overflow-hidden border-t border-white/10 transition-[max-height,opacity] duration-300 lg:hidden',
-          mobileOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0'
-        )}
-      >
-        <nav className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
-          {navLinks.map((item) => {
-            const isActive = routePath === item.href;
-            return (
-              <Link
-                key={`mobile-${item.href}`}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-white/8"
-                style={isActive ? { color: activeTextColor, backgroundColor: 'rgb(var(--eq-page-accent-rgb, 0, 180, 196))' } : undefined}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {t(item.key)}
-              </Link>
-            );
-          })}
-          <Link
-            href="/#newsletter"
-            onClick={() => setMobileOpen(false)}
-            className="mt-2 inline-flex justify-center rounded-xl border border-[rgba(var(--eq-page-accent-rgb,0,180,196),0.38)] bg-[rgba(var(--eq-page-accent-rgb,0,180,196),0.1)] px-4 py-3 text-(--eq-page-accent-contrast,#F8FAFC) text-sm font-semibold shadow-[0_8px_22px_rgba(var(--eq-page-accent-rgb,0,180,196),0.18)] transition hover:bg-[rgba(var(--eq-page-accent-rgb,0,180,196),0.2)]"
-          >
-            {t('primaryCta')}
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </nav>
-      </div>
-      {/* <div className="w-full h-px min-h-px mt-3 sm:mt-5 bg-linear-to-r from-transparent via-accent to-transparent opacity-90" style={{
-        background:
-          'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0, 180, 196, 0.25) 0%, rgba(0, 180, 196, 0.08) 40%, transparent 70%)',
-      }} aria-hidden /> */}
-    </motion.header>
+
+        {open ? (
+          <nav className="border-t border-white/10 bg-[#09080d]/95 px-4 py-4 backdrop-blur-md xl:hidden">
+            <div className="eq-shell grid gap-1">
+              {NAV.map((item) => {
+                const active = isActive(item);
+                return (
+                  <Link
+                    key={item.href}
+                    href={`${home}${item.href}`}
+                    onClick={() => setOpen(false)}
+                    aria-current={active ? 'page' : undefined}
+                    className={cn(
+                      'relative rounded-xl px-3 py-3 text-sm font-medium transition',
+                      active ? 'text-eq-ink' : 'text-eq-muted hover:bg-white/5 hover:text-eq-ink',
+                    )}
+                  >
+                    {t(item.key)}
+                    {active ? (
+                      <span className="absolute bottom-2 left-3 right-3 h-px rounded-full bg-eq-brand shadow-[0_0_10px_rgba(0,180,196,0.85)]" />
+                    ) : null}
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
+        ) : null}
+      </header>
+      <div className="h-16 sm:h-[72px]" aria-hidden />
+    </>
   );
 }

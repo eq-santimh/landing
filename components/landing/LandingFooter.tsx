@@ -4,7 +4,6 @@ import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { Link, usePathname } from '@/i18n/navigation';
 import {
   Dialog,
   DialogContent,
@@ -52,126 +51,70 @@ const socials = [
   { href: FACEBOOK_URL, label: 'Facebook', icon: Facebook },
 ];
 
+const SITE_LINKS = [
+  { href: '/about', key: 'siteAbout' },
+  { href: '/platform', key: 'sitePlatform' },
+  { href: '/regulatory', key: 'siteRegulatory' },
+  { href: '/updates', key: 'siteUpdates' },
+] as const;
+
 export default function LandingFooter() {
-  const t = useTranslations('Footer');
+  const t = useTranslations('HomePage.Footer');
   const locale = useLocale();
-  const pathname = usePathname();
+  const home = `/${locale}`;
   const [isTermsOpen, setIsTermsOpen] = useState(false);
-  const termsHeader = t.raw('termsContent.header') as string[];
-  const termsSections = t.raw('termsContent.sections') as TermsSection[];
-  const termsFooter = t.raw('termsContent.footer') as string;
-  const currentLocale = locale === 'es' ? 'es' : 'en';
-
-  const footerAccentLine = {
-    background:
-      'linear-gradient(90deg, transparent 0%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.55) 50%, transparent 100%)',
-    boxShadow:
-      '0 0 14px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.42), 0 0 36px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.16)',
-  };
-
-  const footerTopGlow = {
-    background:
-      'radial-gradient(ellipse 72% 85% at 50% 0%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.16) 0%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.05) 48%, transparent 72%)',
-  };
+  const waitlistTermsHeader = t.raw('termsContent.header') as string[];
+  const waitlistTermsSections = t.raw('termsContent.sections') as TermsSection[];
+  const waitlistTermsFooter = t.raw('termsContent.footer') as string;
 
   return (
-    <footer className="relative overflow-hidden bg-background dark:bg-background">
-      <div
-        className="pointer-events-none absolute inset-x-0 top-8 h-28 sm:h-32"
-        style={footerTopGlow}
-        aria-hidden
-      />
-      <div
-        className="relative mx-auto mt-8 h-px w-full max-w-7xl opacity-90"
-        style={footerAccentLine}
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-          <div
-            className="inline-block"
-            style={{
-              filter: 'drop-shadow(0 0 16px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.32))',
-            }}
-          >
-            <Image src="/logo-accent.png" alt="EQUITTY" width={200} height={200} />
+    <footer className="border-t border-white/10 bg-[#05040a]">
+      <div className="eq-shell py-10">
+        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div>
+            <Image src="/equitty_logo_white.png" alt="EQUITTY" width={140} height={32} className="h-8 w-auto" />
+            <p className="mt-3 max-w-sm text-sm text-eq-muted">{t('tagline')}</p>
+            <nav className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+              {SITE_LINKS.map((item) => (
+                <a key={item.href} href={`${home}${item.href}`} className="text-eq-muted transition hover:text-eq-brand">
+                  {t(item.key)}
+                </a>
+              ))}
+            </nav>
           </div>
 
-          <div className="flex flex-col gap-2 text-sm">
-            <div className="flex items-center gap-4">
-              <Dialog open={isTermsOpen} onOpenChange={setIsTermsOpen}>
-                <DialogTrigger asChild>
-                  <button
-                    type="button"
-                    className="cursor-pointer text-white/70 transition hover:text-[rgb(var(--eq-page-accent-rgb,0,180,196))] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--eq-page-accent-rgb,0,180,196),0.45)]"
-                  >
-                    {t('terms')}
-                  </button>
-                </DialogTrigger>
-                <DialogContent
-                  className="max-w-[min(96vw,1600px)] w-[min(96vw,1600px)] sm:max-w-[min(74vw,1200px)] sm:w-[min(74vw,1200px)] bg-[#03040b]/90 border border-white/10 shadow-2xl"
-                >
-                  <DialogHeader>
-                    <DialogTitle className="text-white">{t('termsModalTitle')}</DialogTitle>
-                    <DialogDescription className="text-white/70">{t('termsModalDescription')}</DialogDescription>
-                  </DialogHeader>
-                  <div className="mt-4 max-h-[70vh] overflow-y-auto rounded-2xl border border-white/10 bg-black/80 p-6 text-sm leading-relaxed text-white/80">
-                    <div className="space-y-1 text-[13px] uppercase tracking-[0.3em] text-white/60">
-                      {termsHeader.map((line, index) => (
-                        <p key={`${line}-${index}`}>{line}</p>
-                      ))}
-                    </div>
-                    <div className="mt-4 space-y-6">
-                      {termsSections.map((section) => (
-                        <article
-                          key={section.title}
-                          className="space-y-2 border-t border-white/10 pt-4 first:border-t-0 first:pt-0"
-                        >
-                          <p className="text-xs uppercase tracking-[0.4em] text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
-                            {section.title}
-                          </p>
-                          <p className="text-sm text-white/80 leading-relaxed whitespace-pre-line">{section.body}</p>
-                        </article>
-                      ))}
-                    </div>
-                    <p className="mt-4 text-xs text-white/60">{termsFooter}</p>
+          <div className="flex items-center gap-4 text-sm">
+            <Dialog open={isTermsOpen} onOpenChange={setIsTermsOpen}>
+              <DialogTrigger asChild>
+                <button type="button" className="text-eq-muted transition hover:text-eq-brand">
+                  {t('terms')}
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-h-[85vh] w-[min(96vw,920px)] max-w-[min(96vw,920px)] overflow-hidden border-white/10 bg-[#14131c] sm:max-w-[min(74vw,920px)]">
+                <DialogHeader>
+                  <DialogTitle className="text-eq-ink">{t('termsModalTitle')}</DialogTitle>
+                  <DialogDescription className="text-eq-muted">{t('termsModalDescription')}</DialogDescription>
+                </DialogHeader>
+                <div className="mt-2 max-h-[60vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#09080d] p-6 text-sm leading-relaxed text-eq-ink">
+                  <div className="space-y-1 text-[13px] tracking-[0.2em] text-eq-muted uppercase">
+                    {waitlistTermsHeader.map((line, index) => (
+                      <p key={`${line}-${index}`}>{line}</p>
+                    ))}
                   </div>
-                </DialogContent>
-              </Dialog>
-              <div className="h-4 w-px bg-white/20" />
-              <span className="text-white/70">{t('privacy')}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-white/50">{t('languageLabel')}</span>
-              <div className="inline-flex items-center rounded-full bg-white/5 p-1">
-                <Link
-                  href={pathname}
-                  locale="es"
-                  className="rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-white/70 transition hover:text-white"
-                  style={
-                    currentLocale === 'es'
-                      ? { backgroundColor: 'rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.25)', color: '#FFFFFF' }
-                      : undefined
-                  }
-                  aria-current={currentLocale === 'es' ? 'page' : undefined}
-                >
-                  ES
-                </Link>
-                <Link
-                  href={pathname}
-                  locale="en"
-                  className="rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-white/70 transition hover:text-white"
-                  style={
-                    currentLocale === 'en'
-                      ? { backgroundColor: 'rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.25)', color: '#FFFFFF' }
-                      : undefined
-                  }
-                  aria-current={currentLocale === 'en' ? 'page' : undefined}
-                >
-                  EN
-                </Link>
-              </div>
-            </div>
+                  <div className="mt-4 space-y-6">
+                    {waitlistTermsSections.map((section) => (
+                      <article key={section.title} className="space-y-2 border-t border-eq-line pt-4 first:border-t-0 first:pt-0">
+                        <p className="eq-text-small text-eq-brand">{section.title}</p>
+                        <p className="whitespace-pre-line leading-relaxed text-eq-muted">{section.body}</p>
+                      </article>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-xs text-eq-muted">{waitlistTermsFooter}</p>
+                </div>
+              </DialogContent>
+            </Dialog>
+            <div className="h-4 w-px bg-eq-line" />
+            <span className="text-eq-muted">{t('privacy')}</span>
           </div>
 
           <div className="flex items-center gap-4">
@@ -181,17 +124,18 @@ export default function LandingFooter() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 transition-colors hover:text-[rgb(var(--eq-page-accent-rgb,0,180,196))]"
+                className="text-eq-muted transition-colors hover:text-eq-brand"
                 aria-label={label}
               >
-                <Icon className="w-5 h-5" />
+                <Icon className="h-5 w-5" />
               </a>
             ))}
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-8 pt-6 text-center text-xs text-white/50">
-          <p>{t('footerDisclaimer')}</p>
+        <div className="mt-8 border-t border-eq-line pt-6 text-xs text-eq-muted">
+          <p>{t('regulated')}</p>
+          <p className="mt-2">{t('footerDisclaimer')}</p>
         </div>
       </div>
     </footer>

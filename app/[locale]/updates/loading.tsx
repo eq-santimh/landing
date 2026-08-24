@@ -1,5 +1,10 @@
 import PageSkeleton from '@/components/landing/PageSkeleton';
+import PageShell from '@/components/landing/PageShell';
 
 export default function UpdatesLoading() {
-  return <PageSkeleton />;
+  return (
+    <PageShell>
+      <PageSkeleton />
+    </PageShell>
+  );
 }

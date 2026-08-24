@@ -8,8 +8,8 @@ function SkeletonBlock({ className }: { className: string }) {
 
 export default function PageSkeleton({ compact = false }: PageSkeletonProps) {
   return (
-    <div className="px-4 py-12 sm:px-6 sm:py-16">
-      <div className="mx-auto w-full max-w-7xl space-y-6">
+    <div className="eq-shell py-12 sm:py-16">
+      <div className="space-y-6">
         <SkeletonBlock className="h-4 w-28 rounded-full" />
         <SkeletonBlock className="h-10 w-full max-w-3xl" />
         <SkeletonBlock className="h-5 w-full max-w-4xl" />
