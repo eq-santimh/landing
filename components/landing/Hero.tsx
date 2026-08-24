@@ -14,10 +14,6 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-eq-canvas pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <div className="pointer-events-none absolute -top-24 right-[-20%] h-72 w-72 rounded-full bg-[#7ee7f0]/20 blur-3xl sm:h-96 sm:w-96" />
-      <div className="pointer-events-none absolute top-32 left-[-15%] h-64 w-64 rounded-full bg-violet-500/15 blur-3xl" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_top_right,rgba(0,180,196,0.16),transparent_55%)]" />
-
       <div className="eq-shell relative grid items-start gap-8 xl:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] xl:items-center xl:gap-12">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">

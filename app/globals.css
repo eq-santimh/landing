@@ -197,6 +197,12 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .eq-text-display {
   font-size: var(--eq-text-display);
   letter-spacing: var(--eq-tracking-display);
@@ -406,19 +412,15 @@
   38%,
   100% {
     transform: scale(0.992);
-    filter: drop-shadow(0 0 0 rgba(79, 186, 189, 0));
   }
   54% {
     transform: scale(1);
-    filter: drop-shadow(0 0 2px rgba(79, 186, 189, 0.2));
   }
   66% {
     transform: scale(1.012);
-    filter: drop-shadow(0 0 5px rgba(79, 186, 189, 0.28));
   }
   80% {
     transform: scale(1);
-    filter: drop-shadow(0 0 2px rgba(69, 107, 137, 0.18));
   }
 }
 
