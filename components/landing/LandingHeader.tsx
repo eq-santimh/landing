@@ -19,7 +19,6 @@ type HomeSection = (typeof HOME_SECTIONS)[number];
 const NAV = [
   { href: '#producto', key: 'product', section: 'producto' },
   { href: '#equipo', key: 'about', section: 'equipo' },
-  { href: '#equipo', key: 'team', section: 'equipo' },
   { href: '#proceso', key: 'process', section: 'proceso' },
   { href: '#cumplimiento', key: 'regulatory', section: 'cumplimiento', page: 'regulatory' },
   { href: '#faq', key: 'faq', section: 'faq' },
