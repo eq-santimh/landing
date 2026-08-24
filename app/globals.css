@@ -423,8 +423,6 @@
 .triangle-assembly,
 .triangle-top,
 .triangle-bottom,
-.triangle-shine,
-.triangle-core,
 .triangle-trail {
   transform-box: fill-box;
   transform-origin: center;
@@ -451,16 +449,14 @@
 }
 
 .triangle-top {
-  filter: drop-shadow(0 0 10px rgba(79, 186, 189, 0.9));
-  animation: crystal-pulse-top 2.8s ease-in-out 2.6s infinite;
+  filter: drop-shadow(0 0 6px rgba(75, 185, 192, 0.45));
   transition:
     transform 0.4s ease,
     filter 0.3s ease;
 }
 
 .triangle-bottom {
-  filter: drop-shadow(0 0 10px rgba(69, 107, 137, 0.9));
-  animation: crystal-pulse-bottom 2.8s ease-in-out 2.8s infinite;
+  filter: drop-shadow(0 0 6px rgba(63, 104, 137, 0.4));
   transition:
     transform 0.4s ease,
     filter 0.3s ease;
@@ -480,23 +476,12 @@
 
 .hero-isotipo:hover .triangle-top {
   transform: translate(-3px, -3px);
-  animation: none;
-  filter: drop-shadow(0 0 18px rgba(126, 231, 240, 1));
+  filter: drop-shadow(0 0 10px rgba(75, 185, 192, 0.7));
 }
 
 .hero-isotipo:hover .triangle-bottom {
   transform: translate(3px, 3px);
-  animation: none;
-  filter: drop-shadow(0 0 18px rgba(142, 184, 216, 0.95));
-}
-
-.hero-isotipo-svg {
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.hero-isotipo:hover .hero-isotipo-svg {
-  transform: scale(1.02);
-  filter: drop-shadow(0 0 15px rgba(126, 231, 240, 0.35));
+  filter: drop-shadow(0 0 10px rgba(63, 104, 137, 0.6));
 }
 
 @keyframes assemble {
@@ -552,26 +537,6 @@
   }
 }
 
-@keyframes crystal-pulse-top {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 10px rgba(79, 186, 189, 0.85));
-  }
-  50% {
-    filter: drop-shadow(0 0 22px rgba(126, 231, 240, 1));
-  }
-}
-
-@keyframes crystal-pulse-bottom {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 10px rgba(69, 107, 137, 0.85));
-  }
-  50% {
-    filter: drop-shadow(0 0 22px rgba(142, 184, 216, 0.95));
-  }
-}
-
 @keyframes gold-neon-pulse {
   0%,
   100% {
@@ -592,8 +557,6 @@
   .hero-isotipo,
   .triangle-assembly,
   .triangle-trail,
-  .triangle-top,
-  .triangle-bottom,
   .hero-particle,
   .eq-badge-gold {
     animation: none !important;
@@ -610,14 +573,12 @@
   }
 
   .triangle-top,
-  .triangle-bottom,
-  .hero-isotipo-svg {
+  .triangle-bottom {
     transition: none;
   }
 
   .hero-isotipo:hover .triangle-top,
-  .hero-isotipo:hover .triangle-bottom,
-  .hero-isotipo:hover .hero-isotipo-svg {
+  .hero-isotipo:hover .triangle-bottom {
     transform: none;
     filter: none;
   }
