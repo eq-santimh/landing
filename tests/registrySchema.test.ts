@@ -7,6 +7,7 @@ import {
   normalizeEmailLocale,
 } from '../lib/mailer.ts';
 import { normalizeReferralCode } from '../lib/referrals.ts';
+import { createNewsletterSchema } from '../schemas/newsletterSchema.ts';
 import { createRegistrySchema } from '../schemas/registrySchema.ts';
 
 const t = (key: string) =>
@@ -76,6 +77,42 @@ export function runRegistrySchemaTests() {
   assert.equal(invalidReferralCode.error?.issues[0]?.message, 'Referral code format is invalid');
 }
 
+export function runNewsletterSchemaTests() {
+  const newsletterSchema = createNewsletterSchema((key) =>
+    (
+      {
+        firstNameRequired: 'First name is required.',
+        emailRequired: 'Email address is required.',
+        emailInvalid: 'Invalid email.',
+        interestRequired: 'Select at least one interest.',
+      } as const
+    )[key] ?? key
+  );
+
+  const validPayload = newsletterSchema.safeParse({
+    firstName: 'Alice',
+    email: 'alice@example.com',
+    interests: ['futureInvestor', 'industryObserver'],
+  });
+  assert.equal(validPayload.success, true, 'accepts valid newsletter payload');
+
+  const invalidEmail = newsletterSchema.safeParse({
+    firstName: 'Alice',
+    email: 'bad-email',
+    interests: ['futureInvestor'],
+  });
+  assert.equal(invalidEmail.success, false, 'rejects invalid newsletter email');
+  assert.equal(invalidEmail.error?.issues[0]?.message, 'Invalid email.');
+
+  const missingInterests = newsletterSchema.safeParse({
+    firstName: 'Alice',
+    email: 'alice@example.com',
+    interests: [],
+  });
+  assert.equal(missingInterests.success, false, 'requires at least one interest');
+  assert.equal(missingInterests.error?.issues[0]?.message, 'Select at least one interest.');
+}
+
 export function runReferralUtilityTests() {
   assert.equal(normalizeReferralCode(' abc12345 '), 'ABC12345');
   assert.equal(normalizeReferralCode(''), null);
@@ -111,9 +148,9 @@ export function runMailerLocaleTests() {
     referredByCode: 'ZXCV6789',
     email: 'hola@example.com',
   });
-  assert.match(spanishWelcome.subject, /Ya estas en la waitlist de Equitty/);
+  assert.match(spanishWelcome.subject, /Ya estás en la waitlist de Equitty/);
   assert.match(spanishWelcome.html, /welcome-banner\.png/);
-  assert.match(spanishWelcome.html, /Fuiste registrado con el codigo referido/);
+  assert.match(spanishWelcome.html, /Fuiste registrado con el código de referido/);
 
   const englishReferrer = buildReferrerNotificationEmail({
     locale: 'en-US',
@@ -131,6 +168,6 @@ export function runMailerLocaleTests() {
     locale: 'es-GT',
     referralCode: 'LEGACY123',
   });
-  assert.match(spanishExistingUser.subject, /Tu codigo de referido de Equitty ya esta listo/);
+  assert.match(spanishExistingUser.subject, /Tu código de referido de Equitty ya está listo/);
   assert.match(spanishExistingUser.html, /welcome-banner\.png/);
 }

@@ -15,43 +15,23 @@ interface GlassDialogProps {
 }
 
 const VARIANTS: Record<GlassVariant, string> = {
-  pure: `
-    bg-white/10
-    backdrop-blur-xl
-    border border-white/20
-    shadow-xl
-  `,
-  glow: `
-    bg-white/10
-    backdrop-blur-xl
-    border border-white/20
-    shadow-2xl
-    shadow-[0_0_60px_rgba(255,255,255,0.18)]
-  `,
-  aurora: `
-    bg-gradient-to-br
-    from-cyan-400/10
-    via-purple-500/10
-    to-fuchsia-500/10
-    backdrop-blur-2xl
-    border border-white/20
-    shadow-2xl
-    shadow-[0_0_80px_rgba(168,85,247,0.35)]
-  `,
+  pure: 'bg-[#14131c] border border-white/10 shadow-xl text-eq-ink',
+  glow: 'bg-[#14131c] border border-white/10 shadow-2xl text-eq-ink',
+  aurora: 'bg-[#14131c] border border-white/10 shadow-xl text-eq-ink',
 };
 
 export function GlassDialog({
   open,
   onOpenChange,
   children,
-  variant = 'aurora',
+  variant = 'pure',
   className,
 }: GlassDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogOverlay className="bg-black/40 backdrop-blur-sm" />
+      <DialogOverlay className="bg-[#09080d]/40 backdrop-blur-sm" />
 
-      <DialogContent className={cn('rounded-3xl text-white', VARIANTS[variant], className)}>
+      <DialogContent className={cn('rounded-2xl', VARIANTS[variant], className)}>
         {children}
       </DialogContent>
     </Dialog>

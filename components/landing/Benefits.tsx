@@ -1,31 +1,40 @@
 'use client';
 
+import { BadgeCheck, Landmark, LineChart, Waypoints } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import NeonIcon from '@/components/landing/NeonIcon';
+import SectionHeading from '@/components/landing/SectionHeading';
 
-const BENEFIT_KEYS = ['item1', 'item2', 'item3', 'item4'] as const;
+const BENEFITS = [
+  { key: 'item1', icon: Landmark, accent: 'amber' },
+  { key: 'item2', icon: LineChart, accent: 'cyan' },
+  { key: 'item3', icon: Waypoints, accent: 'emerald' },
+  { key: 'item4', icon: BadgeCheck, accent: 'violet' },
+] as const;
 
 export default function Benefits() {
   const t = useTranslations('HomePage.Benefits');
 
   return (
-    <section className="px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold tracking-[0.35em] uppercase text-[#00B4C4]">
-            {t('eyebrow')}
-          </p>
-          <h2 className="mt-4 text-4xl font-semibold sm:text-5xl">{t('title')}</h2>
-          <p className="mt-4 text-lg text-white/70">{t('subtitle')}</p>
-        </div>
+    <section className="relative overflow-hidden bg-eq-paper py-16 sm:py-20 lg:py-28">
+      <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-eq-brand/15 blur-3xl" />
+      <div className="pointer-events-none absolute right-[-10%] bottom-0 h-56 w-56 rounded-full bg-violet-500/15 blur-3xl" />
+      <div className="eq-shell relative">
+        <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {BENEFIT_KEYS.map((key) => (
+        <div className="mt-10 grid gap-4 sm:mt-12 md:grid-cols-2">
+          {BENEFITS.map((item) => (
             <article
-              key={key}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 transition hover:border-[#00B4C4]/40"
+              key={item.key}
+              className="eq-glass-neon group/benefit p-5 sm:p-7"
             >
-              <h3 className="text-2xl font-semibold text-white">{t(`${key}.title`)}</h3>
-              <p className="mt-3 text-white/70">{t(`${key}.description`)}</p>
+              <NeonIcon icon={item.icon} accent={item.accent} />
+              <h3 className="mt-5 text-lg font-semibold tracking-tight text-eq-ink sm:text-2xl">
+                {t(`${item.key}.title`)}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-eq-muted sm:text-base">
+                {t(`${item.key}.description`)}
+              </p>
             </article>
           ))}
         </div>

@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useMemo, useState, useTransition } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useLocale, useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { addEmailToWaitlist } from '@/app/[locale]/actions';
 import CustomDialog from '@/components/CustomDialog';
@@ -12,13 +13,25 @@ import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 import { countries } from '@/lib/countries';
 import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import CountrySelect from '@/components/HeroSection/CountrySelect';
 
-export default function WaitlistForm() {
+type WaitlistFormProps = {
+  tone?: 'light' | 'dark';
+};
+
+function sanitizeReferral(value: string) {
+  return value.replace(/[^a-zA-Z0-9]/g, '').slice(0, 12);
+}
+
+export default function WaitlistForm({ tone = 'dark' }: WaitlistFormProps) {
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');
   const [dialogMessage, setDialogMessage] = useState('');
+  const isDark = tone === 'dark';
+  const searchParams = useSearchParams();
 
   const tForm = useTranslations('HomePage.Form');
   const tValidation = useTranslations('HomePage.Form.Validation');
@@ -35,21 +48,29 @@ export default function WaitlistForm() {
     );
   }, []);
 
+  const presetReferral = useMemo(() => {
+    const raw = searchParams.get('ref') ?? searchParams.get('referral') ?? '';
+    return sanitizeReferral(raw);
+  }, [searchParams]);
+
+  const [referralOpen, setReferralOpen] = useState(() => Boolean(presetReferral));
+
   const form = useForm<registryForm>({
     defaultValues: {
       email: '',
       nationality: defaultNationality || '',
-      wasReferred: false,
-      referralCode: '',
+      wasReferred: Boolean(presetReferral),
+      referralCode: presetReferral,
     },
     mode: 'onSubmit',
   });
 
-  const wasReferred = useWatch({
-    control: form.control,
-    name: 'wasReferred',
-    defaultValue: false,
-  });
+  useEffect(() => {
+    if (presetReferral) {
+      form.setValue('wasReferred', true);
+      form.setValue('referralCode', presetReferral);
+    }
+  }, [form, presetReferral]);
 
   useEffect(() => {
     if (defaultNationality && !form.getValues('nationality')) {
@@ -57,17 +78,15 @@ export default function WaitlistForm() {
     }
   }, [defaultNationality, form]);
 
-  useEffect(() => {
-    if (!wasReferred) {
-      form.setValue('referralCode', '');
-      form.clearErrors('referralCode');
-    }
-  }, [form, wasReferred]);
-
   function onSubmit(data: registryForm) {
     startTransition(async () => {
       form.clearErrors();
-      const parsed = registrySchema.safeParse(data);
+      const referralCode = sanitizeReferral(data.referralCode ?? '');
+      const parsed = registrySchema.safeParse({
+        ...data,
+        referralCode,
+        wasReferred: Boolean(referralCode),
+      });
 
       if (!parsed.success) {
         for (const issue of parsed.error.issues) {
@@ -91,6 +110,9 @@ export default function WaitlistForm() {
           wasReferred: false,
           referralCode: '',
         });
+        if (!presetReferral) {
+          setReferralOpen(false);
+        }
         return;
       }
 
@@ -112,123 +134,163 @@ export default function WaitlistForm() {
     });
   }
 
-  const labelNationality = locale === 'es' ? 'NACIONALIDAD' : 'NATIONALITY';
-  const labelEmail = locale === 'es' ? 'CORREO ELECTRONICO *' : 'EMAIL ADDRESS *';
-  const labelReferral = locale === 'es' ? 'CODIGO DE REFERIDO' : 'REFERRAL CODE';
-  const fieldBase =
-    'w-full h-12 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white outline-none transition-all duration-300 placeholder:text-white/50 hover:bg-white/15 hover:border-[#00B4C4]/50 focus:border-[#00B4C4] focus:ring-2 focus:ring-[#00B4C4]/30';
+  const fieldBase = cn(
+    'h-11 w-full rounded-[10px] px-4 py-3 text-sm outline-none transition-all duration-200 sm:h-12',
+    isDark ? 'dark-eq-input eq-neon-field' : 'eq-input',
+  );
+  const quietField = cn(
+    'h-10 w-full rounded-[10px] px-4 py-2 text-sm outline-none transition-all duration-200',
+    isDark
+      ? 'border border-white/10 bg-transparent text-white/80 placeholder:text-white/35'
+      : 'border border-eq-line bg-transparent text-eq-ink placeholder:text-eq-muted',
+  );
 
   return (
     <>
-      <Form {...form}>
-        <form className="w-full space-y-4" onSubmit={form.handleSubmit(onSubmit)} aria-label="Join waitlist form">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <div className="relative group">
+      <div
+        className={cn(
+          'p-4 sm:p-6',
+          isDark ? 'eq-glass-neon' : 'rounded-2xl border border-eq-line bg-white shadow-[0_2px_8px_rgba(9,8,13,0.06)]',
+        )}
+      >
+        <p className="eq-text-small text-eq-brand">{tForm('cardEyebrow')}</p>
+        <h2 className={cn('mt-2 text-lg font-semibold sm:text-xl', isDark ? 'text-white' : 'text-eq-ink')}>{tForm('cardTitle')}</h2>
+        <p className={cn('mt-1 mb-4 text-sm sm:mb-5', isDark ? 'text-[#d7cfc7]' : 'text-eq-muted')}>{tForm('cardDescription')}</p>
+
+        <Form {...form}>
+          <form className="w-full space-y-3.5" onSubmit={form.handleSubmit(onSubmit)} aria-label="Join waitlist form">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <label htmlFor="waitlist-email" className={cn('eq-text-small', isDark ? 'text-white/55' : 'text-eq-muted')}>
+                    {tForm('emailLabel')}
+                  </label>
+                  <FormControl>
                     <Input
                       {...field}
+                      id="waitlist-email"
                       type="email"
                       placeholder={tForm('emailPlaceholder')}
                       className={fieldBase}
-                      aria-label={labelEmail}
+                      aria-label={tForm('emailLabel')}
                       aria-describedby="email-error"
                       autoComplete="email"
                       required
                     />
-                  </div>
-                </FormControl>
-                <FormMessage className="text-left text-xs text-white/80" id="email-error" />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="nationality"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <div className="relative group">
-                    <select
-                      {...field}
-                      className={`${fieldBase} appearance-none pr-12`}
-                      aria-label={labelNationality}
-                      aria-describedby="nationality-error"
-                      required
-                    >
-                      <option value="" disabled className="bg-[#08070E] text-white/60">
-                        {tForm('nationalityPlaceholder')}
-                      </option>
-                      {countries.map((country) => (
-                        <option key={country.code} value={country.code} className="bg-[#08070E] text-white">
-                          {locale === 'es' ? country.nameEs : country.name}
-                        </option>
-                      ))}
-                    </select>
-                    <svg
-                      className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/50"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </FormControl>
-                <FormMessage className="text-left text-xs text-white/80" id="nationality-error" />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="wasReferred"
-            render={({ field }) => (
-              <FormItem>
-                <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/85">
-                  <input
-                    type="checkbox"
-                    checked={field.value}
-                    onChange={(event) => field.onChange(event.target.checked)}
-                    className="mt-0.5 h-4 w-4 rounded border-white/20 bg-[#050A14] accent-[#00B4C4]"
-                  />
-                  <span>{tForm('wasReferredLabel')}</span>
-                </label>
-              </FormItem>
-            )}
-          />
-
-          {wasReferred ? (
-            <FormField
-              control={form.control}
-              name="referralCode"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      type="text"
-                      placeholder={tForm('referralCodePlaceholder')}
-                      className={`${fieldBase} uppercase`}
-                      aria-label={labelReferral}
-                      aria-describedby="referral-code-error"
-                      autoComplete="off"
-                      maxLength={12}
-                    />
                   </FormControl>
-                  <FormMessage className="text-left text-xs text-white/80" id="referral-code-error" />
+                  <FormMessage className="text-left text-xs" id="email-error" />
                 </FormItem>
               )}
             />
-          ) : null}
+
+            <FormField
+              control={form.control}
+              name="nationality"
+              render={({ field }) => (
+                <FormItem>
+                  <label htmlFor="waitlist-nationality" className={cn('eq-text-small', isDark ? 'text-white/55' : 'text-eq-muted')}>
+                    {tForm('nationalityLabel')}
+                  </label>
+                  <FormControl>
+                    <div className="w-full">
+                      <CountrySelect
+                        id="waitlist-nationality"
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        locale={locale}
+                        placeholder={tForm('nationalityPlaceholder')}
+                        searchPlaceholder={tForm('countrySearchPlaceholder')}
+                        emptyLabel={tForm('countryEmpty')}
+                        isDark={isDark}
+                        className={`${fieldBase} pr-3`}
+                        aria-label={tForm('nationalityLabel')}
+                        aria-describedby="nationality-error"
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage className="text-left text-xs" id="nationality-error" />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="referralCode"
+              render={({ field }) => {
+                const applied = Boolean(presetReferral && field.value === presetReferral);
+                return (
+                  <FormItem className="space-y-1">
+                    {applied ? (
+                      <div
+                        className={cn(
+                          'flex min-h-9 items-center justify-between gap-3 rounded-lg px-1',
+                          isDark ? 'text-white/70' : 'text-eq-ink',
+                        )}
+                      >
+                        <p className="truncate text-xs">{tForm('referralApplied', { code: presetReferral })}</p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            field.onChange('');
+                            form.setValue('wasReferred', false);
+                            setReferralOpen(true);
+                          }}
+                          className={cn(
+                            'rounded-full p-1 transition',
+                            isDark ? 'text-white/40 hover:text-white' : 'text-eq-muted hover:text-eq-ink',
+                          )}
+                          aria-label={tForm('clearReferral')}
+                        >
+                          <X className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex min-h-9 flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
+                        <button
+                          type="button"
+                          onClick={() => setReferralOpen((open) => !open)}
+                          className={cn(
+                            'inline-flex shrink-0 items-center gap-1 text-left text-xs transition',
+                            isDark ? 'text-white/40 hover:text-eq-brand' : 'text-eq-muted hover:text-eq-brand',
+                          )}
+                          aria-expanded={referralOpen}
+                          aria-controls="waitlist-referral"
+                        >
+                          <ChevronRight
+                            className={cn('h-3.5 w-3.5 transition-transform duration-200', referralOpen && 'rotate-90')}
+                          />
+                          {tForm('referralTrigger')}
+                        </button>
+                        {referralOpen ? (
+                          <FormControl>
+                            <Input
+                              {...field}
+                              id="waitlist-referral"
+                              type="text"
+                              value={field.value ?? ''}
+                              onChange={(event) => field.onChange(sanitizeReferral(event.target.value))}
+                              placeholder={tForm('referralCodePlaceholder')}
+                              className={`${quietField} h-8 w-full min-w-0 px-3 text-xs uppercase sm:flex-1`}
+                              aria-label={tForm('referralOptionalLabel')}
+                              aria-describedby="referral-code-error"
+                              autoComplete="off"
+                              maxLength={12}
+                            />
+                          </FormControl>
+                        ) : null}
+                      </div>
+                    )}
+                    <FormMessage className="text-left text-xs" id="referral-code-error" />
+                  </FormItem>
+                );
+              }}
+            />
 
             <Button
-              className="cursor-pointer w-full h-12 rounded-lg bg-accent text-primary font-semibold shadow-lg transition-all duration-300 hover:bg-accent/90 hover:scale-[1.02] hover:shadow-xl hover:shadow-accent/30 disabled:hover:scale-100 flex items-center justify-center gap-2"
+              className="eq-neon-cta flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-eq-brand font-semibold text-white transition hover:bg-eq-brand-strong"
               type="submit"
               disabled={isPending}
               aria-label={isPending ? 'Submitting...' : tForm('button')}
@@ -240,11 +302,10 @@ export default function WaitlistForm() {
               </span>
             </Button>
 
-          <div className="space-y-3 text-center">
-            <p className="text-xs text-white/50">{tForm('microcopy')}</p>
-          </div>
-        </form>
-      </Form>
+            <p className={cn('text-center text-xs', isDark ? 'text-white/50' : 'text-eq-muted')}>{tForm('microcopy')}</p>
+          </form>
+        </Form>
+      </div>
 
       <CustomDialog open={isOpen} setOpen={setIsOpen} title={dialogTitle} message={dialogMessage} />
     </>
