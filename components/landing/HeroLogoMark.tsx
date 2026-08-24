@@ -10,11 +10,13 @@ const PARTICLES = Array.from({ length: 20 }, (_, index) => {
   const angle = (index / 20) * Math.PI * 2 + (index % 3) * 0.16;
   const distance = 30 + (index % 4) * 9;
   return {
-    x: Math.cos(angle) * distance,
-    y: Math.sin(angle) * distance,
-    delay: 0.35 + (index % 7) * 0.05,
-    size: 2 + (index % 3),
     tone: index % 2 === 0 ? 'teal' : 'blue',
+    style: {
+      '--particle-size': `${2 + (index % 3)}px`,
+      '--particle-delay': `${(0.35 + (index % 7) * 0.05).toFixed(2)}s`,
+      '--particle-x': `${(Math.cos(angle) * distance).toFixed(2)}px`,
+      '--particle-y': `${(Math.sin(angle) * distance).toFixed(2)}px`,
+    } as Record<string, string>,
   };
 });
 
@@ -26,13 +28,7 @@ export default function HeroLogoMark({ className, label }: HeroLogoMarkProps) {
           <span
             key={index}
             className={`hero-particle hero-particle--${particle.tone}`}
-            style={{
-              width: particle.size,
-              height: particle.size,
-              animationDelay: `${particle.delay}s`,
-              ['--particle-x' as string]: `${particle.x}px`,
-              ['--particle-y' as string]: `${particle.y}px`,
-            }}
+            style={particle.style}
           />
         ))}
       </div>
