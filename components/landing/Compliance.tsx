@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Building2, Eye, Scale, ShieldCheck } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import ComingSoonBadge from '@/components/landing/ComingSoonBadge';
+import HashLink from '@/components/landing/HashLink';
 import NeonIcon from '@/components/landing/NeonIcon';
 import SectionHeading from '@/components/landing/SectionHeading';
 import { SHOW_WAITLIST } from '@/lib/landingFlags';
@@ -79,12 +80,13 @@ export default function Compliance() {
           <p className="mt-5 text-xs leading-relaxed text-white/45">{t('launchNote')}</p>
 
           {SHOW_WAITLIST ? (
-            <Link
-              href={`/${locale}#espera`}
+            <HashLink
+              id="espera"
+              href="#espera"
               className="eq-neon-cta mt-6 inline-flex h-11 items-center justify-center rounded-full bg-eq-brand px-5 text-sm font-semibold text-white transition hover:bg-eq-brand-strong"
             >
               {t('cta')}
-            </Link>
+            </HashLink>
           ) : (
             <Link
               href={`/${locale}/about`}

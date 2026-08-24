@@ -331,188 +331,104 @@
   border-radius: 999px;
 }
 
-.hero-ascii-frame {
-  min-height: 240px;
+.eq-hero-mark {
+  --eq-mark-cycle: 7.2s;
+  overflow: visible;
+  transform-origin: center;
+  animation: eq-mark-pulse var(--eq-mark-cycle) ease-in-out infinite;
 }
 
-@media (min-width: 640px) {
-  .hero-ascii-frame {
-    min-height: 340px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-ascii-frame {
-    min-height: 420px;
-  }
-}
-
-.eq-ascii-mark {
-  --eq-ascii-cycle: 7.6s;
-}
-
-.eq-ascii-dot {
+.eq-hero-mark__facet {
   transform-box: fill-box;
   transform-origin: center;
-  animation-duration: var(--eq-ascii-cycle);
+  opacity: 0.18;
+  filter: saturate(0.4) brightness(0.55);
+  will-change: opacity, filter;
+  animation-duration: var(--eq-mark-cycle);
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
 
-.eq-ascii-dot--field {
-  animation-name: eq-ascii-field;
+.eq-hero-mark__facet--turquoise {
+  animation-name: eq-mark-ignite-turquoise;
 }
 
-.eq-ascii-dot--teal {
-  animation-name: eq-ascii-teal;
+.eq-hero-mark__facet--steel-blue {
+  animation-name: eq-mark-ignite-steel;
 }
 
-.eq-ascii-dot--core {
-  animation-name: eq-ascii-core;
-}
-
-.eq-ascii-dot--scan {
-  animation-name: eq-ascii-scan;
-}
-
-.eq-ascii-dot--seam {
-  animation-name: eq-ascii-seam;
-}
-
-@keyframes eq-ascii-field {
+@keyframes eq-mark-ignite-turquoise {
   0%,
-  14% {
-    opacity: 0.32;
-    transform: scale(0.92);
-  }
-  30% {
-    opacity: 0.14;
-    transform: scale(0.62);
-  }
-  48% {
-    opacity: 0.2;
-    transform: scale(0.7);
-  }
-  66% {
-    opacity: 0.08;
-    transform: scale(0.5);
-  }
-  84%,
-  100% {
-    opacity: 0.36;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes eq-ascii-teal {
-  0%,
-  12% {
-    opacity: 0.5;
-    transform: scale(0.95);
-  }
-  28% {
-    opacity: 1;
-    transform: scale(1.18);
-  }
-  46% {
-    opacity: 0.85;
-    transform: scale(1.05);
-  }
-  64% {
-    opacity: 0.22;
-    transform: scale(0.7);
-  }
-  84%,
-  100% {
-    opacity: 0.55;
-    transform: scale(1);
-  }
-}
-
-@keyframes eq-ascii-core {
-  0%,
-  10% {
-    opacity: 0.12;
-    transform: scale(0.45);
-  }
-  26%,
-  44% {
-    opacity: 1;
-    transform: scale(1.28);
-  }
-  60% {
-    opacity: 0.28;
-    transform: scale(0.72);
-  }
-  78%,
-  100% {
-    opacity: 0.16;
-    transform: scale(0.5);
-  }
-}
-
-@keyframes eq-ascii-scan {
-  0%,
-  50% {
-    opacity: 0.34;
-    transform: scale(0.9);
-  }
-  58% {
-    opacity: 0.05;
-    transform: scale(0.35);
-  }
-  66% {
-    opacity: 0.85;
-    transform: scale(1.08);
-  }
-  74% {
-    opacity: 0.06;
-    transform: scale(0.4);
-  }
-  88%,
-  100% {
-    opacity: 0.38;
-    transform: scale(0.92);
-  }
-}
-
-@keyframes eq-ascii-seam {
-  0%,
-  38% {
-    opacity: 0.12;
-    transform: scale(0.85);
-  }
-  68%,
-  82% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
+  8%,
   100% {
     opacity: 0.18;
-    transform: scale(0.9);
+    filter: saturate(0.4) brightness(0.55);
+  }
+  16% {
+    opacity: 0.58;
+    filter: saturate(0.75) brightness(0.82);
+  }
+  24%,
+  88% {
+    opacity: 1;
+    filter: saturate(1) brightness(1);
+  }
+  95% {
+    opacity: 0.45;
+    filter: saturate(0.62) brightness(0.7);
+  }
+}
+
+@keyframes eq-mark-ignite-steel {
+  0%,
+  24%,
+  100% {
+    opacity: 0.14;
+    filter: saturate(0.38) brightness(0.5);
+  }
+  32% {
+    opacity: 0.56;
+    filter: saturate(0.72) brightness(0.8);
+  }
+  40%,
+  88% {
+    opacity: 1;
+    filter: saturate(1) brightness(1);
+  }
+  95% {
+    opacity: 0.4;
+    filter: saturate(0.58) brightness(0.66);
+  }
+}
+
+@keyframes eq-mark-pulse {
+  0%,
+  38%,
+  100% {
+    transform: scale(0.992);
+    filter: drop-shadow(0 0 0 rgba(79, 186, 189, 0));
+  }
+  54% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 2px rgba(79, 186, 189, 0.2));
+  }
+  66% {
+    transform: scale(1.012);
+    filter: drop-shadow(0 0 5px rgba(79, 186, 189, 0.28));
+  }
+  80% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 2px rgba(69, 107, 137, 0.18));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .eq-ascii-dot {
+  .eq-hero-mark,
+  .eq-hero-mark__facet {
     animation: none !important;
-  }
-
-  .eq-ascii-dot--field,
-  .eq-ascii-dot--scan {
-    opacity: 0.35;
-  }
-
-  .eq-ascii-dot--teal {
-    opacity: 0.75;
-  }
-
-  .eq-ascii-dot--core {
+    filter: none;
     opacity: 1;
-  }
-
-  .eq-ascii-dot--seam {
-    opacity: 0.55;
+    transform: none;
   }
 }
 

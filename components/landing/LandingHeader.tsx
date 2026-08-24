@@ -8,8 +8,10 @@ import { usePathname } from 'next/navigation';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import HashLink from '@/components/landing/HashLink';
 import { cn } from '@/lib/utils';
 import { SHOW_WAITLIST } from '@/lib/landingFlags';
+import { scrollToTop } from '@/lib/scrollToSection';
 
 const HOME_SECTIONS = ['producto', 'equipo', 'proceso', 'cumplimiento', 'faq'] as const;
 type HomeSection = (typeof HOME_SECTIONS)[number];
@@ -104,6 +106,10 @@ export default function LandingHeader() {
     return isHome && 'section' in item && activeSection === item.section;
   }
 
+  function sectionHref(id: string) {
+    return isHome ? `#${id}` : `${home}#${id}`;
+  }
+
   return (
     <>
       <header
@@ -114,7 +120,25 @@ export default function LandingHeader() {
         )}
       >
         <div className="eq-shell flex h-16 items-center justify-between gap-3 sm:h-[72px] sm:gap-4">
-          <Link href={home} className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
+          <Link
+            href={home}
+            className="flex min-w-0 items-center gap-2.5"
+            onClick={(event) => {
+              setOpen(false);
+              if (
+                !isHome ||
+                event.button !== 0 ||
+                event.metaKey ||
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.altKey
+              ) {
+                return;
+              }
+              event.preventDefault();
+              scrollToTop();
+            }}
+          >
             <Image
               src="/equitty_isotipo.png"
               alt=""
@@ -136,26 +160,44 @@ export default function LandingHeader() {
           <nav className="hidden items-center gap-4 text-[13px] font-medium xl:flex xl:gap-7 xl:text-sm">
             {NAV.map((item) => {
               const active = isActive(item);
+              const className = cn(
+                'relative inline-flex items-center py-1 transition-colors',
+                active ? 'text-eq-ink' : 'text-eq-muted hover:text-eq-ink',
+              );
+              const underline = active ? (
+                <motion.span
+                  layoutId="nav-active-underline"
+                  className="absolute inset-x-0 -bottom-1 h-[2px] rounded-full bg-eq-brand shadow-[0_0_12px_rgba(0,180,196,0.95)]"
+                  transition={
+                    reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 32 }
+                  }
+                />
+              ) : null;
+
+              if ('section' in item) {
+                return (
+                  <HashLink
+                    key={item.href}
+                    id={item.section}
+                    href={sectionHref(item.section)}
+                    className={className}
+                    aria-current={active ? 'page' : undefined}
+                  >
+                    {t(item.key)}
+                    {underline}
+                  </HashLink>
+                );
+              }
+
               return (
                 <Link
                   key={item.href}
                   href={`${home}${item.href}`}
                   aria-current={active ? 'page' : undefined}
-                  className={cn(
-                    'relative inline-flex items-center py-1 transition-colors',
-                    active ? 'text-eq-ink' : 'text-eq-muted hover:text-eq-ink',
-                  )}
+                  className={className}
                 >
                   {t(item.key)}
-                  {active ? (
-                    <motion.span
-                      layoutId="nav-active-underline"
-                      className="absolute inset-x-0 -bottom-1 h-[2px] rounded-full bg-eq-brand shadow-[0_0_12px_rgba(0,180,196,0.95)]"
-                      transition={
-                        reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 32 }
-                      }
-                    />
-                  ) : null}
+                  {underline}
                 </Link>
               );
             })}
@@ -164,12 +206,13 @@ export default function LandingHeader() {
           <div className="flex items-center gap-2 sm:gap-3">
             <LanguageSwitcher />
             {SHOW_WAITLIST ? (
-              <Link
-                href={`${home}#espera`}
+              <HashLink
+                id="espera"
+                href={sectionHref('espera')}
                 className="inline-flex rounded-full bg-eq-brand px-2.5 py-2 text-[11px] font-semibold text-white shadow-[0_0_18px_rgba(0,180,196,0.35)] transition hover:bg-eq-brand-strong sm:px-4 sm:text-sm"
               >
                 {t('cta')}
-              </Link>
+              </HashLink>
             ) : null}
             <button
               type="button"
@@ -191,21 +234,40 @@ export default function LandingHeader() {
             <div className="eq-shell grid gap-1">
               {NAV.map((item) => {
                 const active = isActive(item);
+                const className = cn(
+                  'relative rounded-xl px-3 py-3 text-sm font-medium transition',
+                  active ? 'text-eq-ink' : 'text-eq-muted hover:bg-white/5 hover:text-eq-ink',
+                );
+                const underline = active ? (
+                  <span className="absolute bottom-2 left-3 right-3 h-px rounded-full bg-eq-brand shadow-[0_0_10px_rgba(0,180,196,0.85)]" />
+                ) : null;
+
+                if ('section' in item) {
+                  return (
+                    <HashLink
+                      key={item.href}
+                      id={item.section}
+                      href={sectionHref(item.section)}
+                      className={className}
+                      aria-current={active ? 'page' : undefined}
+                      onNavigate={() => setOpen(false)}
+                    >
+                      {t(item.key)}
+                      {underline}
+                    </HashLink>
+                  );
+                }
+
                 return (
                   <Link
                     key={item.href}
                     href={`${home}${item.href}`}
                     onClick={() => setOpen(false)}
                     aria-current={active ? 'page' : undefined}
-                    className={cn(
-                      'relative rounded-xl px-3 py-3 text-sm font-medium transition',
-                      active ? 'text-eq-ink' : 'text-eq-muted hover:bg-white/5 hover:text-eq-ink',
-                    )}
+                    className={className}
                   >
                     {t(item.key)}
-                    {active ? (
-                      <span className="absolute bottom-2 left-3 right-3 h-px rounded-full bg-eq-brand shadow-[0_0_10px_rgba(0,180,196,0.85)]" />
-                    ) : null}
+                    {underline}
                   </Link>
                 );
               })}

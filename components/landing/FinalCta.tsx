@@ -1,13 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
+import HashLink from '@/components/landing/HashLink';
 import ProductFrame from '@/components/landing/ProductFrame';
 import { SHOW_PLATFORM_SHOTS, SHOW_WAITLIST } from '@/lib/landingFlags';
 
 export default function FinalCta() {
   const t = useTranslations('HomePage.FinalCta');
-  const locale = useLocale();
 
   return (
     <section className="border-t border-white/10 bg-[#0c0c16] py-16 text-[#f6f3ee] sm:py-20 lg:py-24">
@@ -17,19 +17,21 @@ export default function FinalCta() {
           <h2 className="mt-3 text-2xl tracking-tight sm:text-4xl lg:text-[2.75rem]">{t('title')}</h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-[#d7cfc7]">{t('subtitle')}</p>
           {SHOW_WAITLIST ? (
-            <a
-              href={`/${locale}#espera`}
+            <HashLink
+              id="espera"
+              href="#espera"
               className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-eq-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_0_22px_rgba(0,180,196,0.4)] transition hover:bg-eq-brand-strong sm:mt-8 sm:w-auto"
             >
               {t('cta')}
-            </a>
+            </HashLink>
           ) : (
-            <a
-              href={`/${locale}#cumplimiento`}
+            <HashLink
+              id="cumplimiento"
+              href="#cumplimiento"
               className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-eq-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_0_22px_rgba(0,180,196,0.4)] transition hover:bg-eq-brand-strong sm:mt-8 sm:w-auto"
             >
               {t('secondaryCta')}
-            </a>
+            </HashLink>
           )}
         </div>
         {SHOW_PLATFORM_SHOTS ? (

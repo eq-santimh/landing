@@ -1,17 +1,16 @@
 'use client';
 
 import { Suspense } from 'react';
-import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import ComingSoonBadge from '@/components/landing/ComingSoonBadge';
-import HeroAsciiMark from '@/components/landing/HeroAsciiMark';
+import HashLink from '@/components/landing/HashLink';
+import HeroLogoMark from '@/components/landing/HeroLogoMark';
 import WaitlistForm from '@/components/HeroSection/WaitlistForm';
 import ProductFrame from '@/components/landing/ProductFrame';
 import { SHOW_PLATFORM_SHOTS, SHOW_WAITLIST } from '@/lib/landingFlags';
 
 export default function Hero() {
   const t = useTranslations('HomePage');
-  const locale = useLocale();
 
   return (
     <section className="relative overflow-hidden bg-eq-canvas pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
@@ -39,24 +38,25 @@ export default function Hero() {
             </div>
           ) : (
             <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
-              <Link
-                href={`/${locale}#cumplimiento`}
+              <HashLink
+                id="cumplimiento"
+                href="#cumplimiento"
                 className="eq-neon-cta inline-flex h-11 items-center justify-center rounded-full bg-eq-brand px-5 text-sm font-semibold text-white transition hover:bg-eq-brand-strong"
               >
                 {t('heroSecondaryCta')}
-              </Link>
-              <Link
-                href={`/${locale}#equipo`}
+              </HashLink>
+              <HashLink
+                id="equipo"
+                href="#equipo"
                 className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-5 text-sm font-semibold text-eq-ink transition hover:border-eq-brand/50 hover:text-white"
               >
                 {t('heroTertiaryCta')}
-              </Link>
+              </HashLink>
             </div>
           )}
         </div>
 
         <div className="relative min-w-0">
-          <div className="absolute -inset-4 -z-10 rounded-[28px] bg-[#00b4c4]/20 blur-3xl sm:-inset-6" />
           {SHOW_PLATFORM_SHOTS ? (
             <ProductFrame
               src="/product/marketplace-home.webp"
@@ -65,7 +65,10 @@ export default function Hero() {
               className="hero-product-frame"
             />
           ) : (
-            <HeroAsciiMark className="hero-ascii-frame aspect-square w-full max-w-[560px] xl:ml-auto" label={t('heroArtAlt')} />
+            <HeroLogoMark
+              className="mx-auto w-full max-w-[560px] xl:mr-0"
+              label={t('heroArtAlt')}
+            />
           )}
         </div>
       </div>
